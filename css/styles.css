@@ -1417,3 +1417,63 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
       rgba(28,28,28,.90) 100%);
   }
 }
+
+/* ============================================================================
+   L3b. BOOK-A-DEMO DARK HERO ALIGNMENT
+   Keeps the form card light while aligning the first-screen treatment with
+   the site's established dark hero language.
+   ============================================================================ */
+.demo{
+  background:
+    radial-gradient(ellipse 58% 58% at 86% 8%, rgba(228,123,43,.14), transparent 62%),
+    radial-gradient(ellipse 44% 52% at 6% 48%, rgba(228,123,43,.07), transparent 68%),
+    var(--night);
+  color:#fff;
+}
+.demo::before{
+  height:720px;
+  background:
+    radial-gradient(ellipse 42% 60% at 98% 8%, rgba(228,123,43,.16), transparent 66%),
+    radial-gradient(ellipse 30% 46% at 0% 92%, rgba(228,123,43,.07), transparent 60%),
+    radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1.4px);
+  background-repeat:no-repeat,no-repeat,repeat;
+  background-size:100% 100%,100% 100%,26px 26px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 68%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 68%,transparent 100%);
+}
+.demo-crumb{color:rgba(255,255,255,.44)}
+.demo-crumb a{color:var(--brand-orange-light)}
+.demo-pill{
+  color:rgba(255,255,255,.9);
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,255,255,.12);
+}
+.demo-head h1{color:#fff}
+.demo-head p{color:rgba(255,255,255,.62)}
+.demo-card{
+  background:linear-gradient(150deg,var(--brand-orange-soft),#fff 68%);
+  border-color:#f2e4d6;
+  box-shadow:0 34px 84px rgba(0,0,0,.28),0 14px 40px rgba(228,123,43,.10);
+}
+.demo-aside{
+  margin-top:0;
+  padding:30px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:var(--radius-lg);
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.da-kick{color:var(--brand-orange-light)}
+.da-step h4,.da-stats .v,.da-ms-head .da-mt,.da-quote p,.da-quote .da-n{color:#fff}
+.da-step p,.da-stats .l,.da-ms-head .da-mt small,.da-quote .da-r{color:rgba(255,255,255,.52)}
+.da-step .sn{background:rgba(255,255,255,.04);border-color:var(--brand-orange);color:var(--brand-orange-light)}
+.da-step::before{background:linear-gradient(180deg,rgba(228,123,43,.42),rgba(228,123,43,.08))}
+.da-div,.da-quote{border-color:rgba(255,255,255,.10)}
+.da-div{background:rgba(255,255,255,.10)}
+.da-desigs .desig{color:rgba(255,255,255,.72);border-color:rgba(255,255,255,.12);background:rgba(255,255,255,.04)}
+.da-desigs .desig:hover{color:#fff;background:rgba(228,123,43,.12)}
+@media(max-width:900px){
+  .demo::before{height:640px}
+  .demo-aside{padding:26px 22px}
+}
