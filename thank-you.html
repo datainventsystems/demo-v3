@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Thank You — DataInvent</title>
+<meta name="description" content="Thank you for your request. A DataInvent specialist will reach out within 4 business hours to schedule your personalized demo." />
+<link rel="icon" type="image/png" href="assets/di favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oxanium:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- SINGLE SOURCE OF TRUTH: shared design system -->
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ===================== SHARED NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-brand" id="navBrand" aria-label="DataInvent home">
+      <img class="brand-logo logo-dark" src="assets/datainvent logo for dark background.svg" alt="DataInvent" onerror="logoFailed()" />
+      <img class="brand-logo logo-default" src="assets/datainvent default logo.svg" alt="DataInvent" onerror="logoFailed()" />
+      <span class="brand-fallback" id="brandFallback"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 4 4 5-5"/></svg></span> DataInvent</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Solutions <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Solutions</div><div class="mf-thumb t-sol"></div><div class="mf-desc">Outcomes first — we map the right Microsoft solution to your goals.</div><a class="mf-more" href="index.html#solutions"><span class="u">Explore all Solutions</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols cols-3">
+            <div class="mcol"><div class="grp">By Outcome</div><a href="finance-erp.html"><span>Finance &amp; ERP</span><span class="arw">→</span></a><a href="index.html#solutions"><span>CRM &amp; Sales</span><span class="arw">→</span></a><a href="index.html#solutions"><span>AI &amp; Copilot</span><span class="arw">→</span></a><a href="index.html#solutions"><span>BI &amp; Analytics</span><span class="arw">→</span></a><a href="index.html#solutions"><span>Modern Work</span><span class="arw">→</span></a><a href="index.html#solutions"><span>Managed IT</span><span class="arw">→</span></a></div>
+            <div class="mcol"><div class="grp">By Technology</div><a href="#"><span>Business Central</span><span class="arw">→</span></a><a href="#"><span>Dynamics 365 Sales</span><span class="arw">→</span></a><a href="#"><span>Copilot</span><span class="arw">→</span></a><a href="#"><span>Power Platform</span><span class="arw">→</span></a><a href="#"><span>Microsoft 365</span><span class="arw">→</span></a><a href="#"><span>Azure &amp; Data</span><span class="arw">→</span></a></div>
+            <div class="mcol"><div class="grp">Get Started</div><a href="book-a-demo.html"><span>Solutions Discovery Call</span><span class="arw">→</span></a><a href="#"><span>ROI Calculator</span><span class="arw">→</span></a><a href="book-a-demo.html"><span>Not sure where to start?</span><span class="arw">→</span></a><a class="hot" href="#"><span>Explore all Technology</span><span class="arw">→</span></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Industries <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Industries</div><div class="mf-thumb t-ind"></div><div class="mf-desc">Deep vertical expertise across the industries that define modern economies.</div><a class="mf-more" href="index.html#industries"><span class="u">View all Industries</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Sectors</div><a href="#"><span>Public Sector</span><span class="arw">→</span></a><a href="#"><span>Construction</span><span class="arw">→</span></a><a href="#"><span>Financial Services</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>Professional Services</span><span class="arw">→</span></a><a href="#"><span>Manufacturing</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Case Studies <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Success Stories</div><div class="mf-thumb t-cas"></div><div class="mf-desc">Real outcomes and measurable transformations from organizations like yours.</div><a class="mf-more" href="index.html#cases"><span class="u">View all Success Stories</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Featured</div><a href="#"><span>BAO — Financial close</span><span class="arw">→</span></a><a href="#"><span>PSRT — Secure cloud</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>McCann — Automation</span><span class="arw">→</span></a><a href="#"><span>Meritech — Ecosystem</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Resources</div><div class="mf-thumb t-res"></div><div class="mf-desc">Insights for modern organizations — no fluff, just what matters.</div><a class="mf-more" href="index.html#resources"><span class="u">View all Resources</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Learn</div><a href="#"><span>Blog &amp; Insights</span><span class="arw">→</span></a><a href="#"><span>FAQ Hub</span><span class="arw">→</span></a><a href="#"><span>Guides &amp; Downloads</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">Tools &amp; Events</div><a href="#"><span>ROI Calculator</span><span class="arw">→</span></a><a href="#"><span>Events</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">About <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">About</div><div class="mf-thumb t-abt"></div><div class="mf-desc">17 years, 200+ enterprise clients, and a Microsoft Solutions Partnership built on trust.</div><a class="mf-more" href="#"><span class="u">Why DataInvent</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Company</div><a href="#"><span>Our Story</span><span class="arw">→</span></a><a href="#"><span>Partnership</span><span class="arw">→</span></a><a href="#"><span>Team</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>Why DataInvent</span><span class="arw">→</span></a><a href="#"><span>Careers</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-contact" href="#">Contact</a>
+      <a class="nav-cta magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+      <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== SHARED MOBILE MENU ===================== -->
+<div class="mobile" id="mobile">
+  <button class="m-close" id="mClose" aria-label="Close menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div class="m-acc"><div class="m-acc-head">Solutions <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><div class="m-sub-h">By Outcome</div><a href="finance-erp.html">Finance &amp; ERP</a><a href="index.html#solutions">CRM &amp; Sales</a><a href="index.html#solutions">AI &amp; Copilot</a><a href="index.html#solutions">BI &amp; Analytics</a><a href="index.html#solutions">Modern Work</a><a href="index.html#solutions">Managed IT</a><div class="m-sub-h">By Technology</div><a href="#">Business Central</a><a href="#">Dynamics 365 Sales</a><a href="#">Copilot</a><a href="#">Power Platform</a><a href="#">Microsoft 365</a><a href="#">Azure &amp; Data</a><a class="m-viewall" href="#">Explore all Technology →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Industries <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="index.html#industries">Public Sector</a><a href="index.html#industries">Construction</a><a href="index.html#industries">Financial Services</a><a href="index.html#industries">Professional Services</a><a href="index.html#industries">Manufacturing</a><a class="m-viewall" href="index.html#industries">View all Industries →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Case Studies <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="index.html#cases">BAO</a><a href="index.html#cases">PSRT</a><a href="index.html#cases">McCann</a><a href="index.html#cases">Meritech</a><a class="m-viewall" href="index.html#cases">View all Success Stories →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="#">Blog &amp; Insights</a><a href="#">FAQ Hub</a><a href="#">Guides &amp; Downloads</a><a href="#">ROI Calculator</a><a href="#">Events</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">About <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="#">Our Story</a><a href="#">Partnership</a><a href="#">Team</a><a href="#">Why DataInvent</a><a href="#">Careers</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head plain"><a href="#" style="color:#fff;">Contact</a></div></div>
+  <div class="m-cta"><a class="prim" href="book-a-demo.html">Book a Demo →</a></div>
+</div>
+
+<!-- SECTION 1 — SUCCESS HERO -->
+<section class="ty-hero">
+  <div class="ty-orb a"></div>
+  <div class="wrap">
+    <div class="ty-check reveal-scale">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="disc">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle class="c-circle" cx="32" cy="32" r="27"></circle>
+          <path class="c-tick" d="M20 33 l8 8 l16 -18"></path>
+        </svg>
+      </div>
+    </div>
+    <span class="ty-pill reveal">✓ Request Received</span>
+    <h1 class="reveal">Thank you — you're <span class="hl">all set.</span></h1>
+    <p class="ty-sub reveal">We've received your request. A DataInvent specialist will reach out within <b>4 business hours</b> to schedule your personalized demo.</p>
+    <div class="ty-conf reveal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg> A confirmation has been sent to your inbox</div>
+  </div>
+</section>
+
+<!-- SECTION 2 — WHAT HAPPENS NEXT (progress tracker) -->
+<section class="ty-next pad">
+  <div class="wrap">
+    <div class="sec-head center reveal-up">
+      <p class="eyebrow">What Happens Next</p>
+      <h2>Your request is already in motion.</h2>
+    </div>
+    <div class="ty-steps" data-stagger>
+      <div class="ty-step done reveal">
+        <div class="ts-top"><div class="ts-n"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><span class="ts-badge">Done</span></div>
+        <h3>You submitted</h3>
+        <p>Your information has been securely sent to our specialist team.</p>
+      </div>
+      <div class="ty-step reveal">
+        <div class="ts-top"><div class="ts-n">2</div><span class="ts-badge up">Within 4 hrs</span></div>
+        <h3>We reach out</h3>
+        <p>A consultant will contact you within 4 business hours to find a time.</p>
+      </div>
+      <div class="ty-step reveal">
+        <div class="ts-top"><div class="ts-n">3</div><span class="ts-badge up">On the call</span></div>
+        <h3>We tailor the demo</h3>
+        <p>We'll prepare a custom walkthrough based on your specific needs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 — WHILE YOU WAIT -->
+<section class="ty-wait pad">
+  <div class="wrap">
+    <div class="sec-head center reveal-up">
+      <p class="eyebrow">While You Wait</p>
+      <h2>Explore what's possible with DataInvent.</h2>
+      <p>A few useful places to start before your call.</p>
+    </div>
+    <div class="ty-wait-grid" data-stagger>
+      <a class="ty-wcard reveal" href="finance-erp.html">
+        <div class="w-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-5"/></svg></div>
+        <div class="w-k">SOLUTION</div>
+        <h3>Finance &amp; ERP Transformation</h3>
+        <p>See how we turn reporting delays into real-time clarity with the Microsoft stack.</p>
+        <span class="w-more">Explore the solution <span class="arrow">→</span></span>
+      </a>
+      <a class="ty-wcard reveal" href="index.html#cases">
+        <div class="w-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 9l7 .5-5.5 4.5 2 7L12 17l-6.5 4 2-7L2 9.5 9 9z"/></svg></div>
+        <div class="w-k">SUCCESS STORY</div>
+        <h3>How BAO cut close time 45%</h3>
+        <p>A financial-services transformation, from month-end chaos to an 8-day close.</p>
+        <span class="w-more">Read the story <span class="arrow">→</span></span>
+      </a>
+      <a class="ty-wcard reveal" href="finance-visibility-reporting-gaps.html#health">
+        <div class="w-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div class="w-k">2-MIN TOOL</div>
+        <h3>Reporting Health Check</h3>
+        <p>Score your finance reporting in two minutes — no form, instant result.</p>
+        <span class="w-more">Take the check <span class="arrow">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 — STAY CONNECTED -->
+<section class="ty-social pad">
+  <div class="wrap">
+    <div class="tys-copy reveal-left">
+      <p class="eyebrow on-dark">Stay Connected</p>
+      <h2>Insights for finance, operations &amp; IT leaders.</h2>
+      <p>Follow along for practical Microsoft &amp; AI insights while you wait for our call.</p>
+    </div>
+    <div class="tys-social reveal-right">
+      <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8h4.96v13H.02V8zm7.5 0h4.75v1.78h.07c.66-1.25 2.28-2.56 4.69-2.56 5.02 0 5.95 3.3 5.95 7.6V21h-4.96v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.42 1.64-2.42 3.33V21H7.52V8z"/></svg> LinkedIn</a>
+      <a href="#" aria-label="Twitter / X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.48 3.24H4.29L17.61 20.65z"/></svg> Twitter / X</a>
+      <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg> YouTube</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 — CLOSING CTA -->
+<section class="ty-close pad">
+  <div class="wrap reveal-up">
+    <h2>That's everything for now.</h2>
+    <p>We'll be in touch shortly. In the meantime, feel free to keep exploring.</p>
+    <div class="acts">
+      <a class="btn btn-primary magnetic" href="index.html">Back to Homepage <span class="arrow">→</span></a>
+      <a class="btn btn-outline" href="index.html#solutions">Explore Solutions</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SHARED FOOTER ===================== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brandcol">
+        <img class="foot-logo" src="assets/datainvent logo for dark background.svg" alt="DataInvent" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="foot-brand-fallback" style="display:none;"><span class="brand-mark" style="width:34px;height:34px;">D</span> DataInvent</div>
+        <p class="foot-mission">Turning operational <span>complexity</span> into decisive <span>clarity</span>.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8h4.96v13H.02V8zm7.5 0h4.75v1.78h.07c.66-1.25 2.28-2.56 4.69-2.56 5.02 0 5.95 3.3 5.95 7.6V21h-4.96v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.42 1.64-2.42 3.33V21H7.52V8z"/></svg></a>
+          <a href="#" aria-label="Twitter / X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.48 3.24H4.29L17.61 20.65z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Solutions</h5><ul><li><a href="finance-erp.html">Finance &amp; ERP</a></li><li><a href="index.html#solutions">CRM &amp; Sales</a></li><li><a href="index.html#solutions">AI &amp; Copilot</a></li><li><a href="index.html#solutions">BI &amp; Analytics</a></li><li><a href="index.html#solutions">Modern Work</a></li><li><a href="index.html#solutions">Managed IT</a></li></ul></div>
+      <div class="foot-col"><h5>Industries</h5><ul><li><a href="index.html#industries">Public Sector</a></li><li><a href="index.html#industries">Construction</a></li><li><a href="index.html#industries">Financial Services</a></li><li><a href="index.html#industries">Manufacturing</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="#">Blog</a></li><li><a href="#">FAQ Hub</a></li><li><a href="#">Guides</a></li><li><a href="index.html#cases">Case Studies</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Partners</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="foot-partner">
+      <div class="msq"><div style="background:#F25022"></div><div style="background:#7FBA00"></div><div style="background:#00A4EF"></div><div style="background:#FFB900"></div></div>
+      <div class="pt"><b>Microsoft Solutions Partner</b> · 6 designations across Infrastructure, Data &amp; AI, Business Applications, Modern Work &amp; Security</div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 DataInvent Systems Corp. All rights reserved.</span>
+      <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <span class="legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookie Settings</a></span>
+        <a class="foot-top-btn" id="backTop" href="#"><span>BACK TO TOP</span> <span class="tb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- SHARED BEHAVIOURS -->
+<script src="js/main.js"></script>
+</body>
+</html>

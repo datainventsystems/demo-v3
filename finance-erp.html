@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Finance &amp; ERP Transformation — Solution | DataInvent</title>
+<meta name="description" content="Modernize finance operations with real-time clarity and control — powered by Microsoft Dynamics 365 Business Central, Power BI, and Copilot." />
+<link rel="icon" type="image/png" href="assets/di favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oxanium:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- SINGLE SOURCE OF TRUTH: shared design system -->
+<link rel="stylesheet" href="css/styles.css">
+<!-- Page-specific hero chart: "Real-Time Clarity" gauge (self-contained, no extra file needed) -->
+<style>
+@keyframes hcPop   { from{ opacity:0; transform:translateY(8px) scale(.96); } to{ opacity:1; transform:none; } }
+@keyframes hcDraw  { to{ stroke-dashoffset:22.6; } }
+@keyframes hcSpark { to{ stroke-dashoffset:0; } }
+@keyframes rcPulse { 0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.5);} 70%{ box-shadow:0 0 0 7px rgba(34,197,94,0);} 100%{ box-shadow:0 0 0 0 rgba(34,197,94,0);} }
+.rc-sub{ position:relative; z-index:2; margin-top:12px; font-family:'Oxanium',sans-serif; font-weight:700; color:#fff; font-size:20px; }
+.rc-sub b{ color:#E47B2B; }
+.rc-stage{ position:relative; z-index:2; margin-top:18px; display:flex; align-items:center; gap:22px; }
+@media(max-width:420px){ .rc-stage{ flex-direction:column; align-items:flex-start; gap:16px; } }
+.rc-gauge{ position:relative; width:150px; height:150px; flex-shrink:0; }
+.rc-gauge svg{ transform:rotate(-90deg); }
+.rc-gauge .rc-track{ fill:none; stroke:rgba(255,255,255,0.10); stroke-width:12; }
+.rc-gauge .rc-prog{ fill:none; stroke:url(#rcGrad); stroke-width:12; stroke-linecap:round; stroke-dasharray:377; stroke-dashoffset:377; animation:hcDraw 1.7s cubic-bezier(.22,1,.36,1) .3s forwards; }
+.rc-gauge .rc-c{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.rc-gauge .rc-c .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:40px; color:#fff; line-height:1; }
+.rc-gauge .rc-c .k{ font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:rgba(255,255,255,0.5); margin-top:4px; text-transform:uppercase; }
+.rc-right{ flex:1; min-width:0; display:flex; flex-direction:column; gap:12px; }
+.rc-badge{ align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#22C55E; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.38); border-radius:999px; padding:6px 12px; }
+.rc-badge .rd{ width:7px; height:7px; border-radius:50%; background:#22C55E; box-shadow:0 0 0 0 rgba(34,197,94,0.5); animation:rcPulse 2s infinite; }
+.rc-spark{ width:100%; height:46px; display:block; overflow:visible; }
+.rc-spark .area{ fill:url(#rcSpark); opacity:.55; }
+.rc-spark .line{ fill:none; stroke:#F4A45C; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:260; stroke-dashoffset:260; animation:hcSpark 1.5s ease .5s forwards; }
+.rc-spark .tip{ fill:#fff; stroke:#E47B2B; stroke-width:3; opacity:0; animation:hcPop .4s ease 1.7s forwards; }
+.rc-kpis{ position:relative; z-index:2; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.rc-kpi{ opacity:0; animation:hcPop .5s ease forwards; }
+.rc-kpi:nth-child(1){ animation-delay:1.0s; } .rc-kpi:nth-child(2){ animation-delay:1.15s; } .rc-kpi:nth-child(3){ animation-delay:1.3s; }
+.rc-kpi .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:22px; color:#E47B2B; }
+.rc-kpi:nth-child(2) .v, .rc-kpi:nth-child(3) .v{ color:#fff; }
+.rc-kpi .l{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
+.rc-chips{ position:relative; z-index:2; margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
+.rc-chip{ display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.78); border:1px solid rgba(255,255,255,0.14); border-radius:999px; padding:6px 11px; opacity:0; animation:hcPop .5s ease forwards; }
+.rc-chip svg{ color:#22C55E; flex-shrink:0; }
+.rc-chip:nth-child(1){ animation-delay:1.45s; } .rc-chip:nth-child(2){ animation-delay:1.6s; }
+@media (prefers-reduced-motion: reduce){ .rc-kpi,.rc-chip{ opacity:1 !important; animation:none !important; } .rc-gauge .rc-prog{ stroke-dashoffset:22.6 !important; animation:none !important; } .rc-spark .line{ stroke-dashoffset:0 !important; animation:none !important; } .rc-spark .tip{ opacity:1 !important; animation:none !important; } }
+</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<!-- ===================== SHARED NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="nav-brand" id="navBrand" aria-label="DataInvent home">
+      <img class="brand-logo logo-dark" src="assets/datainvent logo for dark background.svg" alt="DataInvent" onerror="logoFailed()" />
+      <img class="brand-logo logo-default" src="assets/datainvent default logo.svg" alt="DataInvent" onerror="logoFailed()" />
+      <span class="brand-fallback" id="brandFallback"><span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 4 4 5-5"/></svg></span> DataInvent</span>
+    </a>
+    <nav class="nav-menu" id="navMenu">
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Solutions <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Solutions</div><div class="mf-thumb t-sol"></div><div class="mf-desc">Outcomes first — we map the right Microsoft solution to your goals.</div><a class="mf-more" href="index.html#solutions"><span class="u">Explore all Solutions</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols cols-3">
+            <div class="mcol"><div class="grp">By Outcome</div><a href="finance-erp.html"><span>Finance &amp; ERP</span><span class="arw">→</span></a><a href="index.html#solutions"><span>CRM &amp; Sales</span><span class="arw">→</span></a><a href="index.html#solutions"><span>AI &amp; Copilot</span><span class="arw">→</span></a><a href="index.html#solutions"><span>BI &amp; Analytics</span><span class="arw">→</span></a><a href="index.html#solutions"><span>Modern Work</span><span class="arw">→</span></a><a href="index.html#solutions"><span>Managed IT</span><span class="arw">→</span></a></div>
+            <div class="mcol"><div class="grp">By Technology</div><a href="#"><span>Business Central</span><span class="arw">→</span></a><a href="#"><span>Dynamics 365 Sales</span><span class="arw">→</span></a><a href="#"><span>Copilot</span><span class="arw">→</span></a><a href="#"><span>Power Platform</span><span class="arw">→</span></a><a href="#"><span>Microsoft 365</span><span class="arw">→</span></a><a href="#"><span>Azure &amp; Data</span><span class="arw">→</span></a></div>
+            <div class="mcol"><div class="grp">Get Started</div><a href="book-a-demo.html"><span>Solutions Discovery Call</span><span class="arw">→</span></a><a href="#"><span>ROI Calculator</span><span class="arw">→</span></a><a href="book-a-demo.html"><span>Not sure where to start?</span><span class="arw">→</span></a><a class="hot" href="#"><span>Explore all Technology</span><span class="arw">→</span></a></div>
+          </div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Industries <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Industries</div><div class="mf-thumb t-ind"></div><div class="mf-desc">Deep vertical expertise across the industries that define modern economies.</div><a class="mf-more" href="index.html#industries"><span class="u">View all Industries</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Sectors</div><a href="#"><span>Public Sector</span><span class="arw">→</span></a><a href="#"><span>Construction</span><span class="arw">→</span></a><a href="#"><span>Financial Services</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>Professional Services</span><span class="arw">→</span></a><a href="#"><span>Manufacturing</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Case Studies <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Success Stories</div><div class="mf-thumb t-cas"></div><div class="mf-desc">Real outcomes and measurable transformations from organizations like yours.</div><a class="mf-more" href="index.html#cases"><span class="u">View all Success Stories</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Featured</div><a href="#"><span>BAO — Financial close</span><span class="arw">→</span></a><a href="#"><span>PSRT — Secure cloud</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>McCann — Automation</span><span class="arw">→</span></a><a href="#"><span>Meritech — Ecosystem</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">Resources</div><div class="mf-thumb t-res"></div><div class="mf-desc">Insights for modern organizations — no fluff, just what matters.</div><a class="mf-more" href="index.html#resources"><span class="u">View all Resources</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Learn</div><a href="#"><span>Blog &amp; Insights</span><span class="arw">→</span></a><a href="#"><span>FAQ Hub</span><span class="arw">→</span></a><a href="#"><span>Guides &amp; Downloads</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">Tools &amp; Events</div><a href="#"><span>ROI Calculator</span><span class="arw">→</span></a><a href="#"><span>Events</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+      <div class="nav-item" data-menu>
+        <span class="nav-link">About <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+        <div class="panel"><div class="panel-inner">
+          <div class="mega-feature"><div class="mf-title">About</div><div class="mf-thumb t-abt"></div><div class="mf-desc">17 years, 200+ enterprise clients, and a Microsoft Solutions Partnership built on trust.</div><a class="mf-more" href="#"><span class="u">Why DataInvent</span> <span class="arw">→</span></a></div>
+          <div class="mega-cols"><div class="mcol"><div class="grp">Company</div><a href="#"><span>Our Story</span><span class="arw">→</span></a><a href="#"><span>Partnership</span><span class="arw">→</span></a><a href="#"><span>Team</span><span class="arw">→</span></a></div><div class="mcol"><div class="grp">&nbsp;</div><a href="#"><span>Why DataInvent</span><span class="arw">→</span></a><a href="#"><span>Careers</span><span class="arw">→</span></a></div></div>
+        </div></div>
+      </div>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-contact" href="#">Contact</a>
+      <a class="nav-cta magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+      <button class="burger" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+<!-- ===================== SHARED MOBILE MENU ===================== -->
+<div class="mobile" id="mobile">
+  <button class="m-close" id="mClose" aria-label="Close menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  <div class="m-acc"><div class="m-acc-head">Solutions <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><div class="m-sub-h">By Outcome</div><a href="finance-erp.html">Finance &amp; ERP</a><a href="index.html#solutions">CRM &amp; Sales</a><a href="index.html#solutions">AI &amp; Copilot</a><a href="index.html#solutions">BI &amp; Analytics</a><a href="index.html#solutions">Modern Work</a><a href="index.html#solutions">Managed IT</a><div class="m-sub-h">By Technology</div><a href="#">Business Central</a><a href="#">Dynamics 365 Sales</a><a href="#">Copilot</a><a href="#">Power Platform</a><a href="#">Microsoft 365</a><a href="#">Azure &amp; Data</a><a class="m-viewall" href="#">Explore all Technology →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Industries <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="index.html#industries">Public Sector</a><a href="index.html#industries">Construction</a><a href="index.html#industries">Financial Services</a><a href="index.html#industries">Professional Services</a><a href="index.html#industries">Manufacturing</a><a class="m-viewall" href="index.html#industries">View all Industries →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Case Studies <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="index.html#cases">BAO</a><a href="index.html#cases">PSRT</a><a href="index.html#cases">McCann</a><a href="index.html#cases">Meritech</a><a class="m-viewall" href="index.html#cases">View all Success Stories →</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">Resources <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="#">Blog &amp; Insights</a><a href="#">FAQ Hub</a><a href="#">Guides &amp; Downloads</a><a href="#">ROI Calculator</a><a href="#">Events</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head">About <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div><div class="m-acc-body"><div class="m-acc-body-inner"><a href="#">Our Story</a><a href="#">Partnership</a><a href="#">Team</a><a href="#">Why DataInvent</a><a href="#">Careers</a></div></div></div>
+  <div class="m-acc"><div class="m-acc-head plain"><a href="#" style="color:#fff;">Contact</a></div></div>
+  <div class="m-cta"><a class="prim" href="book-a-demo.html">Book a Demo →</a></div>
+</div>
+<!-- SECTION 1 — HERO -->
+<section class="phero">
+  <div class="wrap phero-crumb"><a href="index.html">Home</a> / Solutions / Finance &amp; ERP Transformation</div>
+  <div class="wrap phero-grid">
+    <div class="reveal">
+      <div class="tag"><span class="dot"></span> FINANCE &amp; ERP</div>
+      <h1>Modernize Finance Operations with Real-Time Clarity &amp; Control</h1>
+      <p class="sub">Transform financial reporting, close cycles, and forecasting into a strategic advantage — powered by Microsoft Dynamics 365 Business Central, Power BI, and Copilot.</p>
+      <div class="acts">
+        <a class="btn btn-primary magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+        <a class="btn btn-outline-dark" href="finance-visibility-reporting-gaps.html">Explore Related Challenges</a>
+      </div>
+    </div>
+    <!-- HERO VIZ — "Real-Time Clarity" gauge (UNIQUE to Solution page) -->
+    <div class="phero-viz reveal">
+      <div class="pv-glow"></div>
+      <div class="pv-head">
+        <span class="pv-title">FORECAST ACCURACY · %</span>
+        <span class="pv-live"><span class="d"></span> LIVE</span>
+      </div>
+      <div class="rc-sub">From <b>guesswork</b> → <b>94% confidence</b></div>
+      <div class="rc-stage">
+        <div class="rc-gauge">
+          <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+            <defs>
+              <linearGradient id="rcGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#F4A45C"/><stop offset="1" stop-color="#E47B2B"/>
+              </linearGradient>
+              <linearGradient id="rcSpark" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#E47B2B" stop-opacity="0.35"/><stop offset="1" stop-color="#E47B2B" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <circle class="rc-track" cx="75" cy="75" r="60"></circle>
+            <circle class="rc-prog"  cx="75" cy="75" r="60"></circle>
+          </svg>
+          <div class="rc-c"><div class="v">94%</div><div class="k">Forecast</div></div>
+        </div>
+        <div class="rc-right">
+          <span class="rc-badge"><span class="rd"></span> LIVE · synced</span>
+          <svg class="rc-spark" viewBox="0 0 200 46" preserveAspectRatio="none">
+            <path class="area" d="M0,40 L40,34 L80,30 L120,20 L160,12 L200,6 L200,46 L0,46 Z"/>
+            <path class="line" d="M0,40 L40,34 L80,30 L120,20 L160,12 L200,6"/>
+            <circle class="tip" cx="200" cy="6" r="4"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rc-kpis">
+        <div class="rc-kpi"><div class="v">-45%</div><div class="l">Close Time</div></div>
+        <div class="rc-kpi"><div class="v">£2.1M</div><div class="l">Cost Saved</div></div>
+        <div class="rc-kpi"><div class="v">+38%</div><div class="l">Efficiency</div></div>
+      </div>
+      <div class="rc-chips">
+        <span class="rc-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Single source of truth</span>
+        <span class="rc-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Board-ready in seconds</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 2 — STRATEGIC VALUE -->
+<section class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal-up">
+      <p class="eyebrow">Strategic Value</p>
+      <h2>What Finance &amp; ERP Transformation Delivers</h2>
+      <p>Beyond software implementation — measurable outcomes across finance.</p>
+    </div>
+    <div class="sv-bento" data-stagger>
+      <div class="sv-hero reveal">
+        <div class="sh-glow"></div>
+        <div>
+          <div class="sh-lab">THE HEADLINE OUTCOME</div>
+          <h3>Real-Time Financial Visibility</h3>
+          <p>Unified reporting across departments, business units, and projects — in one live dashboard your whole leadership team trusts.</p>
+        </div>
+        <div class="sh-metrics">
+          <div><div class="v">1</div><div class="k">SOURCE OF TRUTH</div></div>
+          <div><div class="v">94%</div><div class="k">FORECAST ACCURACY</div></div>
+        </div>
+      </div>
+      <div class="reveal"><div class="b-metric">-45%</div><div class="b-t">Faster Close Cycles</div><div class="b-d">Weeks to days through automation.</div></div>
+      <div class="reveal"><div class="b-metric">£2.1M</div><div class="b-t">Avg Cost Saved</div><div class="b-d">Across finance operations.</div></div>
+      <div class="sv-wide reveal"><div class="b-t">Cost &amp; Margin Transparency</div><div class="b-d">See profitability by client, project, and business unit in a single view — no more stitching reports together by hand.</div></div>
+      <div class="reveal"><div class="b-t">Audit &amp; Compliance Readiness</div><div class="b-d">Automated trails + role-based controls.</div></div>
+      <div class="reveal"><div class="b-t">Scalable Foundation</div><div class="b-d">Grows with you — no new workarounds.</div></div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 3 — CAPABILITIES INCLUDED (gray bg) -->
+<section class="caps pad">
+  <div class="wrap">
+    <div class="sec-head reveal-up">
+      <p class="eyebrow">Capabilities Included</p>
+      <h2>DataInvent Delivers More Than Software</h2>
+      <p>This explains what DataInvent concretely delivers, instead of repeating problem-page symptoms.</p>
+    </div>
+    <div class="caps-grid" data-stagger>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Assessment &amp; Discovery</h3><p>Current-state analysis of finance ops, systems, and pain points.</p></div>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-5"/></svg></div><h3>Process Mapping &amp; Redesign</h3><p>Redesign finance workflows to eliminate friction before automating.</p></div>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg></div><h3>System Modernization</h3><p>Migrate to Business Central and Dynamics 365 Finance.</p></div>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 20h8M12 18v2"/></svg></div><h3>Executive Dashboards</h3><p>Real-time reporting on Power BI and Microsoft Fabric.</p></div>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h6a3 3 0 0 1 3 3v6"/></svg></div><h3>Integrations &amp; Data Unification</h3><p>Connect ERPs, CRMs, banking, and third-party finance systems.</p></div>
+      <div class="cap-card reveal"><div class="cc-ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><h3>User Adoption &amp; Training</h3><p>Change management, training, and post-launch support.</p></div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 4 — POWERED BY MICROSOFT (tech tabs) -->
+<section class="tech pad">
+  <div class="wrap">
+    <div class="tech-head reveal">
+      <div>
+        <p class="eyebrow on-dark">Powered by Microsoft</p>
+        <h2>Built on the Microsoft stack you already trust.</h2>
+        <p class="th-lead">Click any technology to see how DataInvent applies it to finance — each opens its own deep-dive page.</p>
+      </div>
+      <span class="tech-badge">Microsoft Solutions Partner · 17+ yrs</span>
+    </div>
+    <div class="tech-grid">
+      <div class="tech-tabs reveal-left">
+        <div class="tech-tab active" onclick="selTech('bc',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-bc.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Business Central</div><div class="tt-sub">Core ERP foundation</div></span><span class="tt-arw">→</span></div></div>
+        <div class="tech-tab" onclick="selTech('d365f',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-d365f.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Dynamics 365 Finance</div><div class="tt-sub">Enterprise finance platform</div></span><span class="tt-arw">→</span></div></div>
+        <div class="tech-tab" onclick="selTech('powerbi',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-powerbi.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Power BI &amp; Fabric</div><div class="tt-sub">Reporting &amp; unified data</div></span><span class="tt-arw">→</span></div></div>
+        <div class="tech-tab" onclick="selTech('copilot',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-copilot.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Copilot for Finance</div><div class="tt-sub">AI forecasting &amp; productivity</div></span><span class="tt-arw">→</span></div></div>
+        <div class="tech-tab" onclick="selTech('automate',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-automate.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Power Automate</div><div class="tt-sub">Workflow automation</div></span><span class="tt-arw">→</span></div></div>
+        <div class="tech-tab" onclick="selTech('azure',this)"><div class="tt-top"><span class="tt-ico"><img src="assets/tech-ico-azure.png" alt="" onerror="this.style.display='none'"></span><span class="tt-txt"><div class="tt-title">Azure &amp; Data Services</div><div class="tt-sub">Secure, scalable infrastructure</div></span><span class="tt-arw">→</span></div></div>
+      </div>
+      <div class="tech-stage reveal-right">
+        <div class="ts-bg show bg-bc" id="techBg"></div>
+        <div class="ts-glow"></div>
+        <div class="tech-panel active" id="p-bc">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-bc.png" alt="Business Central" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">CORE ERP FOUNDATION</div><div class="tp-title">Dynamics 365 Business Central</div></div></div>
+          <p class="tp-desc">The modern ERP backbone for mid-market finance. DataInvent implements Business Central as the single source of truth — replacing fragmented spreadsheets and legacy systems with governed, real-time financial data.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">Core finance &amp; operations system of record</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">GL, AP/AR, cash flow, multi-entity close</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">Orgs outgrowing spreadsheets &amp; legacy ERP</div></div></div>
+          <a class="btn btn-white tp-cta" href="business-central.html">Explore Business Central <span class="arrow">→</span></a>
+        </div>
+        <div class="tech-panel" id="p-d365f">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-d365f.png" alt="Dynamics 365 Finance" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">ENTERPRISE FINANCE PLATFORM</div><div class="tp-title">Dynamics 365 Finance</div></div></div>
+          <p class="tp-desc">For complex, multi-entity organizations, D365 Finance delivers enterprise-grade financial management — advanced consolidations, global compliance, and deep analytics at scale.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">Large / multi-entity finance operations</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">Consolidations, global tax, advanced analytics</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">Enterprises with complex structures</div></div></div>
+          <a class="btn btn-white tp-cta" href="dynamics-365-finance.html">Explore D365 Finance <span class="arrow">→</span></a>
+        </div>
+        <div class="tech-panel" id="p-powerbi">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-powerbi.png" alt="Power BI" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">REPORTING &amp; UNIFIED DATA</div><div class="tp-title">Power BI &amp; Microsoft Fabric</div></div></div>
+          <p class="tp-desc">Executive dashboards and a unified data platform. DataInvent builds governed Power BI reporting on Microsoft Fabric so leadership can drill from top-line P&amp;L down to transaction detail in seconds.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">Reporting &amp; analytics layer</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">Real-time dashboards, drill-down, governed data</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">Leaders who need decision-ready insight</div></div></div>
+          <a class="btn btn-white tp-cta" href="power-bi.html">Explore Power BI &amp; Fabric <span class="arrow">→</span></a>
+        </div>
+        <div class="tech-panel" id="p-copilot">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-copilot.png" alt="Copilot" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">AI FORECASTING &amp; PRODUCTIVITY</div><div class="tp-title">Copilot for Finance</div></div></div>
+          <p class="tp-desc">AI woven into finance workflows. Copilot accelerates forecasting, variance analysis, and reconciliation — with enterprise-grade governance so finance teams trust every output.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">AI layer across finance tasks</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">Forecasting, variance analysis, reconciliation</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">Teams ready to scale with governed AI</div></div></div>
+          <a class="btn btn-white tp-cta" href="copilot.html">Explore Copilot for Finance <span class="arrow">→</span></a>
+        </div>
+        <div class="tech-panel" id="p-automate">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-automate.png" alt="Power Automate" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">WORKFLOW AUTOMATION</div><div class="tp-title">Power Automate</div></div></div>
+          <p class="tp-desc">Automate the manual finance work that drains capacity — approvals, reconciliations, and routine handoffs — freeing the team to focus on analysis, not admin.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">Process automation across finance</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">Approvals, reconciliation, alerts</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">Teams buried in manual, repetitive tasks</div></div></div>
+          <a class="btn btn-white tp-cta" href="power-automate.html">Explore Power Automate <span class="arrow">→</span></a>
+        </div>
+        <div class="tech-panel" id="p-azure">
+          <div class="tp-head"><span class="tp-ico"><img src="assets/tech-ico-azure.png" alt="Azure" onerror="this.parentNode.style.display='none'"></span><div><div class="tp-eyebrow">SECURE, SCALABLE INFRASTRUCTURE</div><div class="tp-title">Azure &amp; Data Services</div></div></div>
+          <p class="tp-desc">The secure, scalable foundation beneath it all. Azure provides the data infrastructure, security posture, and integration backbone that ties your finance ecosystem together.</p>
+          <div class="tp-meta"><div class="tm"><div class="mk">Where it fits</div><div class="mv">Infrastructure &amp; data foundation</div></div><div class="tm"><div class="mk">Key capability</div><div class="mv">Data platform, security, integration</div></div><div class="tm"><div class="mk">Best for</div><div class="mv">IT leaders focused on security &amp; scale</div></div></div>
+          <a class="btn btn-white tp-cta" href="azure.html">Explore Azure &amp; Data <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="tech-cta reveal">
+      <div>
+        <div class="tc-t">Want the full architecture picture?</div>
+        <div class="tc-d">Our specialists map the exact Microsoft stack for your finance environment.</div>
+      </div>
+      <a class="btn btn-primary" href="book-a-demo.html">Talk to a Microsoft Solutions Architect <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+<!-- SECTION 5 — WHY DATAINVENT (white) -->
+<section class="why pad">
+  <div class="wrap">
+    <div class="why-head reveal">
+      <p class="eyebrow">Why DataInvent</p>
+      <h2>Not just an implementer. A transformation partner.</h2>
+      <p>Most partners start with the software. We start with why your problem exists — and we stay until the business outcome actually lands. Here's how we back that up, not just say it.</p>
+    </div>
+    <div class="why-grid" data-stagger>
+      <div class="why-card reveal">
+        <div class="wc-idx">01 — WE START WITH THE WHY</div>
+        <h3>We diagnose the root cause before we quote a licence.</h3>
+        <p>Every engagement opens with a structured root-cause diagnostic so you buy the fix you actually need.</p>
+        <div class="wc-receipt"><div class="wc-rlab">THE RECEIPT</div><div class="wc-rtext">A fixed-scope <b>Discovery &amp; Gap Assessment</b> is step one of every project.</div></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="wc-idx">02 — WE HAVE THE DEPTH</div>
+        <h3>Full-stack Microsoft, not a single competency.</h3>
+        <p>Finance touches CRM, data and automation. We cover the whole ecosystem in-house.</p>
+        <div class="wc-receipt"><div class="wc-rlab">THE RECEIPT</div><div class="wc-rtext"><b>All six</b> Microsoft Solutions Partner designations and <b>50+</b> transformations.</div></div>
+      </div>
+      <div class="why-card reveal">
+        <div class="wc-idx">03 — WE STAY FOR THE OUTCOME</div>
+        <h3>Success is the business metric moving.</h3>
+        <p>Go-live is the midpoint, not the finish line. We keep optimising until the outcome lands.</p>
+        <div class="wc-receipt"><div class="wc-rlab">THE RECEIPT</div><div class="wc-rtext"><b>98%</b> client retention and a <b>14-week</b> average time-to-value.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 6 — OPERATING SHIFT MAP -->
+<section class="shift pad" id="shift">
+  <div class="wrap">
+    <div class="shift-head reveal-up">
+      <p class="eyebrow">Operating Shift Map</p>
+      <h2>See what actually changes in day-to-day finance.</h2>
+      <p>Instead of using enterprise-level figures we cannot prove, this section shows the practical before-and-after shift the solution creates. Choose the workflow that hurts most and see how modernisation changes the way work gets done.</p>
+    </div>
+    <div class="shift-grid">
+      <div class="shift-tabs reveal-left">
+        <div class="shift-tab active" onclick="selShift('close',this)"><span class="st-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><div class="st-t">Month-end close</div><div class="st-d">From manual chase to controlled close</div></div></div>
+        <div class="shift-tab" onclick="selShift('reporting',this)"><span class="st-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-5"/></svg></span><div><div class="st-t">Management reporting</div><div class="st-d">From static packs to live visibility</div></div></div>
+        <div class="shift-tab" onclick="selShift('forecast',this)"><span class="st-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="st-t">Forecasting</div><div class="st-d">From reactive updates to forward planning</div></div></div>
+        <div class="shift-tab" onclick="selShift('governance',this)"><span class="st-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><div class="st-t">Governance &amp; controls</div><div class="st-d">From key-person risk to accountable process</div></div></div>
+      </div>
+      <div class="shift-stage reveal-right">
+        <div class="ss-glow"></div>
+        <div class="shift-panel active" id="s-close">
+          <div class="sp-lab">MONTH-END CLOSE</div>
+          <h3>From manual chase to controlled close.</h3>
+          <p>For finance teams, the pain is not only the close date. The real issue is the uncontrolled work behind it: chasing owners, reconciling spreadsheets, checking versions and explaining variances late.</p>
+          <div class="shift-cols">
+            <div class="shift-col"><div class="sc-lab">BEFORE</div><p>Teams chase inputs across email, spreadsheets and disconnected systems.</p></div>
+            <div class="shift-col mid"><div class="sc-lab">WHAT CHANGES</div><p>Finance workflows, approvals and reconciliations are standardised inside the Microsoft ecosystem.</p></div>
+            <div class="shift-col"><div class="sc-lab">AFTER</div><p>Close activity becomes visible, repeatable and easier to manage across teams.</p></div>
+          </div>
+          <a class="btn btn-primary shift-cta" href="book-a-demo.html">Map our month-end close workflow →</a>
+        </div>
+        <div class="shift-panel" id="s-reporting">
+          <div class="sp-lab">MANAGEMENT REPORTING</div>
+          <h3>From static packs to live visibility.</h3>
+          <p>Board packs assembled by hand are out of date the moment they're printed. The real cost is decisions made on last month's numbers.</p>
+          <div class="shift-cols">
+            <div class="shift-col"><div class="sc-lab">BEFORE</div><p>Analysts hand-build slide decks from exported spreadsheets each cycle.</p></div>
+            <div class="shift-col mid"><div class="sc-lab">WHAT CHANGES</div><p>Governed Power BI dashboards read live from a single source of truth.</p></div>
+            <div class="shift-col"><div class="sc-lab">AFTER</div><p>Leadership self-serves current numbers and drills to detail on demand.</p></div>
+          </div>
+          <a class="btn btn-primary shift-cta" href="book-a-demo.html">Map our reporting workflow →</a>
+        </div>
+        <div class="shift-panel" id="s-forecast">
+          <div class="sp-lab">FORECASTING</div>
+          <h3>From reactive updates to forward planning.</h3>
+          <p>When forecasts live in one person's spreadsheet, they're slow to update and impossible to trust at the board table.</p>
+          <div class="shift-cols">
+            <div class="shift-col"><div class="sc-lab">BEFORE</div><p>Forecasts are re-keyed manually and only refreshed when someone finds time.</p></div>
+            <div class="shift-col mid"><div class="sc-lab">WHAT CHANGES</div><p>Copilot-assisted models pull governed actuals and flag variances automatically.</p></div>
+            <div class="shift-col"><div class="sc-lab">AFTER</div><p>Rolling forecasts stay current — planning becomes proactive, not reactive.</p></div>
+          </div>
+          <a class="btn btn-primary shift-cta" href="book-a-demo.html">Map our forecasting workflow →</a>
+        </div>
+        <div class="shift-panel" id="s-governance">
+          <div class="sp-lab">GOVERNANCE &amp; CONTROLS</div>
+          <h3>From key-person risk to accountable process.</h3>
+          <p>When only one or two people understand the numbers, every audit, absence, or departure becomes a risk to the business.</p>
+          <div class="shift-cols">
+            <div class="shift-col"><div class="sc-lab">BEFORE</div><p>Critical logic and approvals live in a few people's heads and files.</p></div>
+            <div class="shift-col mid"><div class="sc-lab">WHAT CHANGES</div><p>Role-based controls and automated audit trails are built into the system.</p></div>
+            <div class="shift-col"><div class="sc-lab">AFTER</div><p>Process is documented, accountable, and audit-ready by default.</p></div>
+          </div>
+          <a class="btn btn-primary shift-cta" href="book-a-demo.html">Map our governance workflow →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 7 — CASE STUDIES (same rotator as homepage) -->
+<section class="cases pad">
+  <div class="wrap">
+    <div class="sec-head center reveal-up"><p class="eyebrow">Success Stories</p><h2>Real Outcomes. Real Transformations.</h2></div>
+    <div class="story-stage">
+      <article class="story-feature reveal-left" id="storyFeature">
+        <div class="fx-glow"></div>
+        <div class="sf-top"><div class="sf-tag" id="sfTag">FEATURED — FINANCIAL SERVICES</div><h3 id="sfTitle">BAO transformed financial close with Business Central</h3><p class="sf-quote" id="sfQuote">"DataInvent didn't just implement Business Central — they helped us rethink how finance actually operates."<span class="who" id="sfWho">— CFO, BAO Group</span></p></div>
+        <div>
+          <div class="sf-metrics" id="sfMetrics"><div class="m"><div class="v">-45%</div><div class="k">Close time</div></div><div class="m"><div class="v">+38%</div><div class="k">Efficiency</div></div><div class="m"><div class="v">£2.1M</div><div class="k">Saved</div></div></div>
+          <a class="sf-cta" id="sfCta" href="#">Read full case study <span class="arrow">→</span></a>
+          <div class="story-dots" id="storyDots"></div>
+        </div>
+      </article>
+      <div class="story-queue reveal-right"><div class="q-lab">UP NEXT</div><div id="storyQueue"></div></div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 8 — LEAD-GEN -->
+<section class="leadgen pad glow-host">
+  <div class="lg-orb o1"></div><div class="lg-orb o2"></div><div class="lg-orb o3"></div>
+  <div class="cursor-glow" data-cursor-glow></div>
+  <div class="wrap">
+    <div class="lg-card reveal-scale">
+      <div class="lg-glow"></div>
+      <p class="lg-eyebrow">Ready When You Are</p>
+      <h2>Ready to Modernize <span class="hl">Finance Operations</span>?</h2>
+      <p class="lg-sub">See what Microsoft-powered finance transformation looks like for your business — with clarity on outcomes, timeline, and investment.</p>
+      <div class="lg-actions">
+        <a class="btn btn-primary magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+        <a class="lg-secondary" href="book-a-demo.html">Talk to a Specialist <span class="arrow">→</span></a>
+      </div>
+      <div class="lg-features">
+        <div class="lg-feat"><div class="lf-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><div class="lf-t">30-minute walkthrough</div><div class="lf-d">Tailored to your business</div></div></div>
+        <div class="lg-feat"><div class="lf-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><div><div class="lf-t">No pressure, no pitch</div><div class="lf-d">Just a real conversation</div></div></div>
+        <div class="lg-feat"><div class="lf-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg></div><div><div class="lf-t">Reply within 4 hours</div><div class="lf-d">A specialist reaches out fast</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===================== SHARED FOOTER ===================== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brandcol">
+        <img class="foot-logo" src="assets/datainvent logo for dark background.svg" alt="DataInvent" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="foot-brand-fallback" style="display:none;"><span class="brand-mark" style="width:34px;height:34px;">D</span> DataInvent</div>
+        <p class="foot-mission">Turning operational <span>complexity</span> into decisive <span>clarity</span>.</p>
+        <div class="social">
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.02 8h4.96v13H.02V8zm7.5 0h4.75v1.78h.07c.66-1.25 2.28-2.56 4.69-2.56 5.02 0 5.95 3.3 5.95 7.6V21h-4.96v-6.3c0-1.5-.03-3.44-2.1-3.44-2.1 0-2.42 1.64-2.42 3.33V21H7.52V8z"/></svg></a>
+          <a href="#" aria-label="Twitter / X"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93zm-1.29 19.5h2.04L6.48 3.24H4.29L17.61 20.65z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.51A3.02 3.02 0 0 0 .5 6.2C0 8.08 0 12 0 12s0 3.92.5 5.8a3.02 3.02 0 0 0 2.12 2.14c1.88.51 9.38.51 9.38.51s7.5 0 9.38-.51a3.02 3.02 0 0 0 2.12-2.14C24 15.92 24 12 24 12s0-3.92-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Solutions</h5><ul><li><a href="finance-erp.html">Finance &amp; ERP</a></li><li><a href="index.html#solutions">CRM &amp; Sales</a></li><li><a href="index.html#solutions">AI &amp; Copilot</a></li><li><a href="index.html#solutions">BI &amp; Analytics</a></li><li><a href="index.html#solutions">Modern Work</a></li><li><a href="index.html#solutions">Managed IT</a></li></ul></div>
+      <div class="foot-col"><h5>Technology</h5><ul><li><a href="business-central.html">Business Central</a></li><li><a href="dynamics-365-finance.html">Dynamics 365</a></li><li><a href="copilot.html">Copilot</a></li><li><a href="power-automate.html">Power Platform</a></li><li><a href="power-bi.html">Power BI</a></li><li><a href="azure.html">Azure &amp; Data</a></li></ul></div>
+      <div class="foot-col"><h5>Industries</h5><ul><li><a href="index.html#industries">Public Sector</a></li><li><a href="index.html#industries">Construction</a></li><li><a href="index.html#industries">Financial Services</a></li><li><a href="index.html#industries">Manufacturing</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="#">About</a></li><li><a href="index.html#cases">Case Studies</a></li><li><a href="index.html#resources">Resources</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul></div>
+    </div>
+    <div class="foot-partner">
+      <div class="msq"><div style="background:#F25022"></div><div style="background:#7FBA00"></div><div style="background:#00A4EF"></div><div style="background:#FFB900"></div></div>
+      <div class="pt"><b>Microsoft Solutions Partner</b> · 6 designations across Infrastructure, Data &amp; AI, Business Applications, Modern Work &amp; Security</div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 DataInvent Systems Corp. All rights reserved.</span>
+      <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap;">
+        <span class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></span>
+        <a class="foot-top-btn" id="backTop" href="#"><span>BACK TO TOP</span> <span class="tb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- SHARED BEHAVIOURS -->
+<script src="js/main.js"></script>
+</body>
+</html>

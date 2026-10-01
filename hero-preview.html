@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataInvent — Hero Filament Field v2</title>
+<style>
+:root{
+  --brand-orange:#E47B2B;
+  --brand-orange-light:#F4A45C;
+  --night:#1C1C1C;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--night);
+  color:#fff;
+  font-family:'Segoe UI',Inter,system-ui,-apple-system,sans-serif;
+}
+.hero{
+  position:relative;
+  min-height:88vh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 55% 60% at 12% 45%,rgba(228,123,43,.05),transparent 62%),
+    var(--night);
+}
+#heroFlow{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  display:block;
+  z-index:0;
+  pointer-events:none;
+}
+.scrim{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(28,28,28,.92) 0%,rgba(28,28,28,.72) 22%,rgba(28,28,28,0) 46%);
+}
+.wrap{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1240px;
+  margin:0 auto;
+  padding:0 40px;
+}
+.eyebrow{
+  font-family:Consolas,'Courier New',monospace;
+  font-size:12px;
+  letter-spacing:.20em;
+  text-transform:uppercase;
+  color:var(--brand-orange);
+}
+h1{
+  font-weight:800;
+  font-size:56px;
+  line-height:1.06;
+  margin-top:18px;
+  max-width:640px;
+  letter-spacing:-.015em;
+}
+h1 span.hl{color:var(--brand-orange)}
+.sub{
+  margin-top:20px;
+  max-width:520px;
+  font-size:16px;
+  line-height:1.65;
+  color:rgba(255,255,255,.62);
+}
+.actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  padding:15px 26px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+  cursor:pointer;
+}
+.btn-primary{
+  background:var(--brand-orange);
+  color:#fff;
+  box-shadow:0 14px 30px rgba(228,123,43,.32);
+}
+.btn-outline{
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+}
+.kpis{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap}
+.kpi{
+  background:rgba(255,255,255,.045);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;
+  padding:14px 22px;
+  min-width:132px;
+}
+.kpi .v{font-weight:700;font-size:22px}
+.kpi .l{
+  font-family:Consolas,'Courier New',monospace;
+  font-size:9px;
+  letter-spacing:.14em;
+  color:rgba(255,255,255,.45);
+  margin-top:5px;
+}
+.note{
+  padding:26px 40px 50px;
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.38);
+  max-width:900px;
+  margin:0 auto;
+}
+@media(max-width:900px){
+  h1{font-size:38px}
+}
+@media(max-width:760px){
+  .scrim{background:linear-gradient(180deg,rgba(28,28,28,.90) 0%,rgba(28,28,28,.66) 55%,rgba(28,28,28,.85) 100%)}
+  .wrap{padding:0 24px}
+  h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <canvas id="heroFlow"></canvas>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <p class="eyebrow">From noise to signal &middot; From complexity to clarity</p>
+    <h1>Transform Finance, Operations &amp; Technology with <span class="hl">Microsoft Solutions</span></h1>
+    <p class="sub">DataInvent helps CFOs, COOs, and IT Leaders cut through operational noise and turn complex data into clear, decisive business intelligence.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#">Book a Demo &rarr;</a>
+      <a class="btn btn-outline" href="#">View Success Stories</a>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><div class="v">&pound;2.1M</div><div class="l">COST SAVED</div></div>
+      <div class="kpi"><div class="v">14 wks</div><div class="l">TIME TO VALUE</div></div>
+      <div class="kpi"><div class="v" style="color:#22C55E">98%</div><div class="l">RETENTION</div></div>
+    </div>
+  </div>
+</section>
+
+<p class="note">
+  <strong>v2 &mdash; filament field.</strong> 1,600 tapered filaments (500 on mobile) with additive blending.
+  Chaos begins at 16% width to keep the headline clear, converges at 61.5%, exits as 8 ordered lanes.
+  Resize the window to test responsive behaviour.
+</p>
+
+<script>
+/* ============================================================================
+   DataInvent - HERO FILAMENT FIELD (noise to signal) - v2
+   ============================================================================ */
+(function heroFlow(){
+  var host = document.getElementById('heroFlow');
+  if(!host || !host.getContext) return;
+  var ctx = host.getContext('2d', { alpha:true });
+  if(!ctx) return;
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function token(name, fallback){
+    var v = getComputedStyle(document.documentElement).getPropertyValue(name);
+    return (v || '').trim() || fallback;
+  }
+  var ORANGE       = token('--brand-orange', '#E47B2B');
+  var ORANGE_LIGHT = token('--brand-orange-light', '#F4A45C');
+
+  var CFG = {
+    count       : 1600,
+    countMobile : 500,
+    focalX      : 0.615,
+    focalY      : 0.50,
+    lanes       : 8,
+    laneSpread  : 0.40,
+    spawnSpread : 0.92,
+    startX      : 0.16,
+    speedMin    : 0.0013,
+    speedMax    : 0.0030,
+    wobble      : 40,
+    tail        : 26
+  };
+
+  var W=0, H=0, DPR=1, P=[], raf=null, running=false;
+
+  function rand(a,b){ return a + Math.random()*(b-a); }
+  function easeInOut(t){ return t<0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function easeOut(t){ return 1-Math.pow(1-t,3); }
+
+  function hexToRgb(h){
+    h = h.replace('#','');
+    if(h.length===3) h = h.split('').map(function(c){return c+c;}).join('');
+    var n = parseInt(h,16);
+    return [(n>>16)&255,(n>>8)&255,n&255];
+  }
+  var C_OR  = hexToRgb(ORANGE);
+  var C_LT  = hexToRgb(ORANGE_LIGHT);
+  var C_DIM = [150,150,155];
+
+  function mix(a,b,t){
+    return [ a[0]+(b[0]-a[0])*t | 0, a[1]+(b[1]-a[1])*t | 0, a[2]+(b[2]-a[2])*t | 0 ];
+  }
+
+  function makeP(seed){
+    return {
+      t      : seed ? rand(0,1) : -rand(0,0.4),
+      sp     : rand(CFG.speedMin, CFG.speedMax),
+      y0     : rand(0.5-CFG.spawnSpread/2, 0.5+CFG.spawnSpread/2),
+      lane   : (Math.random()*CFG.lanes)|0,
+      ph     : rand(0,6.2832),
+      fq     : rand(0.5,2.4),
+      amp    : rand(0.35,1.35),
+      w      : rand(0.5,1.5),
+      bright : Math.random() < 0.10
+    };
+  }
+
+  function laneY(i){
+    if(CFG.lanes===1) return H*CFG.focalY;
+    var top = H*(CFG.focalY - CFG.laneSpread/2);
+    return top + (H*CFG.laneSpread)/(CFG.lanes-1)*i;
+  }
+
+  function posAt(p, t, out){
+    var sx = CFG.startX, fx = CFG.focalX;
+    var fy = H*CFG.focalY;
+    var split = (fx-sx)/(1-sx);
+    out.x = (sx + t*(1-sx))*W;
+    if(t < split){
+      var k = easeInOut(t/split);
+      var wob  = Math.sin(t*Math.PI*5*p.fq + p.ph) * CFG.wobble * p.amp * (1-k);
+      var wob2 = Math.cos(t*Math.PI*3*p.fq + p.ph*1.7) * CFG.wobble*0.5 * p.amp * (1-k);
+      out.y = (p.y0*H)*(1-k) + fy*k + wob + wob2;
+      out.k = k; out.side = 0;
+    } else {
+      var u = easeOut((t-split)/(1-split));
+      out.y = fy*(1-u) + laneY(p.lane)*u;
+      out.k = 1; out.side = 1; out.u = u;
+    }
+  }
+
+  var a0={x:0,y:0,k:0,side:0,u:0}, a1={x:0,y:0,k:0,side:0,u:0};
+
+  function step(dt){
+    for(var i=0;i<P.length;i++){
+      var p=P[i];
+      p.t += p.sp*dt;
+      if(p.t > 1.04){
+        p.t = -rand(0,0.10);
+        p.y0 = rand(0.5-CFG.spawnSpread/2, 0.5+CFG.spawnSpread/2);
+        p.lane = (Math.random()*CFG.lanes)|0;
+        p.sp = rand(CFG.speedMin, CFG.speedMax);
+        p.bright = Math.random() < 0.10;
+      }
+    }
+  }
+
+  function drawLanes(){
+    var fx=W*CFG.focalX, fy=H*CFG.focalY;
+    for(var i=0;i<CFG.lanes;i++){
+      var y=laneY(i);
+      var g=ctx.createLinearGradient(fx,0,W,0);
+      g.addColorStop(0,   'rgba('+C_LT[0]+','+C_LT[1]+','+C_LT[2]+',0.30)');
+      g.addColorStop(0.45,'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0.14)');
+      g.addColorStop(1,   'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0)');
+      ctx.strokeStyle=g;
+      ctx.lineWidth=1;
+      ctx.beginPath();
+      ctx.moveTo(fx,fy);
+      ctx.bezierCurveTo(fx+(W-fx)*0.30,fy, fx+(W-fx)*0.40,y, W,y);
+      ctx.stroke();
+    }
+  }
+
+  function drawFocal(){
+    var fx=W*CFG.focalX, fy=H*CFG.focalY;
+    var r=Math.min(W,H)*0.26;
+    var g=ctx.createRadialGradient(fx,fy,0,fx,fy,r);
+    g.addColorStop(0,   'rgba(255,235,214,0.50)');
+    g.addColorStop(0.14,'rgba('+C_LT[0]+','+C_LT[1]+','+C_LT[2]+',0.26)');
+    g.addColorStop(0.42,'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0.09)');
+    g.addColorStop(1,   'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0)');
+    ctx.fillStyle=g;
+    ctx.fillRect(fx-r,fy-r,r*2,r*2);
+
+    var s=ctx.createLinearGradient(0,fy-H*0.40,0,fy+H*0.40);
+    s.addColorStop(0,   'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0)');
+    s.addColorStop(0.42,'rgba('+C_LT[0]+','+C_LT[1]+','+C_LT[2]+',0.34)');
+    s.addColorStop(0.5, 'rgba(255,240,222,0.55)');
+    s.addColorStop(0.58,'rgba('+C_LT[0]+','+C_LT[1]+','+C_LT[2]+',0.34)');
+    s.addColorStop(1,   'rgba('+C_OR[0]+','+C_OR[1]+','+C_OR[2]+',0)');
+    ctx.fillStyle=s;
+    ctx.fillRect(fx-1,fy-H*0.40,2,H*0.80);
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation='lighter';
+    drawLanes();
+    var tailT = CFG.tail/W;
+    for(var i=0;i<P.length;i++){
+      var p=P[i];
+      if(p.t<=0) continue;
+      var tb = p.t - tailT;
+      if(tb<0) tb=0;
+      posAt(p,p.t,a0);
+      posAt(p,tb,a1);
+      var col, al;
+      if(a0.side===0){
+        var k=a0.k;
+        col = mix(C_DIM, C_OR, k*k);
+        al  = 0.10 + 0.55*k;
+      } else {
+        col = mix(C_LT, C_OR, a0.u*0.5);
+        al  = 0.72 - 0.22*a0.u;
+      }
+      if(p.bright) al = Math.min(1, al*1.7);
+      var g = ctx.createLinearGradient(a1.x,a1.y,a0.x,a0.y);
+      g.addColorStop(0,'rgba('+col[0]+','+col[1]+','+col[2]+',0)');
+      g.addColorStop(1,'rgba('+col[0]+','+col[1]+','+col[2]+','+al.toFixed(3)+')');
+      ctx.strokeStyle=g;
+      ctx.lineWidth=p.w;
+      ctx.beginPath();
+      ctx.moveTo(a1.x,a1.y);
+      ctx.lineTo(a0.x,a0.y);
+      ctx.stroke();
+      if(p.bright){
+        ctx.fillStyle='rgba('+col[0]+','+col[1]+','+col[2]+','+Math.min(1,al).toFixed(3)+')';
+        ctx.beginPath();
+        ctx.arc(a0.x,a0.y,p.w*0.9,0,6.2832);
+        ctx.fill();
+      }
+    }
+    drawFocal();
+    ctx.globalCompositeOperation='source-over';
+  }
+
+  var last=0;
+  function frame(now){
+    if(!running) return;
+    var dt = last ? Math.min((now-last)/16.667,3) : 1;
+    last=now;
+    step(dt);
+    render();
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){ if(running||reduced) return; running=true; last=0; raf=requestAnimationFrame(frame); }
+  function stop(){ running=false; if(raf) cancelAnimationFrame(raf); raf=null; }
+
+  function resize(){
+    var r=host.getBoundingClientRect();
+    W=Math.max(1,r.width); H=Math.max(1,r.height);
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    host.width=Math.round(W*DPR);
+    host.height=Math.round(H*DPR);
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    var mobile = W<760;
+    var target = mobile ? CFG.countMobile : CFG.count;
+    CFG.lanes = mobile ? 5 : 8;
+    CFG.tail  = mobile ? 18 : 26;
+    while(P.length<target) P.push(makeP(true));
+    if(P.length>target) P.length=target;
+    if(reduced) render();
+  }
+
+  var rt=null;
+  window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(resize,160); });
+  document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
+
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      es.forEach(function(e){ e.isIntersecting?start():stop(); });
+    },{threshold:0.02}).observe(host);
+  } else {
+    start();
+  }
+
+  resize();
+  if(reduced){ render(); } else { start(); }
+})();
+</script>
+</body>
+</html>
