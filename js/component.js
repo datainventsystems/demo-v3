@@ -43,8 +43,8 @@
 
   function initializeComponents() {
     Promise.all([
-      loadFragment('site-header', 'header.html'),
-      loadFragment('site-footer', 'footer.html')
+      loadFragment('site-header', 'components/header.html'),
+      loadFragment('site-footer', 'components/footer.html')
     ])
       .then(loadSharedBehaviours)
       .catch(showLoadError);
