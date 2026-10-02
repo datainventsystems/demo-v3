@@ -51,6 +51,122 @@ section{ position:relative; }
 .btn:hover .arrow{ transform:translateX(4px); }
 .magnetic{ will-change:transform; }
 
+/* ============ D2. CORPORATE CTA INTERACTION SYSTEM ============ */
+/*
+   Two consistent interaction tiers:
+   1) Primary conversion/action CTAs: filled orange, calm tonal shift, 1px lift.
+   2) Secondary CTAs: outline/quiet treatment, soft surface fill, no lift.
+   Deliberately avoids magnetic-style movement and exaggerated hover motion.
+*/
+.btn,
+.nav-cta,
+.lg-secondary{
+  transition:
+    background-color .18s ease,
+    color .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    transform .18s ease;
+}
+
+/* Primary CTA */
+.btn-primary,
+.nav-cta,
+.m-cta .prim{
+  background:var(--brand-orange);
+  color:#fff;
+  border-color:var(--brand-orange);
+  box-shadow:0 4px 14px rgba(228,123,43,.22);
+}
+.btn-primary:hover,
+.nav-cta:hover,
+.m-cta .prim:hover{
+  background:#cf6f27;
+  border-color:#cf6f27;
+  color:#fff;
+  transform:translateY(-1px);
+  box-shadow:0 7px 18px rgba(228,123,43,.26);
+}
+.btn-primary:active,
+.nav-cta:active,
+.m-cta .prim:active{
+  transform:translateY(0);
+  box-shadow:0 3px 10px rgba(228,123,43,.20);
+}
+
+/* Secondary CTA: light surfaces */
+.btn-outline{
+  background:transparent;
+  border-color:rgba(31,31,31,.34);
+  color:var(--darker);
+  box-shadow:none;
+}
+.btn-outline:hover{
+  background:rgba(31,31,31,.055);
+  border-color:rgba(31,31,31,.58);
+  color:var(--darker);
+  transform:none;
+  box-shadow:none;
+}
+
+/* Secondary CTA: dark surfaces */
+.btn-outline-dark{
+  background:rgba(255,255,255,.025);
+  border-color:rgba(255,255,255,.28);
+  color:#fff;
+  box-shadow:none;
+}
+.btn-outline-dark:hover{
+  background:rgba(255,255,255,.085);
+  border-color:rgba(255,255,255,.52);
+  color:#fff;
+  transform:none;
+  box-shadow:none;
+}
+
+/* Arrows remain restrained across both tiers. */
+.btn .arrow,
+.nav-cta .arrow,
+.lg-secondary .arrow{
+  transition:transform .18s ease;
+}
+.btn:hover .arrow,
+.nav-cta:hover .arrow,
+.lg-secondary:hover .arrow{
+  transform:translateX(2px);
+}
+
+/* Accessible keyboard focus follows the same system. */
+.btn:focus-visible,
+.nav-cta:focus-visible,
+.m-cta .prim:focus-visible,
+.lg-secondary:focus-visible{
+  outline:3px solid rgba(228,123,43,.30);
+  outline-offset:3px;
+}
+
+/* Turn off pointer-following/magnetic visual movement for CTAs. */
+.magnetic{
+  will-change:auto;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .btn,
+  .nav-cta,
+  .m-cta .prim,
+  .lg-secondary,
+  .btn .arrow,
+  .nav-cta .arrow,
+  .lg-secondary .arrow{
+    transition:none !important;
+  }
+  .btn:hover,
+  .nav-cta:hover,
+  .m-cta .prim:hover{
+    transform:none !important;
+  }
+}
+
 /* ============ E. SCROLL PROGRESS ============ */
 .scroll-progress{ position:fixed; top:0; left:0; height:3px; width:0%; background:linear-gradient(90deg,var(--brand-orange),var(--brand-orange-light)); z-index:200; box-shadow:0 0 10px rgba(228,123,43,0.6); }
 
@@ -1193,8 +1309,8 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .leadgen#demo .lg-actions{position:relative;justify-content:flex-start;margin-top:32px}
 
 /* ---------- Primary CTA is the brightest object in the section ---------- */
-.leadgen#demo .lg-actions .btn-primary{box-shadow:0 14px 30px rgba(228,123,43,.34);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
-.leadgen#demo .lg-actions .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(228,123,43,.44)}
+.leadgen#demo .lg-actions .btn-primary{box-shadow:0 4px 14px rgba(228,123,43,.22)}
+.leadgen#demo .lg-actions .btn-primary:hover{transform:translateY(-1px);background:#cf6f27;border-color:#cf6f27;box-shadow:0 7px 18px rgba(228,123,43,.26)}
 /* Secondary stays a plain text link, not a competing button */
 .leadgen#demo .lg-secondary{padding:0 4px;border:0;background:none;box-shadow:none;color:#27445f}
 .leadgen#demo .lg-secondary:hover{background:none;box-shadow:none;color:var(--brand-orange)}
