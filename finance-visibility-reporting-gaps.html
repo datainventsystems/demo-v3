@@ -173,6 +173,43 @@
 }
 </style>
 
+
+<style id="leadgen-pillar-icon-alignment">
+/* Only the three lead-gen reassurance pillars: balanced spacing + circular icons. */
+.leadgen .lg-features{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:start !important;
+}
+.leadgen .lg-feat{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:14px !important;
+  min-width:0;
+}
+.leadgen .lf-ico{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  flex:0 0 42px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+.leadgen .lf-ico svg{
+  display:block;
+}
+.leadgen .lf-txt{
+  min-width:0;
+}
+@media(max-width:760px){
+  .leadgen .lg-features{grid-template-columns:1fr !important;}
+  .leadgen .lg-feat{justify-content:flex-start !important;}
+}
+</style>
 </head>
 <body>
 <div id="site-header"></div>
