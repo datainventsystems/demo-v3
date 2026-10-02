@@ -45,7 +45,7 @@
 .leadgen{
   position:relative;
   overflow:hidden;
-  background:linear-gradient(128deg,#eef6fa 0%,#f7f4ee 52%,#f1f6ef 100%) !important;
+  background:linear-gradient(128deg,#dceaf1 0%,#ebe9e2 52%,#dfe8dc 100%) !important;
   color:#172a38;
 }
 /* No circles/orbs on this variant. */
@@ -112,6 +112,64 @@
 
 @media(max-width:760px){
   .leadgen .lg-feat + .lg-feat{border-left:0 !important;}
+}
+</style>
+
+
+<style id="problem-graph-brand-consistency">
+:root{
+  --ms-blue:#00A4EF;
+  --ms-green:#7FBA00;
+  --ms-yellow:#FFB900;
+  --ms-red:#F25022;
+}
+
+/* Subtle Microsoft-inspired signals in the finance hero graph. */
+.phero-viz::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    radial-gradient(circle at 14% 16%,rgba(0,164,239,.10),transparent 30%),
+    radial-gradient(circle at 88% 84%,rgba(127,186,0,.065),transparent 28%);
+  mix-blend-mode:screen;
+}
+.cd-bar.calm:nth-of-type(2),
+.cd-bar.calm:nth-of-type(3){
+  background:linear-gradient(180deg,rgba(0,164,239,.28),rgba(0,164,239,.07));
+}
+.cd-bar.calm:nth-of-type(4){
+  background:linear-gradient(180deg,rgba(127,186,0,.22),rgba(127,186,0,.06));
+}
+.cd-mon .cd-target{border-top-color:rgba(255,185,0,.58);}
+.cd-mon .cd-target span{color:#FFD45E;}
+.cd-chip.warn{
+  color:#D59A00;
+  background:rgba(255,185,0,.10);
+  border-color:rgba(255,185,0,.34);
+}
+.cd-chip.risk{
+  color:#E47A65;
+  background:rgba(242,80,34,.10);
+  border-color:rgba(242,80,34,.32);
+}
+.hc-item.checked .hc-check{
+  background:var(--ms-blue);
+  border-color:var(--ms-blue);
+}
+.hc-score{position:relative;overflow:hidden;}
+.hc-score::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  right:-92px;
+  top:-96px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,164,239,.12),transparent 68%);
+  pointer-events:none;
 }
 </style>
 
@@ -360,7 +418,7 @@
     var score=Math.round(100-(checked*PER));
     document.getElementById('hcScore').textContent=score;
     document.getElementById('hcCount').textContent=checked+' of '+TOTAL+' risk signals selected';
-    if(prog){ prog.style.strokeDashoffset=(CIRC*(1-score/100)).toFixed(1); prog.style.stroke = checked===0?'#22C55E':(checked<=2?'#D98A2B':(checked<=4?'#E47B2B':'#C6544F')); }
+    if(prog){ prog.style.strokeDashoffset=(CIRC*(1-score/100)).toFixed(1); prog.style.stroke = checked===0?'#7FBA00':(checked<=2?'#FFB900':(checked<=4?'#E47B2B':'#F25022')); }
     var status=document.getElementById('hcStatus'), msg=document.getElementById('hcMessage');
     if(checked===0){ status.textContent='Healthy'; msg.textContent='No red flags selected yet. Tick the statements that match your reality to see where you really stand.'; }
     else if(checked<=2){ status.textContent='Minor Risk'; msg.textContent='A few warning signs. Worth a conversation before they compound.'; }
