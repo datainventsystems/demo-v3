@@ -40,106 +40,25 @@
 @media (prefers-reduced-motion: reduce){ .cd-bar{ transform:scaleY(1) !important; animation:none !important; } .cd-scan{ display:none; } .cd-chip{ opacity:1 !important; animation:none !important; } }
 </style>
 
-<style id="problem-page-brand-consistency">
-/*
-  Problem page visual consistency layer
-  - DataInvent orange remains the primary brand/action color.
-  - Microsoft-inspired colors appear only as subtle supporting signals.
-  - The closing lead-generation module uses the lighter site-wide treatment.
-*/
-:root{
-  --ms-blue:#00A4EF;
-  --ms-green:#7FBA00;
-  --ms-yellow:#FFB900;
-  --ms-red:#F25022;
-}
-
-/* Subtle Microsoft ecosystem cues, kept secondary to DataInvent orange. */
-.phero-viz::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:inherit;
-  background:
-    radial-gradient(circle at 14% 16%, rgba(0,164,239,.10), transparent 30%),
-    radial-gradient(circle at 88% 84%, rgba(127,186,0,.065), transparent 28%);
-  mix-blend-mode:screen;
-}
-
-.cd-bar.calm:nth-of-type(2),
-.cd-bar.calm:nth-of-type(3){
-  background:linear-gradient(180deg, rgba(0,164,239,.28), rgba(0,164,239,.07));
-}
-.cd-bar.calm:nth-of-type(4){
-  background:linear-gradient(180deg, rgba(127,186,0,.22), rgba(127,186,0,.06));
-}
-.cd-mon .cd-target{
-  border-top-color:rgba(255,185,0,.58);
-}
-.cd-mon .cd-target span{
-  color:#FFD45E;
-}
-.cd-chip.warn{
-  color:#D59A00;
-  background:rgba(255,185,0,.10);
-  border-color:rgba(255,185,0,.34);
-}
-.cd-chip.risk{
-  color:#E47A65;
-  background:rgba(242,80,34,.10);
-  border-color:rgba(242,80,34,.32);
-}
-
-/* Health-check states use the same restrained semantic palette. */
-.hc-item.checked .hc-check{
-  background:var(--ms-blue);
-  border-color:var(--ms-blue);
-}
-.hc-score{
+<style id="problem-leadgen-v2">
+/* Finance problem-page lead gen: same design language, distinct colour mood. */
+.leadgen{
   position:relative;
   overflow:hidden;
+  background:linear-gradient(128deg,#19364a 0%,#234f60 48%,#4a5148 100%) !important;
+  color:#172a38;
 }
-.hc-score::before{
-  content:"";
-  position:absolute;
-  width:220px;
-  height:220px;
-  right:-92px;
-  top:-96px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(0,164,239,.12), transparent 68%);
-  pointer-events:none;
-}
+/* No circles/orbs on this variant. */
+.leadgen .lg-orb,
+.leadgen .cursor-glow{display:none !important;}
 
-/* Light, recognizable site-wide lead-generation treatment. */
-.leadgen{
-  background:
-    radial-gradient(circle at 12% 18%, rgba(0,164,239,.09), transparent 28%),
-    radial-gradient(circle at 88% 22%, rgba(127,186,0,.065), transparent 24%),
-    radial-gradient(circle at 76% 88%, rgba(255,185,0,.07), transparent 25%),
-    linear-gradient(180deg,#f7f9fb 0%,#ffffff 100%) !important;
-  color:var(--darker,#1f1f1f);
-}
-.leadgen .cursor-glow{
-  opacity:.22;
-}
-.leadgen .lg-orb.o1{
-  background:rgba(0,164,239,.11);
-}
-.leadgen .lg-orb.o2{
-  background:rgba(127,186,0,.08);
-}
-.leadgen .lg-orb.o3{
-  background:rgba(255,185,0,.08);
-}
 .leadgen .lg-card{
-  background:rgba(255,255,255,.88) !important;
-  border:1px solid rgba(15,71,97,.12) !important;
-  box-shadow:0 24px 64px rgba(15,71,97,.10) !important;
-  color:var(--darker,#1f1f1f) !important;
-  backdrop-filter:blur(16px);
-  -webkit-backdrop-filter:blur(16px);
+  position:relative;
+  text-align:left !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.98) 0%,rgba(250,252,250,.97) 58%,rgba(246,249,244,.98) 100%) !important;
+  border:1px solid rgba(255,255,255,.72) !important;
+  box-shadow:0 28px 72px rgba(3,20,31,.30),0 8px 24px rgba(3,20,31,.16) !important;
+  color:#172a38 !important;
 }
 .leadgen .lg-card::before{
   content:"";
@@ -147,58 +66,52 @@
   inset:0;
   pointer-events:none;
   border-radius:inherit;
-  background:linear-gradient(115deg,rgba(0,164,239,.035),transparent 34%,rgba(127,186,0,.025) 72%,rgba(255,185,0,.035));
+  background:linear-gradient(116deg,rgba(0,120,212,.045),transparent 34%,rgba(127,186,0,.035) 72%,rgba(255,185,0,.025));
 }
-.leadgen .lg-glow{
-  background:radial-gradient(circle,rgba(0,164,239,.10),transparent 68%) !important;
-  opacity:1;
-}
+.leadgen .lg-card > *{position:relative;z-index:1;}
+.leadgen .lg-glow{display:none !important;}
+
 .leadgen .lg-eyebrow{
+  text-align:left !important;
   color:var(--brand-orange,#E47B2B) !important;
 }
 .leadgen h2{
-  color:var(--darker,#1f1f1f) !important;
+  text-align:left !important;
+  color:#172a38 !important;
+  max-width:900px;
+  margin-left:0 !important;
+  margin-right:0 !important;
 }
-.leadgen h2 .hl{
-  color:var(--brand-orange,#E47B2B) !important;
+.leadgen h2 .hl{color:var(--brand-orange,#E47B2B) !important;}
+.leadgen .lg-sub{
+  text-align:left !important;
+  color:#587084 !important;
+  max-width:760px;
+  margin-left:0 !important;
+  margin-right:0 !important;
 }
-.leadgen .lg-sub,
-.leadgen .lf-d{
-  color:var(--muted,#60646c) !important;
-}
-.leadgen .lf-t{
-  color:var(--darker,#1f1f1f) !important;
+.leadgen .lg-actions{
+  justify-content:flex-start !important;
+  text-align:left !important;
 }
 .leadgen .lg-features{
-  border-top-color:rgba(15,71,97,.12) !important;
+  text-align:left !important;
+  border-top-color:rgba(23,42,56,.12) !important;
 }
-.leadgen .lg-feat + .lg-feat{
-  border-left-color:rgba(15,71,97,.12) !important;
-}
+.leadgen .lg-feat{justify-content:flex-start !important;}
+.leadgen .lg-feat + .lg-feat{border-left-color:rgba(23,42,56,.10) !important;}
+.leadgen .lf-t{color:#18364c !important;}
+.leadgen .lf-d{color:#6a7d89 !important;}
 .leadgen .lf-ico{
   color:#0078D4 !important;
-  background:rgba(0,120,212,.075) !important;
-  border-color:rgba(0,120,212,.16) !important;
+  background:linear-gradient(145deg,rgba(0,120,212,.09),rgba(127,186,0,.055)) !important;
+  border-color:rgba(0,120,212,.18) !important;
 }
-.leadgen .lg-secondary{
-  color:#0F4761 !important;
-}
-.leadgen .lg-secondary:hover{
-  color:#0078D4 !important;
-}
+.leadgen .lg-secondary{color:#183f59 !important;}
+.leadgen .lg-secondary:hover{color:#0078D4 !important;}
 
 @media(max-width:760px){
-  .leadgen .lg-feat + .lg-feat{
-    border-left:0 !important;
-  }
-}
-
-@media(prefers-reduced-motion:reduce){
-  .phero-viz::after,
-  .hc-score::before,
-  .leadgen .lg-card::before{
-    transition:none !important;
-  }
+  .leadgen .lg-feat + .lg-feat{border-left:0 !important;}
 }
 </style>
 
@@ -447,7 +360,7 @@
     var score=Math.round(100-(checked*PER));
     document.getElementById('hcScore').textContent=score;
     document.getElementById('hcCount').textContent=checked+' of '+TOTAL+' risk signals selected';
-    if(prog){ prog.style.strokeDashoffset=(CIRC*(1-score/100)).toFixed(1); prog.style.stroke = checked===0?'#7FBA00':(checked<=2?'#FFB900':(checked<=4?'#E47B2B':'#F25022')); }
+    if(prog){ prog.style.strokeDashoffset=(CIRC*(1-score/100)).toFixed(1); prog.style.stroke = checked===0?'#22C55E':(checked<=2?'#D98A2B':(checked<=4?'#E47B2B':'#C6544F')); }
     var status=document.getElementById('hcStatus'), msg=document.getElementById('hcMessage');
     if(checked===0){ status.textContent='Healthy'; msg.textContent='No red flags selected yet. Tick the statements that match your reality to see where you really stand.'; }
     else if(checked<=2){ status.textContent='Minor Risk'; msg.textContent='A few warning signs. Worth a conversation before they compound.'; }
