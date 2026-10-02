@@ -16,7 +16,7 @@
 @keyframes hcPop   { from{ opacity:0; transform:translateY(8px) scale(.96); } to{ opacity:1; transform:none; } }
 @keyframes hcDraw  { to{ stroke-dashoffset:22.6; } }
 @keyframes hcSpark { to{ stroke-dashoffset:0; } }
-@keyframes rcPulse { 0%{ box-shadow:0 0 0 0 rgba(34,197,94,0.5);} 70%{ box-shadow:0 0 0 7px rgba(34,197,94,0);} 100%{ box-shadow:0 0 0 0 rgba(34,197,94,0);} }
+@keyframes rcPulse { 0%{ box-shadow:0 0 0 0 rgba(127,186,0,0.45);} 70%{ box-shadow:0 0 0 7px rgba(127,186,0,0);} 100%{ box-shadow:0 0 0 0 rgba(127,186,0,0);} }
 .rc-sub{ position:relative; z-index:2; margin-top:12px; font-family:'Oxanium',sans-serif; font-weight:700; color:#fff; font-size:20px; }
 .rc-sub b{ color:#E47B2B; }
 .rc-stage{ position:relative; z-index:2; margin-top:18px; display:flex; align-items:center; gap:22px; }
@@ -29,8 +29,8 @@
 .rc-gauge .rc-c .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:40px; color:#fff; line-height:1; }
 .rc-gauge .rc-c .k{ font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:rgba(255,255,255,0.5); margin-top:4px; text-transform:uppercase; }
 .rc-right{ flex:1; min-width:0; display:flex; flex-direction:column; gap:12px; }
-.rc-badge{ align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#22C55E; background:rgba(34,197,94,0.12); border:1px solid rgba(34,197,94,0.38); border-radius:999px; padding:6px 12px; }
-.rc-badge .rd{ width:7px; height:7px; border-radius:50%; background:#22C55E; box-shadow:0 0 0 0 rgba(34,197,94,0.5); animation:rcPulse 2s infinite; }
+.rc-badge{ align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#9ACD32; background:rgba(127,186,0,0.12); border:1px solid rgba(127,186,0,0.34); border-radius:999px; padding:6px 12px; }
+.rc-badge .rd{ width:7px; height:7px; border-radius:50%; background:#7FBA00; box-shadow:0 0 0 0 rgba(127,186,0,0.45); animation:rcPulse 2s infinite; }
 .rc-spark{ width:100%; height:46px; display:block; overflow:visible; }
 .rc-spark .area{ fill:url(#rcSpark); opacity:.55; }
 .rc-spark .line{ fill:none; stroke:#F4A45C; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:260; stroke-dashoffset:260; animation:hcSpark 1.5s ease .5s forwards; }
@@ -39,14 +39,80 @@
 .rc-kpi{ opacity:0; animation:hcPop .5s ease forwards; }
 .rc-kpi:nth-child(1){ animation-delay:1.0s; } .rc-kpi:nth-child(2){ animation-delay:1.15s; } .rc-kpi:nth-child(3){ animation-delay:1.3s; }
 .rc-kpi .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:22px; color:#E47B2B; }
-.rc-kpi:nth-child(2) .v, .rc-kpi:nth-child(3) .v{ color:#fff; }
+.rc-kpi:nth-child(2) .v{ color:#FFB900; } .rc-kpi:nth-child(3) .v{ color:#00A4EF; }
 .rc-kpi .l{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
 .rc-chips{ position:relative; z-index:2; margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
 .rc-chip{ display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.78); border:1px solid rgba(255,255,255,0.14); border-radius:999px; padding:6px 11px; opacity:0; animation:hcPop .5s ease forwards; }
-.rc-chip svg{ color:#22C55E; flex-shrink:0; }
+.rc-chip svg{ color:#7FBA00; flex-shrink:0; }
 .rc-chip:nth-child(1){ animation-delay:1.45s; } .rc-chip:nth-child(2){ animation-delay:1.6s; }
 @media (prefers-reduced-motion: reduce){ .rc-kpi,.rc-chip{ opacity:1 !important; animation:none !important; } .rc-gauge .rc-prog{ stroke-dashoffset:22.6 !important; animation:none !important; } .rc-spark .line{ stroke-dashoffset:0 !important; animation:none !important; } .rc-spark .tip{ opacity:1 !important; animation:none !important; } }
 </style>
+
+<style id="solution-brand-consistency">
+:root{--ms-blue:#00A4EF;--ms-green:#7FBA00;--ms-yellow:#FFB900;--ms-red:#F25022;}
+
+/* Hero: subtle Microsoft ecosystem cues without displacing DataInvent orange. */
+.phero-viz::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(0,164,239,.07),transparent 35%,rgba(127,186,0,.045) 72%,rgba(255,185,0,.035));
+  mix-blend-mode:screen;
+}
+.rc-spark .line{stroke:#00A4EF;}
+.rc-spark .tip{fill:#fff;stroke:#7FBA00;}
+
+/* Capabilities: small supporting colour cues only. */
+.caps-grid .cap-card:nth-child(1) .cc-ico,
+.caps-grid .cap-card:nth-child(4) .cc-ico{color:#0078D4;background:rgba(0,120,212,.07);border-color:rgba(0,120,212,.15);}
+.caps-grid .cap-card:nth-child(2) .cc-ico,
+.caps-grid .cap-card:nth-child(5) .cc-ico{color:#5C8F00;background:rgba(127,186,0,.07);border-color:rgba(127,186,0,.17);}
+.caps-grid .cap-card:nth-child(3) .cc-ico{color:#C98A00;background:rgba(255,185,0,.08);border-color:rgba(255,185,0,.18);}
+.caps-grid .cap-card:nth-child(6) .cc-ico{color:var(--brand-orange,#E47B2B);}
+
+/* Solution lead-gen: approved layout family, slightly different palette from problem page. */
+.leadgen{
+  position:relative;overflow:hidden;
+  background:linear-gradient(128deg,#d8e7ef 0%,#e6e7e2 50%,#dde8e1 100%) !important;
+  color:#172a38;
+}
+.leadgen .lg-orb,.leadgen .cursor-glow{display:none !important;}
+.leadgen .lg-card{
+  position:relative;text-align:left !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.98),rgba(249,252,251,.98) 58%,rgba(245,249,247,.98)) !important;
+  border:1px solid rgba(255,255,255,.78) !important;
+  box-shadow:0 28px 72px rgba(23,54,74,.16),0 8px 24px rgba(23,54,74,.09) !important;
+  color:#172a38 !important;
+}
+.leadgen .lg-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(116deg,rgba(0,164,239,.045),transparent 34%,rgba(127,186,0,.035) 72%,rgba(255,185,0,.025));
+}
+.leadgen .lg-card>*{position:relative;z-index:1;}
+.leadgen .lg-glow{display:none !important;}
+.leadgen .lg-eyebrow,.leadgen h2,.leadgen .lg-sub{text-align:left !important;margin-left:0 !important;margin-right:0 !important;}
+.leadgen .lg-eyebrow{color:var(--brand-orange,#E47B2B) !important;}
+.leadgen h2{color:#172a38 !important;max-width:900px;}
+.leadgen h2 .hl{color:var(--brand-orange,#E47B2B) !important;}
+.leadgen .lg-sub{color:#587084 !important;max-width:760px;}
+.leadgen .lg-actions{justify-content:flex-start !important;text-align:left !important;}
+.leadgen .lg-secondary{color:#183f59 !important;}
+.leadgen .lg-secondary:hover{color:#0078D4 !important;}
+.leadgen .lg-features{
+  display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:start !important;text-align:left !important;border-top-color:rgba(23,42,56,.12) !important;
+}
+.leadgen .lg-feat{display:flex !important;align-items:center !important;justify-content:center !important;gap:14px !important;min-width:0;}
+.leadgen .lg-feat + .lg-feat{border-left-color:rgba(23,42,56,.10) !important;}
+.leadgen .lf-t{color:#18364c !important;}
+.leadgen .lf-d{color:#6a7d89 !important;}
+.leadgen .lf-ico{
+  width:42px !important;height:42px !important;min-width:42px !important;flex:0 0 42px !important;padding:0 !important;
+  border-radius:50% !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;
+  color:#0078D4 !important;background:linear-gradient(145deg,rgba(0,120,212,.09),rgba(127,186,0,.055)) !important;border-color:rgba(0,120,212,.18) !important;
+}
+.leadgen .lf-ico svg{display:block;}.leadgen .lf-txt{min-width:0;}
+@media(max-width:760px){.leadgen .lg-features{grid-template-columns:1fr !important;}.leadgen .lg-feat{justify-content:flex-start !important;}.leadgen .lg-feat + .lg-feat{border-left:0 !important;}}
+</style>
+
 </head>
 <body>
 <div id="site-header"></div>
@@ -59,7 +125,7 @@
       <h1>Modernize Finance Operations with Real-Time Clarity &amp; Control</h1>
       <p class="sub">Transform financial reporting, close cycles, and forecasting into a strategic advantage — powered by Microsoft Dynamics 365 Business Central, Power BI, and Copilot.</p>
       <div class="acts">
-        <a class="btn btn-primary magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+        <a class="btn btn-primary" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
         <a class="btn btn-outline-dark" href="finance-visibility-reporting-gaps.html">Explore Related Challenges</a>
       </div>
     </div>
@@ -76,10 +142,10 @@
           <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
             <defs>
               <linearGradient id="rcGrad" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#F4A45C"/><stop offset="1" stop-color="#E47B2B"/>
+                <stop offset="0" stop-color="#00A4EF"/><stop offset="0.46" stop-color="#7FBA00"/><stop offset="1" stop-color="#E47B2B"/>
               </linearGradient>
               <linearGradient id="rcSpark" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#E47B2B" stop-opacity="0.35"/><stop offset="1" stop-color="#E47B2B" stop-opacity="0"/>
+                <stop offset="0" stop-color="#00A4EF" stop-opacity="0.28"/><stop offset="0.55" stop-color="#7FBA00" stop-opacity="0.12"/><stop offset="1" stop-color="#E47B2B" stop-opacity="0"/>
               </linearGradient>
             </defs>
             <circle class="rc-track" cx="75" cy="75" r="60"></circle>
@@ -349,7 +415,7 @@
       <h2>Ready to Modernize <span class="hl">Finance Operations</span>?</h2>
       <p class="lg-sub">See what Microsoft-powered finance transformation looks like for your business — with clarity on outcomes, timeline, and investment.</p>
       <div class="lg-actions">
-        <a class="btn btn-primary magnetic" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+        <a class="btn btn-primary" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
         <a class="lg-secondary" href="book-a-demo.html">Talk to a Specialist <span class="arrow">→</span></a>
       </div>
       <div class="lg-features">
