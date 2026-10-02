@@ -13,9 +13,19 @@
 <link rel="stylesheet" href="css/styles.css">
 
 <style id="demo-select-arrow-spacing">
-/* Keep native select arrows comfortably inset from the right edge. */
+/* Replace the browser-native arrow so its inset is consistent across browsers. */
 .demo-form select.field-input{
-  padding-right:46px !important;
+  -webkit-appearance:none !important;
+  appearance:none !important;
+  padding-right:52px !important;
+  background-color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%232b2b2b' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m7 10 5 5 5-5'/%3E%3C/svg%3E") !important;
+  background-repeat:no-repeat !important;
+  background-position:right 18px center !important;
+  background-size:14px 14px !important;
+}
+.demo-form select.field-input::-ms-expand{
+  display:none;
 }
 </style>
 </head>
