@@ -1856,3 +1856,49 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .hiring-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:54px;align-items:stretch}.hiring-step{display:flex;flex-direction:column;min-width:0}.hiring-line{height:18px;border-top:1px solid rgba(104,212,207,.30);position:relative}.hiring-line span{position:absolute;left:0;top:-5px;width:10px;height:10px;border-radius:50%;background:#68d4cf;box-shadow:0 0 0 4px rgba(104,212,207,.08)}
 .hiring-card{flex:1;min-height:260px;padding:24px 22px;border:1px solid rgba(130,197,211,.28);border-radius:var(--radius-lg);background:rgba(9,32,46,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.035);transition:transform .25s var(--ease),border-color .25s var(--ease),background .25s var(--ease)}.hiring-card:hover{transform:translateY(-4px);border-color:rgba(104,212,207,.65);background:rgba(9,32,46,.48)}.hiring-no{font:700 10px/1.3 'JetBrains Mono';letter-spacing:.12em;color:#68d4cf}.hiring-card h3{color:#fff;font-size:17px;line-height:1.25;margin-top:20px}.hiring-card p{color:rgba(255,255,255,.64);font-size:13px;line-height:1.62;margin-top:16px}
 @media(max-width:1050px){.hiring-steps{grid-template-columns:repeat(3,1fr)}.hiring-step:nth-child(n+4){margin-top:14px}}@media(max-width:700px){.hiring-steps{grid-template-columns:1fr}.hiring-step:nth-child(n){margin-top:0}.hiring-card{min-height:0}.hiring-line{height:12px}.internship-cta .btn{width:100%;justify-content:center}}
+
+
+/* ============================================================================
+   L7c. CAREERS - INTERNSHIP LAYOUT FIX + GREY HIRING THEME
+   Targeted overrides only. No HTML or other Careers sections changed.
+   ============================================================================ */
+/* Internships: equal-height columns and readable three-stage path. */
+.careers-internships .internship-grid{align-items:stretch}
+.careers-internships .internship-art{height:auto;min-height:620px;align-self:stretch}
+.careers-internships .internship-copy{display:flex;flex-direction:column;min-height:620px}
+.careers-internships .programs{flex:0 0 auto}
+.careers-internships .internship-cta{margin-top:30px}
+.careers-internships .student-path{left:58px;right:42px;top:76px;bottom:76px}
+.careers-internships .student-point:nth-child(1){top:2%}
+.careers-internships .student-point:nth-child(3){top:50%;transform:translateY(-50%)}
+.careers-internships .student-point:nth-child(5){bottom:2%}
+.careers-internships .student-label{left:44px;width:min(300px,calc(100% - 68px));padding:0;white-space:normal}
+.careers-internships .student-label:nth-of-type(2){top:0}
+.careers-internships .student-label:nth-of-type(4){top:50%;transform:translateY(-50%)}
+.careers-internships .student-label:nth-of-type(6){top:auto;bottom:0}
+.careers-internships .student-label small{display:block;line-height:1.35}
+.careers-internships .student-label b{display:block;max-width:280px;font-size:18px;line-height:1.25;margin-top:7px}
+
+/* Hiring process: DataInvent neutral-grey system with orange brand accents. */
+.careers-hiring{background:linear-gradient(135deg,#f5f5f5 0%,#ececeb 52%,#e5e5e3 100%);color:var(--dark)}
+.careers-hiring::before{background-image:linear-gradient(rgba(31,31,31,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(31,31,31,.035) 1px,transparent 1px);background-size:54px 54px}
+.careers-hiring .careers-kicker{color:var(--brand-orange)}
+.careers-hiring .careers-sectionhead h2{color:var(--darker)}
+.careers-hiring .careers-sectionhead>p{color:var(--dark)}
+.careers-hiring .hiring-line{border-top-color:rgba(74,74,74,.22)}
+.careers-hiring .hiring-line span{background:var(--brand-orange);box-shadow:0 0 0 4px rgba(228,123,43,.11)}
+.careers-hiring .hiring-card{border-color:#d2d2d0;background:rgba(255,255,255,.62);box-shadow:0 10px 28px rgba(31,31,31,.055),inset 0 1px 0 rgba(255,255,255,.85)}
+.careers-hiring .hiring-card:hover{border-color:rgba(228,123,43,.52);background:#fff;box-shadow:0 18px 38px rgba(31,31,31,.085)}
+.careers-hiring .hiring-no{color:var(--brand-orange)}
+.careers-hiring .hiring-card h3{color:var(--darker)}
+.careers-hiring .hiring-card p{color:#666}
+@media(max-width:960px){
+  .careers-internships .internship-art,.careers-internships .internship-copy{min-height:560px}
+}
+@media(max-width:640px){
+  .careers-internships .internship-art,.careers-internships .internship-copy{min-height:0}
+  .careers-internships .internship-art{height:500px}
+  .careers-internships .student-path{left:48px;right:26px;top:62px;bottom:62px}
+  .careers-internships .student-label{left:36px;width:calc(100% - 54px)}
+  .careers-internships .student-label b{font-size:16px;max-width:230px}
+}
