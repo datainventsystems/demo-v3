@@ -1619,3 +1619,55 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 @media(max-width:960px){.about-hero .phero-grid,.about-chair-grid{grid-template-columns:1fr}.about-expertgrid{grid-template-columns:repeat(3,1fr)}.about-quotecard{grid-template-columns:1fr;gap:30px;padding:34px}.about-badges{grid-template-columns:repeat(5,1fr);gap:8px}.about-shield{width:88px;height:130px}.about-places{grid-template-columns:repeat(2,1fr)}.about-place:last-child{grid-column:1/-1}.about-journey-canvas{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:50px}.about-journey-path,.about-journey-center{display:none}.about-milestone{position:relative;inset:auto!important;width:auto}.about-milestone::before{display:none}}
 @media(max-width:620px){.about-mv,.about-expertgrid,.about-partners,.about-designations,.about-places{grid-template-columns:1fr}.about-badges{grid-template-columns:repeat(2,1fr)}.about-person:nth-child(even){margin-top:0}.about-place:last-child{grid-column:auto}.about-journey-canvas{grid-template-columns:1fr}.about-art{height:330px}.about-art .b1{width:220px;height:220px;right:25px}.about-art .b2{width:190px;height:190px;left:5px}.about-art .b3{width:110px;height:110px;left:130px}.about-art .r1{width:280px;height:145px;left:0}.about-art .r2{width:230px;height:115px;left:45px}.about-chair-photo{height:390px}.about-tier-label{display:block}.about-tier-label small{display:block;margin-top:6px}}
 @media(prefers-reduced-motion:reduce){.about-track,.about-person,.about-place{transition:none!important}}
+
+/* ============================================================================
+   ABOUT PAGE REVIEW 02 — CHAIRMAN + 6-MILESTONE JOURNEY
+   Appended only. Existing shared design system above remains unchanged.
+   ============================================================================ */
+/* Chairman: two-column Row 1, purpose cards move to their own Row 2. */
+.about-chair .about-chair-grid{display:block;margin-top:0}
+.about-chair-row{display:grid;grid-template-columns:.82fr 1.18fr;gap:76px;align-items:stretch}
+.about-chair-media{display:flex;flex-direction:column;min-width:0}
+.about-chair-photo{height:500px;border-style:solid;background:#e9e6e0}
+.about-chair-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-chair-photo::after{display:none}
+.about-chair-row .about-signature{margin-top:20px;padding-top:20px}
+.about-chair-row .about-signature .sigmark{width:54px;height:54px}
+.about-chair-row .about-signature b{font-size:18px}
+.about-chair-copy{padding-top:4px}
+.about-chair-copy h2{font-size:clamp(32px,3.7vw,48px);line-height:1.08;margin:12px 0 24px}
+.about-chair-copy .chairquote{font-size:17px;line-height:1.72;padding-left:22px;margin-bottom:22px}
+.about-chair-copy>p:not(.eyebrow){font-size:15px;line-height:1.75;margin-bottom:18px}
+.about-purpose-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:58px}
+.about-purpose-card{position:relative;display:grid;grid-template-columns:48px 1fr;gap:18px;min-height:230px;padding:30px;border:1px solid #e6e6e6;border-radius:var(--radius-lg);background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.055);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.about-purpose-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--brand-orange)}
+.about-purpose-card.vision::before{background:var(--ms-blue)}
+.about-purpose-card.values::before{background:var(--ms-green)}
+.about-purpose-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.08);border-color:rgba(228,123,43,.32)}
+.about-purpose-card .purpose-icon{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--brand-orange-soft);color:var(--brand-orange);font-family:'JetBrains Mono';font-size:10px;font-weight:700}
+.about-purpose-card.vision .purpose-icon{background:rgba(0,164,239,.10);color:#0078D4}
+.about-purpose-card.values .purpose-icon{background:rgba(127,186,0,.11);color:#618700}
+.about-purpose-card .purpose-label{font-family:'JetBrains Mono';font-size:10px;line-height:1.3;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-orange);font-weight:700}
+.about-purpose-card.vision .purpose-label{color:#0078D4}
+.about-purpose-card.values .purpose-label{color:#618700}
+.about-purpose-card h3{font-size:19px;color:var(--darker);margin-top:9px;line-height:1.25}
+.about-purpose-card p:last-child{font-size:14px;line-height:1.62;color:var(--dark);margin-top:10px}
+
+/* Journey: replace the four-node constellation with six scalable milestone cards. */
+.about-journey .about-journey-canvas{display:none}
+.about-timeline{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:50px}
+.about-timeline::before{content:"";position:absolute;left:6%;right:6%;top:49px;border-top:2px solid rgba(228,123,43,.24);pointer-events:none}
+.about-year-card{position:relative;z-index:1;min-height:342px;padding:28px 27px 30px;border:1px solid #e2dfda;border-radius:var(--radius-lg);background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.055);overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.about-year-card:nth-child(n+4){margin-top:22px}
+.about-year-card:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(0,0,0,.08);border-color:rgba(228,123,43,.48)}
+.about-year-card::after{content:"";position:absolute;width:110px;height:110px;right:-54px;bottom:-54px;border:18px solid rgba(228,123,43,.055);border-radius:50%;pointer-events:none}
+.about-year-card .year{font-family:'Oxanium';font-size:42px;font-weight:700;line-height:1;color:var(--darker);letter-spacing:-.035em}
+.about-year-card .year-dot{position:absolute;right:28px;top:40px;width:14px;height:14px;border-radius:50%;background:var(--brand-orange);box-shadow:0 0 0 7px rgba(228,123,43,.12)}
+.about-year-card:nth-child(2) .year-dot,.about-year-card:nth-child(5) .year-dot{background:var(--ms-blue);box-shadow:0 0 0 7px rgba(0,164,239,.10)}
+.about-year-card:nth-child(3) .year-dot,.about-year-card:nth-child(6) .year-dot{background:var(--ms-green);box-shadow:0 0 0 7px rgba(127,186,0,.10)}
+.about-year-card .year-copy{margin-top:24px}
+.about-year-card .year-label{font-family:'JetBrains Mono';font-size:10px;line-height:1.45;letter-spacing:.13em;text-transform:uppercase;color:var(--brand-orange);font-weight:700;min-height:30px}
+.about-year-card h3{font-size:19px;color:var(--darker);margin-top:9px;line-height:1.25}
+.about-year-card .year-copy>p:last-child{font-size:13.5px;line-height:1.62;color:var(--dark);margin-top:11px}
+@media(max-width:960px){.about-chair-row{grid-template-columns:1fr;gap:38px}.about-chair-photo{height:440px}.about-purpose-row,.about-timeline{grid-template-columns:1fr 1fr}.about-timeline::before{display:none}.about-year-card:nth-child(n+4){margin-top:0}}
+@media(max-width:620px){.about-chair-photo{height:360px}.about-purpose-row,.about-timeline{grid-template-columns:1fr}.about-purpose-card,.about-year-card{min-height:0}}
