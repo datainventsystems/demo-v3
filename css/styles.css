@@ -1937,3 +1937,34 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .careers-faq .faq-native-icon::before{width:14px;height:2px}
 .careers-faq .faq-native-icon::after{width:2px;height:14px}
 .careers-faq details.faq-item[open] .faq-native-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(90deg)}
+
+
+/* ============================================================================
+   L7g. CAREERS FAQ - ICON ALIGNMENT FIX ONLY
+   Keep the native accordion behavior unchanged; lock plus/minus geometry.
+   ============================================================================ */
+.careers-faq .faq-q .faq-native-icon{
+  position:relative;
+  width:20px;
+  height:20px;
+  flex:0 0 20px;
+  font-size:0;
+  line-height:0;
+  transform:none!important;
+}
+.careers-faq .faq-q .faq-native-icon::before,
+.careers-faq .faq-q .faq-native-icon::after{
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%)!important;
+  transform-origin:center;
+}
+.careers-faq .faq-q .faq-native-icon::before{width:14px;height:2px}
+.careers-faq .faq-q .faq-native-icon::after{width:2px;height:14px}
+.careers-faq details.faq-item[open] .faq-q .faq-native-icon::before{
+  transform:translate(-50%,-50%)!important;
+}
+.careers-faq details.faq-item[open] .faq-q .faq-native-icon::after{
+  opacity:0;
+  transform:translate(-50%,-50%)!important;
+}
