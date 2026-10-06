@@ -1921,3 +1921,19 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .careers-hero .ps2{left:28%;bottom:33%}
 .careers-hero .ps2 .path-label{left:-58px;top:auto;bottom:42px}
 @media(max-width:640px){.careers-hero .ps2{left:28%;bottom:33%}}
+
+
+/* ============================================================================
+   L7f. CAREERS FAQ - NATIVE DETAILS ACCORDION ONLY
+   Uses browser-native disclosure behavior so FAQ interaction has no JS dependency.
+   ============================================================================ */
+.careers-faq details.faq-item{display:block}
+.careers-faq details.faq-item>summary{list-style:none}
+.careers-faq details.faq-item>summary::-webkit-details-marker{display:none}
+.careers-faq details.faq-item .faq-a{max-height:0;padding:0 50px 0 0;overflow:hidden}
+.careers-faq details.faq-item[open] .faq-a{max-height:220px;padding-bottom:22px}
+.careers-faq .faq-native-icon{position:relative;width:20px;height:20px;flex:0 0 20px}
+.careers-faq .faq-native-icon::before,.careers-faq .faq-native-icon::after{content:"";position:absolute;left:50%;top:50%;background:var(--brand-orange);border-radius:2px;transform:translate(-50%,-50%);transition:opacity .2s var(--ease),transform .2s var(--ease)}
+.careers-faq .faq-native-icon::before{width:14px;height:2px}
+.careers-faq .faq-native-icon::after{width:2px;height:14px}
+.careers-faq details.faq-item[open] .faq-native-icon::after{opacity:0;transform:translate(-50%,-50%) rotate(90deg)}
