@@ -2068,3 +2068,6 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .bc-ecosystem-image-slot{min-height:500px}
 .bc-ecosystem-image-slot img{max-height:540px}
 @media(max-width:980px){.bc-hero-image-slot,.bc-ecosystem-image-slot{min-height:0}.bc-hero-image-slot img,.bc-ecosystem-image-slot img{max-height:none}}
+
+/* L8f. Business Central SVG infographic replacements only */
+.bc-svg-visual{width:100%;display:flex;align-items:center;justify-content:center}.bc-svg-visual svg{display:block;width:100%;height:auto;overflow:visible}.bc-hero-svg{min-height:410px}.bc-hero-svg svg{max-width:562px}.bc-ecosystem-svg{min-height:500px}.bc-ecosystem-svg svg{max-width:640px;filter:drop-shadow(0 22px 38px rgba(37,54,67,.08))}@media(max-width:980px){.bc-hero-svg,.bc-ecosystem-svg{min-height:0}}
