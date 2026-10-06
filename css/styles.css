@@ -2043,3 +2043,16 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .bc-why-lines p{font-size:13.5px;line-height:1.62;color:#666d73;margin-top:7px;max-width:560px}
 @media(max-width:980px){#capabilities .bc-caps,.bc-why-proof{grid-template-columns:1fr}#capabilities .bc-tabs{display:grid;grid-template-columns:1fr 1fr}#capabilities .bc-tab{min-width:0}.bc-why-anchor{min-height:350px}}
 @media(max-width:640px){#capabilities .bc-tabs{grid-template-columns:1fr}#capabilities .bc-tab .bc-tab-label{white-space:normal}#capabilities .bc-panel{padding:30px 22px}.bc-why-anchor{padding:30px;min-height:0}.bc-why-anchor-mark{margin-bottom:30px}.bc-why-anchor h3{font-size:23px}}
+
+/* ============================================================================
+   L8d. BUSINESS CENTRAL - FINAL SECTION RHYTHM + CAPABILITY PLACEHOLDER REMOVAL
+   HTML removes temporary capability workspace visuals until real screenshots exist.
+   Background sequence: Packages dark -> Why warm-neutral -> Stories white -> FAQ grey.
+   ============================================================================ */
+.bc-why-section{background:linear-gradient(180deg,#faf7f2 0%,#f6f2ec 100%)}
+.bc-why-section .bc-why-lines{border-top-color:#d9d3ca}
+.bc-why-section .bc-why-lines article{border-bottom-color:#d9d3ca}
+.bc-cases{background:#fff}
+.bc-careers-faq{background:#f5f4f1}
+#capabilities .bc-panel{min-height:300px}
+#capabilities .bc-features{margin-bottom:0}
