@@ -2200,3 +2200,14 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 #solutions.mfg-solutions-showcase.section-alt{background:var(--section-alt)!important}
 #delivery.mfg-delivery-white{background:#fff!important}
 #faq.mfg-faq.section-alt{background:var(--section-alt)!important}
+
+
+/* ============================================================================
+   L9f. MANUFACTURING - PROOF NAV ORDER + HOMEPAGE QUEUE MATCH ONLY
+   ============================================================================ */
+.mfg-proof-stories .story-queue{padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;gap:14px!important}
+.mfg-proof-stories .story-queue .q-lab{padding:0!important;color:#aaa!important}
+.mfg-proof-stories #mfgStoryQueue{flex:1 1 auto;display:flex;flex-direction:column;gap:14px!important}
+.mfg-proof-stories #mfgStoryQueue .q-card{flex:1 1 0;min-height:0;padding:20px!important;background:#fafbfc!important;border:1px solid #e6eaee!important;border-radius:var(--radius-md)!important;display:flex;gap:14px;align-items:center}
+.mfg-proof-stories #mfgStoryQueue .q-card:hover{background:#fff!important;border-color:var(--brand-orange)!important;transform:translateX(4px);box-shadow:0 10px 26px rgba(0,0,0,.05)}
+@media(max-width:900px){.mfg-proof-stories .story-queue{height:auto;margin-top:6px}.mfg-proof-stories #mfgStoryQueue{flex:0 0 auto}.mfg-proof-stories #mfgStoryQueue .q-card{flex:0 0 auto;align-items:flex-start}}
