@@ -219,11 +219,11 @@
   <div class="wrap phero-grid">
     <div class="reveal">
       <div class="tag"><span class="dot"></span> BUSINESS CHALLENGE · 01</div>
-      <h1>When reporting takes too long, leadership decisions slow down.</h1>
+      <h1>When reporting takes too long, leadership decisions slow down</h1>
       <p class="sub">Finance leaders don't lack data — they lack timely, confident visibility across it. Manual reporting, disconnected finance systems, and reconciliation delays stall the decisions that matter.</p>
       <div class="acts">
-        <a class="btn btn-primary" href="finance-erp.html">Explore the Solution <span class="arrow">→</span></a>
-        <a class="btn btn-outline-dark" href="#health">Take the Health Check</a>
+        <a class="btn btn-primary" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+        <a class="btn btn-outline-dark" href="finance-erp.html">Explore the Solution</a>
       </div>
     </div>
     <!-- HERO VIZ — "Cost of Delay" bar monitor (UNIQUE to Problem page) -->
@@ -365,37 +365,7 @@
   </div>
 </section>
 <!-- SECTION 5 — FAQ / OBJECTION HANDLING -->
-<section class="faq pad">
-  <div class="wrap">
-    <div class="sec-head reveal-up">
-      <p class="eyebrow">Objection Handling</p>
-      <h2>Questions we hear most</h2>
-      <p>Answering objections before the demo removes friction that silently kills conversion.</p>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item open reveal">
-        <div class="faq-q"><h4>We migrated systems recently — is this even our problem?</h4><span class="faq-ico"></span></div>
-        <div class="faq-a"><div class="faq-a-inner">Usually the gap isn't the platform, it's disconnected configuration and manual workarounds layered on top after go-live. A quick diagnostic shows whether the issue is the system itself or how it's wired together.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q"><h4>How disruptive is this during month-end close?</h4><span class="faq-ico"></span></div>
-        <div class="faq-a"><div class="faq-a-inner">We deliberately phase work around your close calendar — discovery and design happen in parallel, and cut-over is scheduled for a low-risk window. Most clients see no disruption to an active close.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q"><h4>We already have Power BI — why isn't this solved?</h4><span class="faq-ico"></span></div>
-        <div class="faq-a"><div class="faq-a-inner">Power BI visualises whatever it's fed. If the underlying data is fragmented or ungoverned, the dashboards inherit that mess. We fix the source of truth first, so BI finally becomes trustworthy.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q"><h4>How long before we see measurable value?</h4><span class="faq-ico"></span></div>
-        <div class="faq-a"><div class="faq-a-inner">Most finance engagements reach a first measurable milestone (a faster close or a governed reporting layer) within the first few weeks — not quarters. We scope for early, provable wins.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q"><h4>Do we need to replace everything at once?</h4><span class="faq-ico"></span></div>
-        <div class="faq-a"><div class="faq-a-inner">No. We route to the smallest change that resolves the root cause — often integration or a governed data layer before any core replacement. You modernise in the order that de-risks the business.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="mfg-section section-alt mfg-faq finance-standard-faq" id="faq"><div class="wrap mfg-faq-layout"><div class="mfg-faq-side"><p class="eyebrow">Objection Handling</p><h2>Questions we hear most</h2><p>Answering objections before the demo removes friction that silently kills conversion.</p></div><div class="faq-list mfg-faq-list"><details class="faq-item" open><summary class="faq-q"><span>We migrated systems recently — is this even our problem?</span><span class="faq-native-icon" aria-hidden="true"></span></summary><div class="faq-a">Usually the gap isn't the platform, it's disconnected configuration and manual workarounds layered on top after go-live. A quick diagnostic shows whether the issue is the system itself or how it's wired together.</div></details><details class="faq-item"><summary class="faq-q"><span>How disruptive is this during month-end close?</span><span class="faq-native-icon" aria-hidden="true"></span></summary><div class="faq-a">We deliberately phase work around your close calendar — discovery and design happen in parallel, and cut-over is scheduled for a low-risk window. Most clients see no disruption to an active close.</div></details><details class="faq-item"><summary class="faq-q"><span>We already have Power BI — why isn't this solved?</span><span class="faq-native-icon" aria-hidden="true"></span></summary><div class="faq-a">Power BI visualises whatever it's fed. If the underlying data is fragmented or ungoverned, the dashboards inherit that mess. We fix the source of truth first, so BI finally becomes trustworthy.</div></details><details class="faq-item"><summary class="faq-q"><span>How long before we see measurable value?</span><span class="faq-native-icon" aria-hidden="true"></span></summary><div class="faq-a">Most finance engagements reach a first measurable milestone (a faster close or a governed reporting layer) within the first few weeks — not quarters. We scope for early, provable wins.</div></details><details class="faq-item"><summary class="faq-q"><span>Do we need to replace everything at once?</span><span class="faq-native-icon" aria-hidden="true"></span></summary><div class="faq-a">No. We route to the smallest change that resolves the root cause — often integration or a governed data layer before any core replacement. You modernise in the order that de-risks the business.</div></details></div></div></section>
 <!-- SECTION 6 — LEAD-GEN -->
 <section class="leadgen pad glow-host">
   <div class="lg-orb o1"></div><div class="lg-orb o2"></div><div class="lg-orb o3"></div>
@@ -463,5 +433,7 @@
     else { status.textContent='Critical'; msg.textContent='Serious visibility gaps. A diagnostic will map the fastest path to clarity.'; }
   }
 </script>
+
+<script id="financeFaqSingleOpen">(function(){var items=document.querySelectorAll('.finance-standard-faq details.faq-item');items.forEach(function(item){item.addEventListener('toggle',function(){if(!item.open)return;items.forEach(function(other){if(other!==item)other.open=false})})})})();</script>
 </body>
 </html>
