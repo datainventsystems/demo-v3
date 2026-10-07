@@ -2118,3 +2118,30 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .mfg-leadgen{background:linear-gradient(128deg,#dceaf1 0%,#ebe9e2 52%,#dfe8dc 100%)}
 @media(max-width:980px){.mfg-process-track{grid-template-columns:repeat(2,1fr)}.mfg-process-track::before{display:none}}
 @media(max-width:640px){.mfg-hero-visual{padding:26px 18px}.mfg-visual-head small{display:none}.mfg-plant-core{width:80%}.mfg-process-track{grid-template-columns:1fr 1fr}.mfg-local-links{display:flex;overflow:auto;width:100%}.mfg-local-title{display:none}.mfg-local-links a{white-space:nowrap;padding:18px 0 16px}.mfg-proof-stories .story-feature{padding:30px 24px}.mfg-solutions-showcase .showcase{margin-top:38px}}
+
+
+/* ============================================================================
+   L9c. MANUFACTURING - NAV / PROOF / SECTION RHYTHM / CTA CONSISTENCY
+   Targeted review only. Hero, challenges, delivery content and FAQ content stay unchanged.
+   ============================================================================ */
+/* Secondary nav: fixed beneath the 74px global fixed nav while on the page. */
+.mfg-local-nav{position:fixed!important;top:var(--nav-h)!important;left:0;right:0;width:100%;z-index:95;transform:translateY(-110%);opacity:0;pointer-events:none;transition:transform .24s var(--ease),opacity .2s ease}
+.mfg-local-nav.is-fixed{transform:translateY(0);opacity:1;pointer-events:auto}
+.mfg-local-nav+.mfg-section{scroll-margin-top:calc(var(--nav-h) + 62px)}
+.mfg-page section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
+/* Proof: warm neutral band and clearer queue surface. */
+.mfg-proof-stories.mfg-proof-soft{background:linear-gradient(180deg,#faf7f2 0%,#f5f1eb 100%)}
+.mfg-proof-stories .story-queue{padding:18px;border:1px solid #e2ddd5;border-radius:18px;background:#ece8e1;gap:16px}
+.mfg-proof-stories .story-queue .q-lab{padding:2px 4px 0;color:#77726b}
+.mfg-proof-stories #mfgStoryQueue{gap:16px}
+.mfg-proof-stories .q-card{background:#fff;border-color:#dcd7cf;padding:22px}
+.mfg-proof-stories .q-card:hover{background:#fff;border-color:var(--brand-orange)}
+/* Solutions remain clean white, creating contrast from proof and delivery. */
+.mfg-solutions-showcase{background:#fff!important}
+/* Delivery becomes white; FAQ retains the established light-grey treatment. */
+.mfg-delivery-white{background:#fff}
+.mfg-faq{background:#f5f4f1!important}
+/* Lead generation uses the same secondary CTA wording and quiet text treatment as homepage. */
+.mfg-leadgen .lg-secondary{padding:0 4px;border:0;background:none;box-shadow:none;color:#183f59}
+.mfg-leadgen .lg-secondary:hover{border:0;background:none;box-shadow:none;color:var(--brand-orange)}
+@media(max-width:640px){.mfg-local-nav{top:var(--nav-h)!important}.mfg-proof-stories .story-queue{padding:14px}}
