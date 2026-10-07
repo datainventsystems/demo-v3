@@ -2249,3 +2249,41 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .cc-cap-stage{margin-top:15px}
 .cc-module-grid{width:100%}
 @media(max-width:680px){.cc-cap-toolbar{align-items:flex-start;flex-direction:column}.cc-total-modules{order:-1}.cc-cap-toolbar .cc-cap-tabs{width:100%}}
+
+
+/* ============================================================================
+   L10d. CONSTRUCTION CLOUD - CAPABILITIES / MOBILE IMAGE / HOW IT WORKS / PRICING
+   ============================================================================ */
+/* Capabilities: full-width editorial list instead of a left-heavy card grid. */
+#how .cc-head{max-width:760px}
+#how .cc-cap-toolbar{margin-top:0;padding-bottom:18px;border-bottom:1px solid #ddd8d1}
+#how .cc-cap-stage{margin-top:0}
+#how .cc-cap-panel.active{display:block}
+#how .cc-module-list{display:grid;grid-template-columns:1fr 1fr;width:100%}
+#how .cc-module{min-height:0;display:grid;grid-template-columns:52px 1fr;gap:18px;padding:25px 22px;border:0;border-bottom:1px solid #ddd8d1;border-radius:0;background:transparent;box-shadow:none}
+#how .cc-module:nth-child(odd){border-right:1px solid #ddd8d1}
+#how .cc-module:hover{transform:none;border-color:#ddd8d1;background:rgba(255,255,255,.52);box-shadow:none}
+#how .cc-module-icon{border-radius:50%;background:#fff;border:1px solid rgba(228,123,43,.3)}
+#how .cc-module h3{font-size:17px}
+#how .cc-module p{max-width:430px}
+/* Mobile: design-ready PNG slot. */
+.cc-mobile-image{min-height:610px;display:flex;align-items:center;justify-content:center;position:relative}
+.cc-mobile-image::after{content:"";position:absolute;width:86%;height:76px;left:7%;bottom:30px;background:radial-gradient(ellipse,rgba(21,35,46,.18),transparent 68%);filter:blur(7px);z-index:0}
+.cc-mobile-image img{position:relative;z-index:1;width:100%;max-width:520px;height:auto;object-fit:contain}
+/* How it works, added after Mobile. */
+.cc-how-section{background:var(--section-alt)}
+.cc-how-layout{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:stretch}
+.cc-how-steps{border-top:1px solid #d8d5cf}
+.cc-how-steps article{display:grid;grid-template-columns:54px 1fr;gap:20px;padding:27px 0;border-bottom:1px solid #d8d5cf}
+.cc-how-steps article>span{font:700 10px 'JetBrains Mono';color:var(--brand-orange);padding-top:5px}
+.cc-how-steps h3{font-size:22px;color:var(--darker)}
+.cc-how-steps p{font-size:14px;line-height:1.65;margin-top:9px;max-width:570px}
+.cc-how-ai{position:relative;overflow:hidden;min-height:410px;border-radius:22px;padding:42px;background:linear-gradient(145deg,#eef8ff,#f5f9fb 48%,#fff5ec);border:1px solid #dce6ec;display:flex;flex-direction:column;justify-content:space-between}
+.cc-how-ai::after{content:"";position:absolute;width:300px;height:300px;right:-120px;bottom:-140px;border-radius:50%;border:45px solid rgba(228,123,43,.11)}
+.cc-how-ai-copy{position:relative;z-index:2}.cc-how-ai-copy small{font:700 9px 'JetBrains Mono';letter-spacing:.15em;color:#0078d4}.cc-how-ai-copy h3{font-size:30px;color:#16344a;margin-top:14px;max-width:550px}.cc-how-ai-copy p{font-size:15px;line-height:1.65;color:#597083;margin-top:14px;max-width:560px}
+.cc-how-ai-visual{position:relative;z-index:2;display:flex;align-items:center;gap:10px;margin-top:40px}.cc-how-ai-visual span{flex:1;padding:15px 8px;border:1px solid #cddde7;border-radius:11px;background:rgba(255,255,255,.82);text-align:center;font:700 9px 'JetBrains Mono';letter-spacing:.08em;color:#31536b}.cc-how-ai-visual i{width:28px;height:1px;background:var(--brand-orange);position:relative}.cc-how-ai-visual i::after{content:"";position:absolute;right:-1px;top:-3px;width:6px;height:6px;border-top:1px solid var(--brand-orange);border-right:1px solid var(--brand-orange);transform:rotate(45deg)}
+/* Pricing table, screenshot content in DI styling. */
+.cc-pricing{background:#fff}.cc-pricing .cc-head{margin-left:auto;margin-right:auto}.cc-price-table-wrap{overflow:auto;border:1px solid #dde3e7;border-radius:20px;box-shadow:0 18px 48px rgba(31,55,70,.07)}
+.cc-price-table{width:100%;min-width:850px;border-collapse:collapse;background:#fff}.cc-price-table th,.cc-price-table td{padding:14px 18px;border-bottom:1px solid #e4eaee;text-align:center;font-size:13px}.cc-price-table th:first-child,.cc-price-table td:first-child{text-align:left;width:43%}.cc-price-table thead th{padding:22px 18px;font:700 15px 'Oxanium';color:#fff;background:#173f59}.cc-price-table thead th:first-child{background:#f4f6f7;color:var(--darker)}.cc-price-table thead th:nth-child(2){background:#2688bd}.cc-price-table thead th:nth-child(3){background:#17658f}.cc-price-table thead th:nth-child(4){background:#173f59}.cc-price-table tbody tr:nth-child(odd){background:#f1f8fc}.cc-price-table td:not(:first-child){font-family:'Oxanium';font-weight:800;color:#173f59;font-size:16px}.cc-price-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:26px;padding:22px 0;border-top:1px solid #e5e5e5}.cc-price-cta p{font-size:14px;color:#65717a}
+@media(max-width:980px){#how .cc-module-list,.cc-how-layout{grid-template-columns:1fr}#how .cc-module:nth-child(odd){border-right:0}.cc-mobile-image{min-height:440px}.cc-how-ai{min-height:340px}}
+@media(max-width:640px){#how .cc-cap-toolbar{align-items:flex-start}.cc-mobile-image{min-height:320px}.cc-price-cta{align-items:flex-start;flex-direction:column}.cc-price-cta .btn{width:100%;justify-content:center}.cc-how-ai{padding:30px 22px}.cc-how-ai-visual{flex-direction:column}.cc-how-ai-visual i{width:1px;height:22px}.cc-how-ai-visual i::after{right:-3px;top:auto;bottom:-1px;transform:rotate(135deg)}}
