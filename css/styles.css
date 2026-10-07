@@ -2315,3 +2315,6 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 
 /* Finance Visibility problem page: FAQ background override only. */
 .finance-standard-faq{background:#fff!important;background-image:none!important}
+
+/* Finance Visibility problem page: FAQ white surface final override only. */
+#faq.finance-standard-faq{background:#fff!important;background-color:#fff!important;background-image:none!important}
