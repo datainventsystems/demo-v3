@@ -2231,3 +2231,21 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .cc-outcome-grid article{position:relative;overflow:hidden;min-height:300px;padding:30px;box-shadow:0 12px 30px rgba(31,31,31,.045);transition:.28s}.cc-outcome-grid article:hover{transform:translateY(-5px);border-color:var(--brand-orange);box-shadow:0 22px 48px rgba(31,31,31,.09)}.cc-outcome-mark{font:800 44px/1 'Oxanium';color:#ebe7e1}.cc-outcome-grid article small{display:block;font:700 9px 'JetBrains Mono';letter-spacing:.15em;color:var(--brand-orange);margin-top:32px}.cc-outcome-grid article h3{margin-top:10px}.cc-outcome-grid article b{display:block;margin-top:24px;padding-top:15px;border-top:1px solid #e1ded9;color:#6c7379;font:700 10px 'JetBrains Mono';text-transform:uppercase}.cc-implementation-path{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.cc-implementation-path::before{content:"";position:absolute;left:8%;right:8%;top:35px;border-top:1px dashed rgba(228,123,43,.55)}.cc-implementation-path article{position:relative;z-index:2;padding:0 28px 28px;border:1px solid #e1e1e1;border-radius:18px;background:#fff;box-shadow:0 14px 34px rgba(31,31,31,.05)}.cc-step-node{width:68px;height:68px;margin:-1px 0 34px;border-radius:0 0 18px 18px;background:var(--night);color:var(--brand-orange-light);display:grid;place-items:center;font:700 15px 'Oxanium'}.cc-implementation-path article:nth-child(2) .cc-step-node{background:#173f59}.cc-implementation-path article:nth-child(3) .cc-step-node{background:#415724}.cc-implementation-path small{font:700 9px 'JetBrains Mono';color:var(--brand-orange);letter-spacing:.15em}.cc-implementation-path h3{font-size:19px;margin-top:10px}.cc-implementation-path p{font-size:13.5px;line-height:1.62;margin-top:11px}
 @media(max-width:980px){.cc-model-experience,.cc-mobile-experience{grid-template-columns:1fr}.cc-model-rail{display:grid;grid-template-columns:1fr 1fr 1fr}.cc-model{grid-template-columns:34px 1fr}.cc-model i{display:none}.cc-mobile-feature-grid{grid-template-columns:1fr 1fr}.cc-device-stage{max-width:520px;width:100%;margin:auto}.cc-implementation-path{grid-template-columns:1fr}.cc-implementation-path::before{display:none}}
 @media(max-width:680px){.cc-hero h1 span{white-space:normal}.cc-model-rail,.cc-module-grid,.cc-mobile-feature-grid{grid-template-columns:1fr}.cc-model-stage{padding:30px 22px}.cc-workflow{grid-template-columns:1fr}.cc-device-stage{min-height:560px;transform:scale(.82);transform-origin:top center;margin-bottom:-90px}.cc-outcome-grid{grid-template-columns:1fr}.cc-module-summary{display:block}.cc-module-summary p{margin-top:6px}}
+
+
+/* ============================================================================
+   L10c. CONSTRUCTION CLOUD - MODULE COUNTER + MINIMAL BUSINESS MODEL TABS ONLY
+   ============================================================================ */
+/* Business-model tabs: one clean perimeter border, no secondary left stripe. */
+.cc-model{border-left-width:1px!important}
+.cc-model.active{border-left-width:1px!important;border-left-color:var(--night)!important}
+.cc-model:hover{border-left-width:1px!important}
+/* How it works: remove empty summary surface and keep the total count compact. */
+.cc-cap-toolbar{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:34px}
+.cc-cap-toolbar .cc-cap-tabs{margin-top:0}
+.cc-total-modules{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.cc-total-modules strong{font:800 24px/1 'Oxanium';color:var(--brand-orange)}
+.cc-total-modules span{font:700 9px/1.3 'JetBrains Mono';letter-spacing:.12em;text-transform:uppercase;color:#888}
+.cc-cap-stage{margin-top:15px}
+.cc-module-grid{width:100%}
+@media(max-width:680px){.cc-cap-toolbar{align-items:flex-start;flex-direction:column}.cc-total-modules{order:-1}.cc-cap-toolbar .cc-cap-tabs{width:100%}}
