@@ -2550,15 +2550,3 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 @media(max-width:900px){.solution-case-proof .solution-case-queue{flex:0 0 auto}.solution-case-proof .solution-case-queue .q-card{flex:0 0 auto}}
 @media(max-width:560px){.solution-page-accent .sv-hero .solution-value-signals{grid-template-columns:1fr;max-width:none}.solution-page-accent .sv-hero .solution-value-signal{min-height:68px}}
 
-
-/* L15. SOLUTION PAGE TECHNOLOGY PANEL BACKGROUNDS ONLY */
-.bg-d365{background-color:#243c67;background-image:url('../assets/tech-bg-d365.jpg')}
-.bg-defender{background-color:#174a68;background-image:url('../assets/tech-bg-defender.jpg')}
-.bg-entra{background-color:#163b61;background-image:url('../assets/tech-bg-entra.jpg')}
-.bg-fabric{background-color:#3a3320;background-image:url('../assets/tech-bg-fabric.jpg')}
-.bg-m365{background-color:#24314a;background-image:url('../assets/tech-bg-m365.jpg')}
-.bg-power-platform{background-color:#31264b;background-image:url('../assets/tech-bg-power-platform.jpg')}
-.bg-d365-sales{background-color:#17304a;background-image:url('../assets/tech-bg-d365-sales.jpg')}
-.bg-sharepoint{background-color:#164a4a;background-image:url('../assets/tech-bg-sharepoint.jpg')}
-.bg-copilot-studio{background-color:#34254c;background-image:url('../assets/tech-bg-copilot-studio.jpg')}
-.bg-teams{background-color:#34365c;background-image:url('../assets/tech-bg-teams.jpg')}
