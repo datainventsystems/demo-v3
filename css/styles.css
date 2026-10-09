@@ -2561,3 +2561,5 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 .bg-sharepoint{background-color:#174b4b;background-image:url('../assets/tech-bg-sharepoint.jpg')}
 .bg-entra{background-color:#183e60;background-image:url('../assets/tech-bg-entra.jpg')}
 .bg-defender{background-color:#174a68;background-image:url('../assets/tech-bg-defender.jpg')}
+
+.bg-copilot-studio{background-color:#2a2438;background-image:url('../assets/tech-bg-copilot.jpg')}
