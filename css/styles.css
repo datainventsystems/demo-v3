@@ -2550,3 +2550,14 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 @media(max-width:900px){.solution-case-proof .solution-case-queue{flex:0 0 auto}.solution-case-proof .solution-case-queue .q-card{flex:0 0 auto}}
 @media(max-width:560px){.solution-page-accent .sv-hero .solution-value-signals{grid-template-columns:1fr;max-width:none}.solution-page-accent .sv-hero .solution-value-signal{min-height:68px}}
 
+
+
+/* L15b. EXACT SOLUTION TECHNOLOGY BACKGROUND MAPPING */
+.bg-d365{background-color:#263a55;background-image:url('../assets/tech-bg-d365.jpg')}
+.bg-power-platform{background-color:#30254b;background-image:url('../assets/tech-bg-power-platform.jpg')}
+.bg-m365{background-color:#243751;background-image:url('../assets/tech-bg-m365.jpg')}
+.bg-fabric{background-color:#3a3320;background-image:url('../assets/tech-bg-fabric.jpg')}
+.bg-teams{background-color:#36365c;background-image:url('../assets/tech-bg-teams.jpg')}
+.bg-sharepoint{background-color:#174b4b;background-image:url('../assets/tech-bg-sharepoint.jpg')}
+.bg-entra{background-color:#183e60;background-image:url('../assets/tech-bg-entra.jpg')}
+.bg-defender{background-color:#174a68;background-image:url('../assets/tech-bg-defender.jpg')}
