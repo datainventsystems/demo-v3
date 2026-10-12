@@ -2563,3 +2563,23 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 .bg-defender{background-color:#174a68;background-image:url('../assets/tech-bg-defender.jpg')}
 
 .bg-copilot-studio{background-color:#2a2438;background-image:url('../assets/tech-bg-copilot.jpg')}
+/* ============================================================================
+   L9g. INDUSTRY LEAD-GEN PAGE PALETTES
+   Same shared lead-gen component, distinct light background per industry page.
+   ============================================================================ */
+.industry-leadgen-mfg{
+  background:linear-gradient(128deg,#DCEAF1 0%,#EBE9E2 52%,#DFE8DC 100%)!important;
+}
+.industry-leadgen-public{
+  background:linear-gradient(128deg,#E5F2FF 0%,#E8F8F7 52%,#EEF2FF 100%)!important;
+}
+.industry-leadgen-public::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 44% 60% at 10% 15%,rgba(0,120,212,.08),transparent 66%),radial-gradient(ellipse 42% 58% at 90% 84%,rgba(0,143,145,.07),transparent 64%);
+}
+.industry-leadgen-public .wrap{position:relative;z-index:2}
+.industry-leadgen-public .lf-ico{
+  color:#0078D4!important;
+  background:linear-gradient(145deg,rgba(0,120,212,.08),rgba(0,143,145,.06))!important;
+  border-color:rgba(0,120,212,.18)!important;
+}
