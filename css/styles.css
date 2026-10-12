@@ -2583,3 +2583,30 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   background:linear-gradient(145deg,rgba(0,120,212,.08),rgba(0,143,145,.06))!important;
   border-color:rgba(0,120,212,.18)!important;
 }
+
+/* ============================================================================
+   L9h. PUBLIC SECTOR HERO VISUAL ONLY
+   Distinct civic service ecosystem graphic. Manufacturing hero remains unchanged.
+   ============================================================================ */
+.public-sector-hero-visual{padding:28px 30px 24px!important;display:flex!important;flex-direction:column!important;justify-content:space-between!important;min-height:430px!important}
+.public-sector-hero-visual::before{width:280px!important;height:280px!important;right:-90px!important;top:-100px!important;border-color:rgba(0,164,239,.24)!important}
+.public-sector-hero-visual::after{display:none!important}
+.ps-visual-head{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.ps-visual-head span{font:700 9px/1.3 'JetBrains Mono';letter-spacing:.16em;color:#76c6ff}
+.ps-visual-head small{font:700 8px/1.3 'JetBrains Mono';letter-spacing:.11em;color:rgba(255,255,255,.36)}
+.ps-ecosystem{position:relative;z-index:2;flex:1;min-height:320px;margin:8px 0 4px}
+.ps-orbit{position:absolute;left:50%;top:50%;border:1px dashed rgba(118,198,255,.27);border-radius:50%;transform:translate(-50%,-50%)}
+.ps-orbit-a{width:76%;height:67%}.ps-orbit-b{width:51%;height:92%;transform:translate(-50%,-50%) rotate(48deg);border-color:rgba(0,143,145,.25)}
+.ps-core{position:absolute;z-index:4;left:50%;top:50%;width:160px;height:160px;transform:translate(-50%,-50%);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:18px;background:linear-gradient(145deg,#173f59,#1d5264);border:1px solid rgba(118,198,255,.34);box-shadow:0 0 0 12px rgba(0,164,239,.055),0 20px 45px rgba(0,0,0,.22)}
+.ps-core span{font:700 8px/1.3 'JetBrains Mono';letter-spacing:.13em;color:#8bdbd4}.ps-core strong{font:800 17px/1.15 'Oxanium';color:#fff;margin-top:8px}.ps-core small{font-size:9px;line-height:1.35;color:rgba(255,255,255,.45);margin-top:7px}
+.ps-node{position:absolute;z-index:4;width:142px;padding:13px 12px;border:1px solid rgba(255,255,255,.13);border-radius:13px;background:rgba(35,40,44,.94);box-shadow:0 14px 28px rgba(0,0,0,.17)}
+.ps-node-icon{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;margin-bottom:9px;background:rgba(0,164,239,.13);color:#76c6ff;font:700 8px/1 'JetBrains Mono'}
+.ps-node b,.ps-node small{display:block}.ps-node b{font:700 12px/1.2 'Oxanium';color:#fff}.ps-node small{font-size:8.5px;line-height:1.35;color:rgba(255,255,255,.40);margin-top:4px}
+.ps-node-citizen{left:2%;top:10%}.ps-node-case{right:2%;top:16%}.ps-node-compliance{left:4%;bottom:8%}.ps-node-data{right:4%;bottom:5%}
+.ps-node-case .ps-node-icon{background:rgba(228,123,43,.14);color:var(--brand-orange-light)}.ps-node-compliance .ps-node-icon{background:rgba(0,143,145,.14);color:#71d6d0}.ps-node-data .ps-node-icon{background:rgba(134,97,245,.14);color:#b6a2ff}
+.ps-shield{position:absolute;z-index:5;left:50%;top:12%;width:30px;height:35px;transform:translateX(-50%);background:linear-gradient(145deg,#00a4ef,#008f91);clip-path:polygon(50% 0,92% 15%,86% 65%,50% 100%,14% 65%,8% 15%);box-shadow:0 8px 18px rgba(0,164,239,.18)}
+.ps-shield span{position:absolute;left:50%;top:47%;width:10px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:translate(-50%,-50%) rotate(-45deg)}
+.ps-visual-foot{position:relative;z-index:5;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.ps-visual-foot span{text-align:center;font:700 8px/1.3 'JetBrains Mono';letter-spacing:.11em;color:rgba(255,255,255,.34)}
+@media(max-width:980px){.public-sector-hero-visual{min-height:420px!important}}
+@media(max-width:560px){.public-sector-hero-visual{padding:24px 18px!important;min-height:400px!important}.ps-visual-head small{display:none}.ps-node{width:114px;padding:10px}.ps-node b{font-size:10px}.ps-node small{font-size:7.5px}.ps-core{width:130px;height:130px}.ps-core strong{font-size:14px}.ps-orbit-a{width:86%}.ps-node-citizen{left:0}.ps-node-case{right:0}.ps-node-compliance{left:0}.ps-node-data{right:0}}
