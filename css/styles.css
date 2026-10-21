@@ -304,7 +304,7 @@ section{ position:relative; }
 /* ============ I. FOOTER ============ */
 .foot-cta{ background:#26282c; position:relative; overflow:hidden; }
 .foot-cta::before{ content:""; position:absolute; inset:0; background:radial-gradient(ellipse 50% 80% at 85% 30%, rgba(255,255,255,0.14), transparent 55%); pointer-events:none; }
-.foot-cta-inner{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:32px; padding:44px 0; flex-wrap:wrap; }
+.foot-cta-inner{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:32px; padding:44px 24px; flex-wrap:wrap; }
 .foot-cta h3{ color:#fff; font-size:clamp(22px,2.6vw,30px); max-width:520px; }
 .foot-cta p{ color:rgba(255,255,255,0.85); font-size:15px; margin-top:8px; max-width:520px; }
 .foot-news{ display:flex; gap:10px; flex-wrap:wrap; }
@@ -2699,3 +2699,72 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 @media(max-width:1120px) and (min-width:981px){.professional-hero-visual{padding-left:22px!important;padding-right:22px!important}.pro-delivery-map{grid-template-columns:130px minmax(138px,1fr) 130px;column-gap:12px}.pro-node{width:130px;padding:10px}.pro-core{width:145px;min-height:145px;padding:17px}.pro-core strong{font-size:15px}}
 @media(max-width:980px){.professional-hero-visual{min-height:470px!important}.pro-delivery-map{grid-template-columns:145px minmax(145px,1fr) 145px;min-height:360px}}
 @media(max-width:640px){.professional-hero-visual{min-height:auto!important;padding:24px 18px!important}.pro-visual-head small{display:none}.pro-delivery-map{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;gap:10px;min-height:0;margin:24px 0 14px}.pro-core{grid-column:1 / 3;grid-row:1;width:145px;min-height:145px;margin:0 auto 12px}.pro-node{width:100%;min-height:86px}.pro-node-capacity{grid-column:1;grid-row:2}.pro-node-delivery{grid-column:2;grid-row:2}.pro-node-margin{grid-column:1;grid-row:3}.pro-node-insight{grid-column:2;grid-row:3}.pro-capacity-grid,.pro-flow{display:none}}
+
+/* ============================================================================
+   L16. SOLUTION PAGES - SHARED HERO GAUGE, PAGE ACCENT, LEAD-GEN PALETTES
+   APPEND THIS BLOCK TO THE VERY END OF css/styles.css.
+   It replaces every page-level <style> block on the solution pages (finance-erp, crm-sales and,
+   in the next round, ai-copilot, bi-analytics, modern-work, managed-it).
+   All hero rules are scoped under .phero-viz so they cannot clash with the problem-page router
+   (which also uses a class called .rc-sub).
+   ============================================================================ */
+
+/* ---- 1. Hero gauge ("Real-Time Clarity"), moved verbatim from finance-erp.html ---- */
+@keyframes hcPop   { from{ opacity:0; transform:translateY(8px) scale(.96); } to{ opacity:1; transform:none; } }
+@keyframes hcDraw  { to{ stroke-dashoffset:var(--rc-off,22.6); } }
+@keyframes hcSpark { to{ stroke-dashoffset:0; } }
+@keyframes rcPulse { 0%{ box-shadow:0 0 0 0 rgba(127,186,0,0.45);} 70%{ box-shadow:0 0 0 7px rgba(127,186,0,0);} 100%{ box-shadow:0 0 0 0 rgba(127,186,0,0);} }
+.phero-viz .rc-sub{ position:relative; z-index:2; margin-top:12px; font-family:'Oxanium',sans-serif; font-weight:700; color:#fff; font-size:20px; }
+.phero-viz .rc-sub b{ color:#E47B2B; }
+.phero-viz .rc-stage{ position:relative; z-index:2; margin-top:18px; display:flex; align-items:center; gap:22px; }
+@media(max-width:420px){ .phero-viz .rc-stage{ flex-direction:column; align-items:flex-start; gap:16px; } }
+.phero-viz .rc-gauge{ position:relative; width:150px; height:150px; flex-shrink:0; }
+.phero-viz .rc-gauge svg{ transform:rotate(-90deg); }
+.phero-viz .rc-gauge .rc-track{ fill:none; stroke:rgba(255,255,255,0.10); stroke-width:12; }
+.phero-viz .rc-gauge .rc-prog{ fill:none; stroke:url(#rcGrad); stroke-width:12; stroke-linecap:round; stroke-dasharray:377; stroke-dashoffset:377; animation:hcDraw 1.7s cubic-bezier(.22,1,.36,1) .3s forwards; }
+.phero-viz .rc-gauge .rc-c{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+.phero-viz .rc-gauge .rc-c .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:40px; color:#fff; line-height:1; }
+.phero-viz .rc-gauge .rc-c .k{ font-family:'JetBrains Mono',monospace; font-size:8.5px; letter-spacing:0.14em; color:rgba(255,255,255,0.5); margin-top:4px; text-transform:uppercase; }
+/* gauge fill: --rc-off = 377 x (1 - percent/100). Finance (94%) is the default. */
+.phero-viz .rc-gauge.rc-p90{--rc-off:37.7}
+.phero-viz .rc-gauge.rc-p92{--rc-off:30.2}
+.phero-viz .rc-gauge.rc-p94{--rc-off:22.6}
+.phero-viz .rc-gauge.rc-p95{--rc-off:18.9}
+.phero-viz .rc-gauge.rc-p96{--rc-off:15.1}
+.phero-viz .rc-gauge.rc-p97{--rc-off:11.3}
+.phero-viz .rc-gauge.rc-p98{--rc-off:7.5}
+.phero-viz .rc-gauge.rc-p99{--rc-off:3.8}
+.phero-viz .rc-gauge.rc-p100{--rc-off:0.0}
+.phero-viz .rc-right{ flex:1; min-width:0; display:flex; flex-direction:column; gap:12px; }
+.phero-viz .rc-badge{ align-self:flex-start; display:inline-flex; align-items:center; gap:8px; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#9ACD32; background:rgba(127,186,0,0.12); border:1px solid rgba(127,186,0,0.34); border-radius:999px; padding:6px 12px; }
+.phero-viz .rc-badge .rd{ width:7px; height:7px; border-radius:50%; background:#7FBA00; box-shadow:0 0 0 0 rgba(127,186,0,0.45); animation:rcPulse 2s infinite; }
+.phero-viz .rc-spark{ width:100%; height:46px; display:block; overflow:visible; }
+.phero-viz .rc-spark .area{ fill:url(#rcSpark); opacity:.55; }
+.phero-viz .rc-spark .line{ fill:none; stroke:#F4A45C; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:260; stroke-dashoffset:260; animation:hcSpark 1.5s ease .5s forwards; }
+.phero-viz .rc-spark .tip{ fill:#fff; stroke:#E47B2B; stroke-width:3; opacity:0; animation:hcPop .4s ease 1.7s forwards; }
+.phero-viz .rc-kpis{ position:relative; z-index:2; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.phero-viz .rc-kpi{ opacity:0; animation:hcPop .5s ease forwards; }
+.phero-viz .rc-kpi:nth-child(1){ animation-delay:1.0s; } .phero-viz .rc-kpi:nth-child(2){ animation-delay:1.15s; } .phero-viz .rc-kpi:nth-child(3){ animation-delay:1.3s; }
+.phero-viz .rc-kpi .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:22px; color:#E47B2B; }
+.phero-viz .rc-kpi:nth-child(2) .v{ color:#FFB900; } .phero-viz .rc-kpi:nth-child(3) .v{ color:#00A4EF; }
+.phero-viz .rc-kpi .l{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
+.phero-viz .rc-chips{ position:relative; z-index:2; margin-top:14px; display:flex; gap:8px; flex-wrap:wrap; }
+.phero-viz .rc-chip{ display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:10px; color:rgba(255,255,255,0.78); border:1px solid rgba(255,255,255,0.14); border-radius:999px; padding:6px 11px; opacity:0; animation:hcPop .5s ease forwards; }
+.phero-viz .rc-chip svg{ color:#7FBA00; flex-shrink:0; }
+.phero-viz .rc-chip:nth-child(1){ animation-delay:1.45s; } .phero-viz .rc-chip:nth-child(2){ animation-delay:1.6s; }
+@media (prefers-reduced-motion: reduce){ .phero-viz .rc-kpi,.phero-viz .rc-chip{ opacity:1 !important; animation:none !important; } .phero-viz .rc-gauge .rc-prog{ stroke-dashoffset:var(--rc-off,22.6) !important; animation:none !important; } .phero-viz .rc-spark .line{ stroke-dashoffset:0 !important; animation:none !important; } .phero-viz .rc-spark .tip{ opacity:1 !important; animation:none !important; } }
+
+/* ---- 2. Page accent: one set of variables per solution page (set on <body class="solution-page-accent sol-xxx">) ---- */
+.sol-fin{ --solution-accent:#C98A00; --solution-soft:#FFF4D6; --lead-a:#FFF0CC; --lead-b:#F7F1E5; --lead-c:#EDF4EA; --lead-r1:201,138,0; --lead-r2:228,123,43; }
+.sol-crm{ --solution-accent:#00A4EF; --solution-soft:#EAF7FD; --lead-a:#DDF5FF; --lead-b:#E9FBF7; --lead-c:#FFF5E9; --lead-r1:0,164,239; --lead-r2:0,143,145; }
+
+/* ---- 3. Where the accent is used ---- */
+.solution-page-accent .tag .dot{ background:var(--solution-accent); }
+.solution-page-accent .tech-tab.active{ background:var(--solution-accent); border-color:var(--solution-accent); }
+.solution-page-accent .phero-viz .rc-spark .line{ stroke:var(--solution-accent); }
+.solution-page-accent .phero-viz .rc-spark .tip{ stroke:var(--solution-accent); }
+.solution-page-accent .phero-viz::after{ content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit; background:linear-gradient(135deg,rgba(0,164,239,.07),transparent 35%,rgba(127,186,0,.045) 72%,rgba(255,185,0,.035)); mix-blend-mode:screen; }
+
+/* ---- 4. Lead-gen palette, driven by the variables above (replaces the inline style="--lead-a:...") ---- */
+.sol-fin .solution-leadgen,
+.sol-crm .solution-leadgen{ background:linear-gradient(128deg,var(--lead-a) 0%,var(--lead-b) var(--lead-mid,52%),var(--lead-c) 100%)!important; }
