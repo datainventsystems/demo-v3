@@ -3015,3 +3015,5 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   .phero-viz .hx-it-beat{stroke-dasharray:none}
 }
 /* ===== L18-END ===== */
+
+.bc-page{ overflow:visible!important; overflow-x:clip!important; }
