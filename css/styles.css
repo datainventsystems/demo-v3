@@ -2828,3 +2828,190 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 .sol-bi .solution-leadgen,
 .sol-work .solution-leadgen,
 .sol-it .solution-leadgen{ background:linear-gradient(128deg,var(--lead-a) 0%,var(--lead-b) 52%,var(--lead-c) 100%)!important; }
+
+/* ===== L18-START: SOLUTION HERO VARIANTS =====
+   Four different animated hero graphics, one per page, replacing the shared orbit on:
+     AI & Copilot ......... use-case priority matrix   (.hx-mx)
+     BI & Analytics ....... live report canvas         (.hx-bi)
+     Modern Work .......... team workspace window      (.hx-wk)
+     Managed IT ........... service health board       (.hx-it)
+   CRM & Sales keeps the orbit (L12 / L16) and Finance & ERP keeps the gauge (L16).
+   Everything is scoped under .phero-viz and uses the page accent (--solution-accent), so each graphic
+   follows its page colour. No figures are shown in any of these graphics.
+   Motion is switched off for visitors who prefer reduced motion (block at the end).
+   ===== */
+
+/* ---- shared ---- */
+.phero-viz .hx-stage{position:relative;height:290px;margin-top:22px;font-family:'JetBrains Mono',monospace}
+@media(max-width:900px){.phero-viz .hx-stage{height:250px}}
+.phero-viz .hx-stage em,
+.phero-viz .hx-stage i,
+.phero-viz .hx-stage b,
+.phero-viz .hx-stage small{font-style:normal;font-weight:700;text-decoration:none}
+@keyframes hxPop{from{opacity:0;scale:.3}to{opacity:1;scale:1}}
+@keyframes hxShow{from{opacity:0}to{opacity:1}}
+@keyframes hxRise{from{scale:1 0}to{scale:1 1}}
+@keyframes hxGrow{from{scale:0 1}to{scale:1 1}}
+@keyframes hxDraw{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+
+/* =========================================================================================
+   AI & COPILOT - use-case priority matrix (value vs feasibility; the best candidate is picked)
+   ========================================================================================= */
+.phero-viz .hx-mx-y,
+.phero-viz .hx-mx-x{position:absolute;font-size:7.5px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.52)}
+.phero-viz .hx-mx-y{left:6px;top:0}
+.phero-viz .hx-mx-x{right:6px;bottom:2px}
+.phero-viz .hx-mx-field{position:absolute;left:6px;right:6px;top:16px;bottom:20px;overflow:hidden;border-left:1px solid rgba(255,255,255,.24);border-bottom:1px solid rgba(255,255,255,.24);background:linear-gradient(to right,transparent calc(50% - .5px),rgba(255,255,255,.1) calc(50% - .5px),rgba(255,255,255,.1) calc(50% + .5px),transparent calc(50% + .5px)),linear-gradient(to bottom,transparent calc(50% - .5px),rgba(255,255,255,.1) calc(50% - .5px),rgba(255,255,255,.1) calc(50% + .5px),transparent calc(50% + .5px))}
+.phero-viz .hx-mx-zone{position:absolute;left:50%;top:0;right:0;bottom:50%;border:1px dashed color-mix(in srgb,var(--solution-accent) 60%,transparent);background:color-mix(in srgb,var(--solution-accent) 13%,transparent);animation:hxShow .8s ease 2.2s both}
+.phero-viz .hx-mx-zone span{position:absolute;left:7px;top:5px;font-size:7px;font-weight:700;letter-spacing:.14em;color:color-mix(in srgb,var(--solution-accent) 65%,#fff)}
+.phero-viz .hx-mx-dot{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:rgba(255,255,255,.26);border:1px solid rgba(255,255,255,.38);animation:hxPop .5s ease both,hxMxFloat 4.4s ease-in-out infinite}
+.phero-viz .hx-mx-dot.d1{left:16%;top:24%;animation-delay:.2s,-1s}
+.phero-viz .hx-mx-dot.d2{left:34%;top:40%;animation-delay:.4s,-2.4s}
+.phero-viz .hx-mx-dot.d3{left:22%;top:66%;animation-delay:.6s,-.4s}
+.phero-viz .hx-mx-dot.d4{left:44%;top:78%;animation-delay:.8s,-3.2s}
+.phero-viz .hx-mx-dot.d5{left:66%;top:70%;animation-delay:1s,-1.8s}
+.phero-viz .hx-mx-dot.d6{left:86%;top:62%;animation-delay:1.2s,-2.8s}
+.phero-viz .hx-mx-pick{position:absolute;left:74%;top:26%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:var(--solution-accent);animation:hxPop .5s ease 1.6s both,hxMxPulse 2.4s ease-out 2.2s infinite}
+.phero-viz .hx-mx-scan{position:absolute;top:0;bottom:0;left:0;width:2px;opacity:0;background:linear-gradient(180deg,transparent,var(--solution-accent),transparent);animation:hxMxScan 5s ease-in-out 1s infinite}
+@keyframes hxMxFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes hxMxPulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--solution-accent) 55%,transparent)}70%{box-shadow:0 0 0 14px transparent}100%{box-shadow:0 0 0 0 transparent}}
+@keyframes hxMxScan{0%{left:0;opacity:0}12%{opacity:.9}88%{opacity:.9}100%{left:calc(100% - 2px);opacity:0}}
+
+/* =========================================================================================
+   BI & ANALYTICS - live report canvas (slicers, trend, mix, bars, share)
+   ========================================================================================= */
+.phero-viz .hx-bi{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:auto 1fr 1fr;gap:8px}
+.phero-viz .hx-bi-chips{grid-column:1 / -1;display:flex;gap:6px}
+.phero-viz .hx-bi-chips span{padding:5px 9px;border-radius:999px;border:1px solid rgba(255,255,255,.16);font-size:7px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.6);animation:hxBiChip 6s ease-in-out infinite}
+.phero-viz .hx-bi-chips span:nth-child(2){animation-delay:2s}
+.phero-viz .hx-bi-chips span:nth-child(3){animation-delay:4s}
+@keyframes hxBiChip{0%,31%{color:#fff;border-color:var(--solution-accent);background:color-mix(in srgb,var(--solution-accent) 28%,transparent)}36%,100%{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.16);background:transparent}}
+.phero-viz .hx-bi-tile{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;gap:5px;padding:7px 8px;overflow:hidden;border-radius:9px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04)}
+.phero-viz .hx-bi-tile > em{font-size:6.5px;letter-spacing:.14em;color:rgba(255,255,255,.45)}
+.phero-viz .hx-bi-tile svg{display:block;width:100%;flex:1;min-height:0}
+.phero-viz .hx-bi-area{fill:color-mix(in srgb,var(--solution-accent) 22%,transparent);animation:hxShow 1s ease 1.2s both}
+.phero-viz .hx-bi-line{fill:none;stroke:var(--solution-accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:0;animation:hxDraw 1.6s ease .4s both}
+.phero-viz .hx-bi-cross{position:absolute;top:20px;bottom:6px;left:8%;width:1px;background:rgba(255,255,255,.42);animation:hxBiCross 5s ease-in-out infinite alternate}
+@keyframes hxBiCross{from{left:8%}to{left:92%}}
+.phero-viz .hx-bi-donut{flex:1;min-height:0;display:grid;place-items:center}
+.phero-viz .hx-bi-donut svg{flex:none;width:min(64px,100%);height:auto;max-height:100%;transform:rotate(-90deg);animation:hxShow .8s ease .6s both}
+.phero-viz .hx-bi-dt{fill:none;stroke:rgba(255,255,255,.12);stroke-width:5}
+.phero-viz .hx-bi-dp{fill:none;stroke:var(--solution-accent);stroke-width:5;stroke-linecap:round;stroke-dasharray:106.8;stroke-dashoffset:30;animation:hxBiDonut 8s ease-in-out infinite}
+@keyframes hxBiDonut{0%,100%{stroke-dashoffset:30}50%{stroke-dashoffset:58}}
+.phero-viz .hx-bi-cols{flex:1;min-height:0;display:flex;align-items:flex-end;gap:4px}
+.phero-viz .hx-bi-cols i{flex:1;border-radius:3px 3px 0 0;background:color-mix(in srgb,var(--solution-accent) 50%,rgba(255,255,255,.18));transform-origin:bottom;animation:hxRise .7s ease both,hxBiBreathe 6s ease-in-out infinite}
+.phero-viz .hx-bi-cols i:nth-child(1){height:38%;animation-delay:.1s,-.5s}
+.phero-viz .hx-bi-cols i:nth-child(2){height:52%;animation-delay:.2s,-1.6s}
+.phero-viz .hx-bi-cols i:nth-child(3){height:44%;animation-delay:.3s,-2.7s}
+.phero-viz .hx-bi-cols i:nth-child(4){height:66%;animation-delay:.4s,-3.4s}
+.phero-viz .hx-bi-cols i:nth-child(5){height:58%;animation-delay:.5s,-4.2s;background:var(--solution-accent)}
+.phero-viz .hx-bi-cols i:nth-child(6){height:80%;animation-delay:.6s,-5s}
+.phero-viz .hx-bi-cols i:nth-child(7){height:70%;animation-delay:.7s,-5.6s}
+@keyframes hxBiBreathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.64)}}
+.phero-viz .hx-bi-share{justify-content:space-between}
+.phero-viz .hx-bi-row{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+.phero-viz .hx-bi-row i{display:block;height:100%;border-radius:3px;background:var(--solution-accent);transform-origin:left;transform:scaleX(var(--a));animation:hxGrow .8s ease both,hxBiFill 7s ease-in-out infinite}
+.phero-viz .hx-bi-row.r1 i{--a:.84;--b:.52}
+.phero-viz .hx-bi-row.r2 i{--a:.58;--b:.88;animation-delay:.15s,-2s}
+.phero-viz .hx-bi-row.r3 i{--a:.42;--b:.7;animation-delay:.3s,-4s}
+@keyframes hxBiFill{0%,100%{transform:scaleX(var(--a))}50%{transform:scaleX(var(--b))}}
+
+/* =========================================================================================
+   MODERN WORK - team workspace window (channels, messages, a file moving to approved)
+   ========================================================================================= */
+.phero-viz .hx-wk-win{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.035)}
+.phero-viz .hx-wk-bar{display:flex;align-items:center;gap:10px;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.phero-viz .hx-wk-dots{display:flex;gap:4px}
+.phero-viz .hx-wk-dots i{display:block;width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.26)}
+.phero-viz .hx-wk-title{font-size:7px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,.55)}
+.phero-viz .hx-wk-who{margin-left:auto;display:flex}
+.phero-viz .hx-wk-who b{display:block;width:14px;height:14px;margin-left:-4px;border-radius:50%;border:1.5px solid #26292c}
+.phero-viz .hx-wk-who b:nth-child(1){background:#E47B2B}
+.phero-viz .hx-wk-who b:nth-child(2){background:#7FBA00}
+.phero-viz .hx-wk-who b:nth-child(3){background:#00A4EF}
+.phero-viz .hx-wk-body{flex:1;min-height:0;display:flex}
+.phero-viz .hx-wk-side{flex:none;width:30%;display:flex;flex-direction:column;gap:6px;padding:10px 8px;border-right:1px solid rgba(255,255,255,.08)}
+.phero-viz .hx-wk-side span{padding:5px 7px;border-radius:6px;font-size:7.5px;font-weight:700;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(255,255,255,.5);animation:hxWkChan 9s ease infinite}
+.phero-viz .hx-wk-side span:nth-child(2){animation-delay:3s}
+.phero-viz .hx-wk-side span:nth-child(3){animation-delay:6s}
+@keyframes hxWkChan{0%,30%{color:#fff;background:color-mix(in srgb,var(--solution-accent) 30%,transparent)}36%,100%{color:rgba(255,255,255,.5);background:transparent}}
+.phero-viz .hx-wk-main{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:9px;padding:10px}
+.phero-viz .hx-wk-msg{display:flex;align-items:center;gap:8px}
+.phero-viz .hx-wk-msg em{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:7px;color:#fff}
+.phero-viz .hx-wk-m1 em{background:var(--solution-accent)}
+.phero-viz .hx-wk-m2 em{background:#00A4EF}
+.phero-viz .hx-wk-msg > div{flex:1;min-width:0;display:flex;flex-direction:column;gap:4px}
+.phero-viz .hx-wk-msg b{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.2)}
+.phero-viz .hx-wk-msg b:nth-child(1){width:78%}
+.phero-viz .hx-wk-msg b:nth-child(2){width:46%}
+.phero-viz .hx-wk-m1{animation:hxWkM1 9s ease infinite}
+.phero-viz .hx-wk-m2{animation:hxWkM2 9s ease infinite}
+.phero-viz .hx-wk-file{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);animation:hxWkF 9s ease infinite}
+.phero-viz .hx-wk-doc{flex:none;display:block;width:12px;height:15px;border-radius:2px;background:color-mix(in srgb,var(--solution-accent) 70%,#fff)}
+.phero-viz .hx-wk-name{min-width:0;font-family:'Inter',sans-serif;font-size:9px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phero-viz .hx-wk-stw{flex:none;margin-left:auto;display:grid}
+.phero-viz .hx-wk-stw small{grid-area:1 / 1;padding:3px 7px;border-radius:999px;font-size:6.5px;letter-spacing:.1em;white-space:nowrap}
+.phero-viz .hx-wk-review{color:#FFB900;background:rgba(255,185,0,.14);animation:hxWkRev 9s ease infinite}
+.phero-viz .hx-wk-done{opacity:0;color:#9ACD32;background:rgba(127,186,0,.16);animation:hxWkDone 9s ease infinite}
+@keyframes hxWkM1{0%,4%{opacity:0;translate:0 8px}10%,90%{opacity:1;translate:0 0}97%,100%{opacity:0;translate:0 0}}
+@keyframes hxWkM2{0%,18%{opacity:0;translate:0 8px}24%,90%{opacity:1;translate:0 0}97%,100%{opacity:0;translate:0 0}}
+@keyframes hxWkF{0%,34%{opacity:0;translate:0 8px}40%,90%{opacity:1;translate:0 0}97%,100%{opacity:0;translate:0 0}}
+@keyframes hxWkRev{0%,58%{opacity:1}62%,94%{opacity:0}100%{opacity:1}}
+@keyframes hxWkDone{0%,58%{opacity:0;scale:.9}64%,94%{opacity:1;scale:1}100%{opacity:0;scale:.9}}
+
+/* =========================================================================================
+   MANAGED IT - service health board (pulse line, service tiles, one alert that gets resolved)
+   ========================================================================================= */
+.phero-viz .hx-it{display:flex;flex-direction:column;justify-content:space-between;gap:10px}
+.phero-viz .hx-it-pulse{display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:9px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.04)}
+.phero-viz .hx-it-pulse em{flex:none;font-size:6.5px;letter-spacing:.14em;color:rgba(255,255,255,.45)}
+.phero-viz .hx-it-pulse svg{display:block;flex:1;min-width:0;height:26px;overflow:visible}
+.phero-viz .hx-it-base,
+.phero-viz .hx-it-beat{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.phero-viz .hx-it-base{stroke:rgba(255,255,255,.18);stroke-width:1.5}
+.phero-viz .hx-it-beat{stroke:var(--solution-accent);stroke-width:2.2;stroke-dasharray:22 200;stroke-dashoffset:22;animation:hxItBeat 3.2s linear infinite}
+@keyframes hxItBeat{from{stroke-dashoffset:22}to{stroke-dashoffset:-100}}
+.phero-viz .hx-it-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.phero-viz .hx-it-tile{min-width:0;display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:7px;row-gap:3px;padding:9px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04)}
+.phero-viz .hx-it-tile b{grid-column:1;grid-row:1 / 3;align-self:center;display:block;width:7px;height:7px;border-radius:50%;background:#7FBA00;animation:hxItDot 3s ease-out infinite}
+.phero-viz .hx-it-tile:nth-child(2) b{animation-delay:.5s}
+.phero-viz .hx-it-tile:nth-child(3) b{animation-delay:1s}
+.phero-viz .hx-it-tile:nth-child(5) b{animation-delay:1.5s}
+.phero-viz .hx-it-tile:nth-child(6) b{animation-delay:2s}
+.phero-viz .hx-it-tile span{grid-column:2;grid-row:1;min-width:0;font-size:7px;font-weight:700;letter-spacing:.1em;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phero-viz .hx-it-tile small{grid-column:2;grid-row:2;font-size:6.5px;letter-spacing:.1em;color:#9ACD32}
+.phero-viz .hx-it-alert{animation:hxItAlertBox 10s ease infinite}
+.phero-viz .hx-it-alert b{animation:hxItAlertDot 10s ease infinite}
+.phero-viz .hx-it-ok{animation:hxItOk 10s ease infinite}
+.phero-viz .hx-it-warn{opacity:0;color:#FFB900;animation:hxItWarn 10s ease infinite}
+@keyframes hxItDot{0%,100%{box-shadow:0 0 0 0 rgba(127,186,0,.5)}60%{box-shadow:0 0 0 5px rgba(127,186,0,0)}}
+@keyframes hxItOk{0%,42%{opacity:1}46%,78%{opacity:0}82%,100%{opacity:1}}
+@keyframes hxItWarn{0%,42%{opacity:0}46%,78%{opacity:1}82%,100%{opacity:0}}
+@keyframes hxItAlertDot{0%,42%{background:#7FBA00}46%,78%{background:#FFB900}82%,100%{background:#7FBA00}}
+@keyframes hxItAlertBox{0%,42%{border-color:rgba(255,255,255,.1)}46%,78%{border-color:rgba(255,185,0,.55)}82%,100%{border-color:rgba(255,255,255,.1)}}
+.phero-viz .hx-it-steps{display:flex;align-items:center;justify-content:center;gap:8px}
+.phero-viz .hx-it-steps span{padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:7px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.5)}
+.phero-viz .hx-it-steps i{font-size:9px;color:rgba(255,255,255,.3)}
+.phero-viz .hx-it-steps .s1{animation:hxItS1 10s ease infinite}
+.phero-viz .hx-it-steps .s2{animation:hxItS2 10s ease infinite}
+.phero-viz .hx-it-steps .s3{animation:hxItS3 10s ease infinite}
+@keyframes hxItS1{0%,44%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}48%,58%{color:#fff;border-color:var(--solution-accent);background:color-mix(in srgb,var(--solution-accent) 30%,transparent)}62%,100%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}}
+@keyframes hxItS2{0%,60%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}64%,72%{color:#fff;border-color:var(--solution-accent);background:color-mix(in srgb,var(--solution-accent) 30%,transparent)}76%,100%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}}
+@keyframes hxItS3{0%,74%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}78%,86%{color:#fff;border-color:var(--solution-accent);background:color-mix(in srgb,var(--solution-accent) 30%,transparent)}90%,100%{color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.14);background:transparent}}
+
+/* ---- small phones: tighter type and padding so nothing overflows the card ---- */
+@media(max-width:420px){
+  .phero-viz .hx-bi-chips span{padding:4px 7px}
+  .phero-viz .hx-wk-side{width:34%}
+  .phero-viz .hx-it-tile{padding:8px 8px;column-gap:5px}
+  .phero-viz .hx-it-steps{gap:5px}
+  .phero-viz .hx-it-steps span{padding:4px 7px;font-size:6.5px}
+}
+
+/* ---- reduced motion: everything stays still and fully visible ---- */
+@media (prefers-reduced-motion: reduce){
+  .phero-viz .hx-stage *{animation:none!important}
+  .phero-viz .hx-mx-scan{display:none}
+  .phero-viz .hx-it-beat{stroke-dasharray:none}
+}
+/* ===== L18-END ===== */
