@@ -3017,3 +3017,11 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 /* ===== L18-END ===== */
 
 .bc-page{ overflow:visible!important; overflow-x:clip!important; }
+
+/* ===== L19-START: TECHNOLOGY PAGES - STICKY SECTION NAV FIX =====
+   The technology pages wrap everything in <main class="bc-page">, and the theme gave it overflow:hidden.
+   An ancestor with overflow:hidden is what stops position:sticky from pinning the section nav under the main
+   header, so the nav scrolled away with the page. 'visible' restores sticky; 'clip' still stops sideways scrolling
+   without creating a scroll container. ===== */
+.bc-page{ overflow:visible!important; overflow-x:clip!important; }
+/* ===== L19-END ===== */
