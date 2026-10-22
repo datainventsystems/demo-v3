@@ -3025,3 +3025,15 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
    without creating a scroll container. ===== */
 .bc-page{ overflow:visible!important; overflow-x:clip!important; }
 /* ===== L19-END ===== */
+
+/* ===== L20-START: TECHNOLOGY PAGES - ACTIVE STATE FOR THE SECTION NAV =====
+   Same look as the solution pages' section nav (.solution-local-links a.active): orange text, bold, and an
+   underline that grows in from the left. Only adds the active state; the bar's layout is unchanged. ===== */
+.bc-jump-links a{ position:relative; padding:22px 0 20px; transition:color .2s; }
+.bc-jump-links a::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:2px; background:var(--brand-orange,#E47B2B); transform:scaleX(0); transform-origin:left; transition:transform .2s; }
+.bc-jump-links a:hover,
+.bc-jump-links a.active{ color:var(--brand-orange,#E47B2B); }
+.bc-jump-links a.active{ font-weight:700; }
+.bc-jump-links a.active::after{ transform:scaleX(1); }
+@media(max-width:900px){ .bc-jump-links{ overflow:auto; } }
+/* ===== L20-END ===== */
