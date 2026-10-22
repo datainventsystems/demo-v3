@@ -2809,3 +2809,22 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 /* ---- 5. Lead-gen palette, driven by the variables above (replaces the inline style="--lead-a:...") ---- */
 .sol-fin .solution-leadgen,
 .sol-crm .solution-leadgen{ background:linear-gradient(128deg,var(--lead-a) 0%,var(--lead-b) 52%,var(--lead-c) 100%)!important; }
+
+/* ============================================================================
+   L17. SOLUTION PAGES - ROUND 2 ACCENTS
+   (AI & Copilot, BI & Analytics, Modern Work, Managed IT)
+   Added AFTER the round 1 block (L16). The orbit hero graphic, its animation, the page-accent rules
+   (.solution-page-accent ...) and the lead-gen structure already exist in L12 and L16, so this block
+   only supplies each page's colours. The values are the ones that were inline on the original demo-v3
+   pages (<body class="solution-page-accent sol-xx"> + the style attribute on the lead-gen section).
+   ============================================================================ */
+.sol-ai{ --solution-accent:#8661F5; --solution-soft:#F2EEFF; --lead-a:#EEE8FF; --lead-b:#E7F5FF; --lead-c:#FFF0F7; --lead-r1:134,97,245; --lead-r2:0,164,239; }
+.sol-bi{ --solution-accent:#7FBA00; --solution-soft:#F2F8E8; --lead-a:#E9F8D7; --lead-b:#E2F7F3; --lead-c:#FFF7D9; --lead-r1:127,186,0;  --lead-r2:0,143,145; }
+.sol-work{ --solution-accent:#376CFB; --solution-soft:#EDF2FF; --lead-a:#E2ECFF; --lead-b:#E8F7FF; --lead-c:#F2EAFE; --lead-r1:55,108,251; --lead-r2:134,97,245; }
+.sol-it{ --solution-accent:#008F91; --solution-soft:#E8F7F6; --lead-a:#DDF8F5; --lead-b:#E7F4FF; --lead-c:#EDF9E1; --lead-r1:0,143,145;  --lead-r2:0,120,212; }
+
+/* Lead-gen band background, built from the variables above (no inline style on the section) */
+.sol-ai .solution-leadgen,
+.sol-bi .solution-leadgen,
+.sol-work .solution-leadgen,
+.sol-it .solution-leadgen{ background:linear-gradient(128deg,var(--lead-a) 0%,var(--lead-b) 52%,var(--lead-c) 100%)!important; }
