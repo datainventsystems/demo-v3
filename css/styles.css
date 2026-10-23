@@ -3119,3 +3119,81 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 }
 @media(max-width:340px){ .bc-package-dialog .di-pkg-opts{ grid-template-columns:1fr; } }
 /* ===== L23-END ===== */
+
+/* ===== L24-START: TECHNOLOGY PAGES - ANIMATED HERO GRAPHICS =====
+   One animated graphic per technology page (inside .bc-hero-svg). The graphics are inline SVG; this block only animates them.
+   Dynamics 365 Sales .... pipeline funnel with a deal moving down the stages     (bcx-deal, bcx-s*)
+   Microsoft Copilot ..... prompt to grounded answer                              (bcx-flow, bcx-spin, bcx-ln, bcx-pulse)
+   Power Platform ........ four blocks on a circuit loop around shared data       (bcx-comet, bcx-b-*)
+   Microsoft 365 ......... connected document, meeting and chat                   (bcx-cura/curb, bcx-ring, bcx-pop, bcx-bar*)
+   Azure & Data .......... layered platform with data flowing through             (bcx-lane, bcx-ly*)
+   Business Central keeps its own graphic. Motion is switched off for visitors who prefer reduced motion. ===== */
+
+/* ---- shared ---- */
+@keyframes bcxFlow{ to{ stroke-dashoffset:-12; } }
+.bc-hero-svg .bcx-flow{ stroke-dasharray:4 8; animation:bcxFlow 1.1s linear infinite; }
+@keyframes bcxPulse{ 0%,100%{ transform:scale(1); } 50%{ transform:scale(1.1); } }
+.bc-hero-svg .bcx-pulse{ transform-box:fill-box; transform-origin:center; animation:bcxPulse 2.6s ease-in-out infinite; }
+
+/* ---- Dynamics 365 Sales ---- */
+@keyframes bcxDeal{ 0%{ transform:translateY(0); opacity:0; } 6%{ opacity:1; } 28%{ transform:translateY(66px); } 52%{ transform:translateY(132px); } 76%{ transform:translateY(198px); opacity:1; } 88%{ transform:translateY(198px); opacity:0; } 100%{ transform:translateY(0); opacity:0; } }
+.bc-hero-svg .bcx-deal{ animation:bcxDeal 6s ease-in-out infinite; }
+@keyframes bcxStage{ 0%{ stroke:#fff; stroke-opacity:.15; fill:#26292c; } 6%,16%{ stroke:#E47B2B; stroke-opacity:.95; fill:#33291f; } 26%,100%{ stroke:#fff; stroke-opacity:.15; fill:#26292c; } }
+.bc-hero-svg .bcx-s .bcx-box{ animation:bcxStage 6s ease-in-out infinite; }
+.bc-hero-svg .bcx-s2 .bcx-box{ animation-delay:1.3s; }
+.bc-hero-svg .bcx-s3 .bcx-box{ animation-delay:2.75s; }
+.bc-hero-svg .bcx-s4 .bcx-box{ animation-delay:4.2s; }
+
+/* ---- Microsoft Copilot ---- */
+@keyframes bcxSpin{ to{ transform:rotate(360deg); } }
+.bc-hero-svg .bcx-spin{ transform-box:fill-box; transform-origin:center; animation:bcxSpin 28s linear infinite; }
+@keyframes bcxLine{ 0%{ transform:scaleX(0); opacity:.2; } 14%{ opacity:1; } 34%,80%{ transform:scaleX(1); opacity:1; } 100%{ transform:scaleX(0); opacity:.2; } }
+.bc-hero-svg .bcx-ln{ transform-box:fill-box; transform-origin:left center; animation:bcxLine 6s ease-in-out infinite; }
+.bc-hero-svg .bcx-ln2{ animation-delay:.35s; }
+.bc-hero-svg .bcx-ln3{ animation-delay:.7s; }
+
+/* ---- Power Platform ---- */
+@keyframes bcxLoop{ from{ stroke-dashoffset:0; } to{ stroke-dashoffset:-100; } }
+.bc-hero-svg .bcx-comet{ stroke-dasharray:7 93; animation:bcxLoop 6s linear infinite; }
+@keyframes bcxBlock{ 0%{ stroke:#fff; stroke-opacity:.15; } 6%,16%{ stroke:#E47B2B; stroke-opacity:.95; } 26%,100%{ stroke:#fff; stroke-opacity:.15; } }
+.bc-hero-svg .bcx-b .bcx-box{ animation:bcxBlock 6s ease-in-out infinite; }
+.bc-hero-svg .bcx-b-tr .bcx-box{ animation-delay:.75s; }
+.bc-hero-svg .bcx-b-br .bcx-box{ animation-delay:2.05s; }
+.bc-hero-svg .bcx-b-bl .bcx-box{ animation-delay:3.75s; }
+.bc-hero-svg .bcx-b-tl .bcx-box{ animation-delay:5.05s; }
+
+/* ---- Microsoft 365 ---- */
+@keyframes bcxCurA{ 0%,100%{ transform:translate(0,0); } 30%{ transform:translate(96px,16px); } 55%{ transform:translate(56px,52px); } 80%{ transform:translate(8px,36px); } }
+.bc-hero-svg .bcx-cura{ animation:bcxCurA 9s ease-in-out infinite; }
+@keyframes bcxCurB{ 0%,100%{ transform:translate(0,0); } 35%{ transform:translate(-64px,34px); } 65%{ transform:translate(-30px,-24px); } }
+.bc-hero-svg .bcx-curb{ animation:bcxCurB 11s ease-in-out infinite; }
+@keyframes bcxRing{ 0%{ transform:scale(.8); opacity:.9; } 100%{ transform:scale(1.3); opacity:0; } }
+.bc-hero-svg .bcx-ring{ transform-box:fill-box; transform-origin:center; animation:bcxRing 1.8s ease-out infinite; }
+@keyframes bcxPop{ 0%,6%{ opacity:0; transform:translateY(8px); } 16%,70%{ opacity:1; transform:none; } 84%,100%{ opacity:0; transform:none; } }
+.bc-hero-svg .bcx-pop{ animation:bcxPop 8s ease infinite; }
+.bc-hero-svg .bcx-pop2{ animation-delay:1.6s; }
+.bc-hero-svg .bcx-pop3{ animation-delay:3.2s; }
+@keyframes bcxDot{ 0%,60%,100%{ opacity:.25; } 30%{ opacity:1; } }
+.bc-hero-svg .bcx-td{ animation:bcxDot 1.2s infinite; }
+.bc-hero-svg .bcx-td2{ animation-delay:.2s; }
+.bc-hero-svg .bcx-td3{ animation-delay:.4s; }
+@keyframes bcxBar{ 0%,100%{ transform:scaleY(1); } 50%{ transform:scaleY(.62); } }
+.bc-hero-svg .bcx-bar{ transform-box:fill-box; transform-origin:50% 100%; animation:bcxBar 5s ease-in-out infinite; }
+.bc-hero-svg .bcx-bar2{ animation-delay:-1.2s; }
+.bc-hero-svg .bcx-bar3{ animation-delay:-2.4s; }
+.bc-hero-svg .bcx-bar4{ animation-delay:-3.6s; }
+
+/* ---- Azure & Data ---- */
+@keyframes bcxDots{ to{ stroke-dashoffset:-14; } }
+.bc-hero-svg .bcx-lane{ stroke-linecap:round; stroke-dasharray:.1 14; animation:bcxDots 1.2s linear infinite; }
+@keyframes bcxLayer{ 0%{ stroke:#fff; stroke-opacity:.15; fill:#26292c; } 6%,20%{ stroke:#E47B2B; stroke-opacity:.9; fill:#33291f; } 32%,100%{ stroke:#fff; stroke-opacity:.15; fill:#26292c; } }
+.bc-hero-svg .bcx-ly .bcx-box{ animation:bcxLayer 6s ease-in-out infinite; }
+.bc-hero-svg .bcx-ly2 .bcx-box{ animation-delay:2s; }
+.bc-hero-svg .bcx-ly3 .bcx-box{ animation-delay:4s; }
+
+/* ---- reduced motion: everything stays still and fully visible ---- */
+@media (prefers-reduced-motion: reduce){
+  .bc-hero-svg [class*="bcx-"], .bc-hero-svg [class*="bcx-"] .bcx-box{ animation:none!important; }
+  .bc-hero-svg .bcx-deal{ opacity:1; }
+}
+/* ===== L24-END ===== */
