@@ -3197,3 +3197,24 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   .bc-hero-svg .bcx-deal{ opacity:1; }
 }
 /* ===== L24-END ===== */
+
+/* ===== L25-START: CLOSING BAND (technology pages) - THE SECOND BUTTON IS A PLAIN "TALK TO SALES →" LINK =====
+   Same idea as the closing band of the solution and challenge pages: text with an arrow on the right, no border, no background.
+   Only the closing band of the technology pages (class bc-leadgen) is affected; every other closing band is left alone.
+   The !important is deliberate: the theme has several more specific rules for this button and this one must win over all of them,
+   in every state (resting, hover, focus). ":not(#di-none)" is never true of anything; it only gives the rule the weight of an id,
+   so it also beats rules that name the section by its id. Colour, size and weight still come from the theme. ===== */
+.leadgen.bc-leadgen:not(#di-none) .lg-actions .lg-secondary,
+.leadgen.bc-leadgen:not(#di-none) .lg-actions .lg-secondary:hover,
+.leadgen.bc-leadgen:not(#di-none) .lg-actions .lg-secondary:focus,
+.leadgen.bc-leadgen:not(#di-none) .lg-actions .lg-secondary:focus-visible,
+.leadgen.bc-leadgen:not(#di-none) .lg-actions .lg-secondary:active{
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding-left:0!important;
+  padding-right:0!important;
+  min-height:0!important;
+}
+/* ===== L25-END ===== */
