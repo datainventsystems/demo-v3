@@ -3037,3 +3037,85 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 .bc-jump-links a.active::after{ transform:scaleX(1); }
 @media(max-width:900px){ .bc-jump-links{ overflow:auto; } }
 /* ===== L20-END ===== */
+
+/* ===== L21-START: TECHNOLOGY PAGES - MICROSOFT ECOSYSTEM SECTION STACKS ON TABLETS AND PHONES =====
+   The section kept its two columns (text left, graphic right) on small screens, so the text was squeezed into a thin
+   column and the graphic shrank. Below 981px the two parts now stack: text first, graphic underneath, both full width.
+   Screens wider than 980px are not affected. ===== */
+@media(max-width:980px){
+  .bc-ecosystem .bc-eco{ display:grid!important; grid-template-columns:minmax(0,1fr)!important; gap:36px!important; }
+  .bc-ecosystem .bc-eco-copy{ min-height:0!important; width:100%; }
+  .bc-ecosystem .bc-ecosystem-svg{ min-height:0!important; width:100%; }
+  .bc-ecosystem .bc-ecosystem-svg svg{ max-width:560px; margin-left:auto; margin-right:auto; }
+}
+/* ===== L21-END ===== */
+
+/* ===== L22-START: CLOSING BAND (lead-gen) - TRUST POINTS ARE LEFT-ALIGNED ON PHONES =====
+   Applies to every closing band on the site (homepage, problem, solution and technology pages), now and in future.
+   Below 601px each point (icon + title + caption) starts at the same left edge instead of being centred inside its row.
+   Screens wider than 600px are not affected. The !important is deliberate: several pages and modules carry their own,
+   more specific centring rules and this one must win over all of them. ===== */
+@media(max-width:600px){
+  .leadgen .lg-features{ justify-content:flex-start!important; align-items:flex-start!important; }
+  .leadgen .lg-features .lg-feat{ justify-content:flex-start!important; text-align:left!important; width:100%; }
+}
+/* ===== L22-END ===== */
+
+/* ===== L23-START: BUSINESS CENTRAL PACKAGE POPUP - THE DATAINVENT FORM =====
+   The popup form of the technology pages: two-column checkboxes, the site's orange button, orange focus rings and one
+   thank-you message. It matches the HubSpot version of the page (same classes, same look). ===== */
+.bc-package-modal .bc-package-dialog{ max-height:calc(100vh - 32px); overflow-y:auto; -webkit-overflow-scrolling:touch; }
+.bc-package-modal .bc-package-dialog:focus{ outline:none; }
+.di-pkg-form{ margin-top:22px; }
+.bc-package-dialog .di-pkg-fields{ margin:0; font-family:'Inter',sans-serif; color:var(--dark,#4A4A4A); }
+.bc-package-dialog .di-pkg-fields[hidden]{ display:none; }
+.bc-package-dialog .di-pkg-grid{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px 18px; }
+.bc-package-dialog .di-pkg-field{ display:flex; flex-direction:column; gap:7px; min-width:0; margin:0; }
+.bc-package-dialog .di-pkg-lab,
+.bc-package-dialog .di-pkg-tech legend{ font:600 13px/1.3 'Inter',sans-serif; color:var(--darker,#1F1F1F); }
+.bc-package-dialog .di-pkg-lab b,
+.bc-package-dialog .di-pkg-tech legend b{ color:var(--brand-orange,#E47B2B); font-weight:700; margin-left:3px; }
+.bc-package-dialog .di-pkg-tech legend em{ font-style:normal; font-weight:400; color:#80868b; margin-left:6px; }
+.bc-package-dialog .di-pkg-field input[type="text"],
+.bc-package-dialog .di-pkg-field input[type="email"],
+.bc-package-dialog .di-pkg-field textarea{
+  width:100%; box-sizing:border-box; margin:0; padding:12px 14px; font:400 15px/1.4 'Inter',sans-serif; color:var(--darker,#1F1F1F);
+  background:#fff; border:1px solid #d6d6d6; border-radius:10px; box-shadow:none; transition:border-color .15s, box-shadow .15s; }
+.bc-package-dialog .di-pkg-field textarea{ min-height:88px; resize:vertical; }
+.bc-package-dialog .di-pkg-field input:focus,
+.bc-package-dialog .di-pkg-field textarea:focus{ outline:none; border-color:var(--brand-orange,#E47B2B); box-shadow:0 0 0 4px rgba(228,123,43,.15); }
+.bc-package-dialog .di-pkg-field.has-error input,
+.bc-package-dialog .di-pkg-field.has-error textarea{ border-color:#c94b27; }
+.bc-package-dialog .di-pkg-err{ min-height:0; font-size:12.5px; line-height:1.35; color:#c0391b; }
+.bc-package-dialog .di-pkg-err:empty{ display:none; }
+.bc-package-dialog .di-pkg-tech{ margin:22px 0 0; padding:0; border:0; min-width:0; }
+.bc-package-dialog .di-pkg-tech legend{ padding:0; margin:0 0 8px; }
+.bc-package-dialog .di-pkg-opts{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 18px; }
+.bc-package-dialog .di-pkg-opt{ display:flex; align-items:flex-start; gap:10px; margin:0; padding:6px 0; font:400 14px/1.35 'Inter',sans-serif; color:var(--dark,#4A4A4A); cursor:pointer; }
+.bc-package-dialog .di-pkg-opt input{ flex:none; width:18px; height:18px; margin:1px 0 0; accent-color:var(--brand-orange,#E47B2B); cursor:pointer; }
+.bc-package-dialog .di-pkg-tech.has-error .di-pkg-opts{ outline:1px solid #c94b27; outline-offset:6px; border-radius:6px; }
+.bc-package-dialog .di-pkg-tech .di-pkg-err{ display:block; margin-top:8px; }
+.bc-package-dialog .di-pkg-tech .di-pkg-err:empty{ display:none; }
+.bc-package-dialog .di-pkg-msg{ margin-top:18px; }
+.bc-package-dialog .di-pkg-hp{ position:absolute!important; left:-10000px!important; top:auto; width:1px; height:1px; overflow:hidden; }
+.bc-package-dialog .di-pkg-error{ margin-top:16px; padding:12px 14px; border:1px solid #f0c3b5; border-radius:10px; background:#fdf1ed; color:#9b3a1c; font-size:13.5px; line-height:1.45; word-break:break-word; }
+.bc-package-dialog .di-pkg-error[hidden]{ display:none; }
+.bc-package-dialog .di-pkg-actions{ display:flex; align-items:center; flex-wrap:wrap; gap:14px 20px; margin-top:22px; }
+.bc-package-dialog .di-pkg-submit[disabled]{ opacity:.65; cursor:progress; }
+.bc-package-dialog.is-sent > .eyebrow,
+.bc-package-dialog.is-sent > h2,
+.bc-package-dialog.is-sent > p{ display:none; }
+.bc-package-dialog.is-sent .di-pkg-form{ margin-top:0; }
+.bc-package-dialog .di-pkg-thanks[hidden]{ display:none!important; }
+.bc-package-dialog .di-pkg-thanks{ padding:18px 0 6px; outline:none; }
+.bc-package-dialog .di-pkg-tick{ width:56px; height:56px; margin:0 0 20px; border-radius:50%; display:grid; place-items:center; color:var(--brand-orange,#E47B2B); background:rgba(228,123,43,.12); }
+.bc-package-dialog .di-pkg-thanks h3{ margin:0 0 10px; font:700 30px/1.15 'Oxanium',sans-serif; color:var(--darker,#1F1F1F); }
+.bc-package-dialog .di-pkg-thanks p{ margin:0 0 24px; max-width:46ch; font-size:16px; line-height:1.6; color:var(--dark,#4A4A4A); }
+@media(max-width:560px){
+  .bc-package-dialog .di-pkg-grid{ grid-template-columns:1fr; gap:14px; }
+  .bc-package-dialog .di-pkg-opts{ column-gap:12px; }
+  .bc-package-dialog .di-pkg-opt{ font-size:13.5px; gap:8px; }
+  .bc-package-dialog .di-pkg-actions .btn{ width:100%; justify-content:center; }
+}
+@media(max-width:340px){ .bc-package-dialog .di-pkg-opts{ grid-template-columns:1fr; } }
+/* ===== L23-END ===== */
