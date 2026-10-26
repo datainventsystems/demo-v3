@@ -3239,11 +3239,30 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 #mfgSfCta .arrow{ color:inherit!important; }
 /* ===== L26-END ===== */
 
-/* ===== L27-START: BREADCRUMB - THE "HOME" LINK ON TECHNOLOGY PAGES =====
-   Home is the only link in a breadcrumb; the other crumbs are plain text. The link looks like the rest of the crumb and shows an
-   underline and the brand colour on hover and keyboard focus.
+/* ===== L28-START: HEADING AND BREADCRUMB COLOURS =====
+   1) Headings on white and light backgrounds are #1F1F1F (--darker). Dark sections keep their white headings, so this is written
+      heading by heading and is NOT a blanket rule for every h2.
+   2) The breadcrumb "Home" link is brand orange on every page (technology, challenge, solution, industry), lighter orange on hover and focus.
    ===== */
-.bc-crumb a{ color:inherit; text-decoration:none; }
+
+/* ---- 1. headings: FAQ sections (white / light grey backgrounds) ---- */
+.bc-faq-side h2,
+.mfg-faq-side h2,
+.bc-careers-faq .bc-faq-side h2,
+.mfg-faq .mfg-faq-side h2,
+.solution-faq .mfg-faq-side h2,
+#faq .bc-faq-side h2,
+#faq .mfg-faq-side h2,
+.di-faq-white .mfg-faq-side h2{ color:#1F1F1F; }
+
+/* ---- 2. breadcrumb "Home" link ---- */
+.bc-crumb a,
+.phero-crumb a,
+.mfg-crumb a{ color:var(--brand-orange,#E47B2B); text-decoration:none; transition:color .18s ease; }
 .bc-crumb a:hover,
-.bc-crumb a:focus-visible{ color:var(--brand-orange,#E47B2B); text-decoration:underline; }
-/* ===== L27-END ===== */
+.bc-crumb a:focus-visible,
+.phero-crumb a:hover,
+.phero-crumb a:focus-visible,
+.mfg-crumb a:hover,
+.mfg-crumb a:focus-visible{ color:var(--brand-orange-light,#F4A45C); text-decoration:underline; }
+/* ===== L28-END ===== */
