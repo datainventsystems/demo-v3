@@ -3218,3 +3218,32 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   min-height:0!important;
 }
 /* ===== L25-END ===== */
+
+/* ===== L26-START: CASE-STUDY LINK ("Read full case study") IN BRAND ORANGE =====
+   One rule for every featured-story card on the site (homepage, solution, technology and industry pages): the link under the
+   story is brand orange, a lighter orange on hover and keyboard focus, and its arrow follows the same colour.
+   ===== */
+.story-feature .sf-cta,
+.cases .story-feature .sf-cta,
+.mfg-proof-stories .story-feature .sf-cta,
+#sfCta,
+#mfgSfCta{ color:var(--brand-orange,#E47B2B)!important; }
+.story-feature .sf-cta:hover,
+.story-feature .sf-cta:focus-visible,
+#sfCta:hover,
+#sfCta:focus-visible,
+#mfgSfCta:hover,
+#mfgSfCta:focus-visible{ color:var(--brand-orange-light,#F4A45C)!important; }
+.story-feature .sf-cta .arrow,
+#sfCta .arrow,
+#mfgSfCta .arrow{ color:inherit!important; }
+/* ===== L26-END ===== */
+
+/* ===== L27-START: BREADCRUMB - THE "HOME" LINK ON TECHNOLOGY PAGES =====
+   Home is the only link in a breadcrumb; the other crumbs are plain text. The link looks like the rest of the crumb and shows an
+   underline and the brand colour on hover and keyboard focus.
+   ===== */
+.bc-crumb a{ color:inherit; text-decoration:none; }
+.bc-crumb a:hover,
+.bc-crumb a:focus-visible{ color:var(--brand-orange,#E47B2B); text-decoration:underline; }
+/* ===== L27-END ===== */
