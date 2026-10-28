@@ -3339,3 +3339,19 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   .bc-jump-links::-webkit-scrollbar{ display:none; }
 }
 /* ===== L29-END ===== */
+
+/* ===== L30-START: TECHNOLOGY PAGES - SECTION BAR ON PHONES ===== */
+@media(max-width:640px){
+  .bc-page .bc-product-row{ display:flex; gap:0; min-height:56px; }
+  .bc-page .bc-product-name{ display:none; }
+  .bc-page .bc-jump-links{
+    display:flex; flex:1 1 auto; min-width:0; gap:24px; align-items:stretch;
+    overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none; -ms-overflow-style:none; white-space:nowrap;
+  }
+  .bc-page .bc-jump-links::-webkit-scrollbar{ display:none; }
+  .bc-page .bc-jump-links a{ flex:0 0 auto; display:inline-flex; align-items:center; min-height:56px; padding:0 2px; font-size:13px; }
+  .bc-page .bc-jump-links a:last-child{ padding-right:24px; }
+  .bc-page section[id]{ scroll-margin-top:calc(var(--nav-h,74px) + 56px); }
+}
+/* ===== L30-END ===== */
