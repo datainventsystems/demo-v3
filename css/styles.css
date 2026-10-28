@@ -3266,3 +3266,58 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 .mfg-crumb a:hover,
 .mfg-crumb a:focus-visible{ color:var(--brand-orange-light,#F4A45C); text-decoration:underline; }
 /* ===== L28-END ===== */
+
+/* ===== L29-START: BUSINESS CENTRAL - IMPLEMENTATION & MIGRATION, SUPPORT & MANAGED SERVICES =====
+   Implementation & migration: three "FROM" cards, six approach steps and the popup CTA, on the same dark background as before
+   (the section keeps its bc-packages class, so the background comes from the theme exactly as it did).
+   Support & managed services: a slim white band before the FAQ. Change its colour with --bc-support-bg.
+   ===== */
+
+/* ---- implementation & migration (dark) ---- */
+.bc-packages.bc-migration .bc-mig-head{ max-width:780px; margin:0 0 44px; }
+.bc-packages.bc-migration .bc-mig-head h2{ color:#fff; }
+.bc-packages.bc-migration .bc-mig-head .bc-lead{ color:rgba(255,255,255,.68); max-width:700px; }
+.bc-packages.bc-migration .bc-mig-from{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+.bc-packages.bc-migration .bc-mig-card{ display:flex; flex-direction:column; gap:10px; padding:28px 26px 30px; border:1px solid rgba(255,255,255,.12); border-radius:18px; background:rgba(255,255,255,.04); transition:border-color .2s ease, background-color .2s ease; }
+.bc-packages.bc-migration .bc-mig-card:hover{ border-color:rgba(228,123,43,.55); background:rgba(255,255,255,.06); }
+.bc-packages.bc-migration .bc-mig-kick{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.16em; color:#F4A45C; }
+.bc-packages.bc-migration .bc-mig-card h3{ margin:0; font-size:22px; line-height:1.2; color:#fff; }
+.bc-packages.bc-migration .bc-mig-card p{ margin:0; font-size:15px; line-height:1.6; color:rgba(255,255,255,.66); }
+.bc-packages.bc-migration .bc-mig-steps{ list-style:none; margin:20px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.bc-packages.bc-migration .bc-mig-steps li{ display:flex; align-items:flex-start; gap:16px; padding:20px 22px; border:1px solid rgba(255,255,255,.1); border-radius:14px; background:rgba(255,255,255,.03); }
+.bc-packages.bc-migration .bc-mig-no{ flex:0 0 auto; font-family:'Oxanium',sans-serif; font-size:20px; font-weight:700; line-height:1.2; color:var(--brand-orange,#E47B2B); }
+.bc-packages.bc-migration .bc-mig-steps h3{ margin:0 0 4px; font-size:17px; line-height:1.25; color:#fff; }
+.bc-packages.bc-migration .bc-mig-steps p{ margin:0; font-size:14px; line-height:1.55; color:rgba(255,255,255,.62); }
+.bc-packages.bc-migration .bc-mig-cta{ margin-top:34px; }
+@media(max-width:899px){
+  .bc-packages.bc-migration .bc-mig-from{ grid-template-columns:1fr; }
+  .bc-packages.bc-migration .bc-mig-steps{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:599px){
+  .bc-packages.bc-migration .bc-mig-head{ margin-bottom:32px; }
+  .bc-packages.bc-migration .bc-mig-steps{ grid-template-columns:1fr; }
+  .bc-packages.bc-migration .bc-mig-card{ padding:24px 22px 26px; }
+  .bc-packages.bc-migration .bc-mig-cta .btn{ width:100%; justify-content:center; }
+}
+
+/* ---- support & managed services (white band before the FAQ) ---- */
+.bc-section.bc-support{ padding:72px 0; background:var(--bc-support-bg,#fff); border-top:1px solid rgba(31,31,31,.08); border-bottom:1px solid rgba(31,31,31,.08); }
+.bc-support .bc-support-grid{ display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:48px; align-items:center; }
+.bc-support .bc-support-copy h2{ margin:10px 0 16px; color:#1F1F1F; font-size:clamp(30px,3.4vw,44px); line-height:1.1; }
+.bc-support .bc-support-copy .bc-lead{ margin:0; max-width:540px; color:#4A4A4A; }
+.bc-support .bc-support-actions{ display:flex; flex-wrap:wrap; align-items:center; gap:22px 28px; }
+.bc-support .bc-support-btn{ background:transparent; color:#1F1F1F; border:1.5px solid #1F1F1F; box-shadow:none; }
+.bc-support .bc-support-btn:hover,
+.bc-support .bc-support-btn:focus-visible{ background:#1F1F1F; color:#fff; border-color:#1F1F1F; }
+.bc-support .bc-support-link{ display:inline-flex; align-items:center; gap:8px; font-weight:700; color:#1F1F1F; text-decoration:underline; text-underline-offset:5px; text-decoration-thickness:1.5px; }
+.bc-support .bc-support-link:hover,
+.bc-support .bc-support-link:focus-visible{ color:var(--brand-orange,#E47B2B); }
+@media(max-width:899px){
+  .bc-support .bc-support-grid{ grid-template-columns:1fr; gap:28px; }
+}
+@media(max-width:599px){
+  .bc-section.bc-support{ padding:52px 0; }
+  .bc-support .bc-support-actions{ flex-direction:column; align-items:flex-start; }
+  .bc-support .bc-support-btn{ width:100%; justify-content:center; }
+}
+/* ===== L29-END ===== */
