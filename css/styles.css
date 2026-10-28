@@ -3268,65 +3268,74 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
 /* ===== L28-END ===== */
 
 /* ===== L29-START: BUSINESS CENTRAL - IMPLEMENTATION & MIGRATION, SUPPORT & MANAGED SERVICES =====
-   Implementation & migration (dark section, kept from the old packages block):
-     - heading: the site H2 (36px, like .bc-head h2 and .bc-faq-side h2)
-     - "FROM" cards: white with a 2px brand-orange border, the same card style as the matched solution cards in the challenge pages'
-       "Diagnose Before You Solve" section (.rsolution.match). The steps below stay dark, so the two groups read differently.
-   Support & managed services: a dark rounded card on a light band so it stands out between the proof and the FAQ.
+   Headings: both sections use the site's section-head class (bc-head) on their heading block, so the heading SIZE, spacing and lead come from the
+   same rules as the Value, Capabilities and FAQ headings. This block only sets the colours that a dark background needs.
+   Implementation & migration: white "FROM" cards with an orange border (the matched-card style of the challenge pages) on the dark section.
+   Support & managed services: a full-width dark band with an orange glow and decorative rings.
    The text link follows the closing band's "Talk to Sales" link: 15px, weight 600, no underline, arrow on the right.
+   The section bar has 8 links now: below 900px it scrolls sideways instead of overflowing.
    ===== */
 
-/* ---- implementation & migration ---- */
-.bc-packages.bc-migration .bc-mig-head{ max-width:780px; margin:0 0 44px; }
-.bc-packages.bc-migration .bc-mig-head h2{ color:#fff; font-size:36px; line-height:1.1; margin-top:12px; }
-.bc-packages.bc-migration .bc-mig-head .bc-lead{ color:rgba(255,255,255,.68); max-width:700px; font-size:16px; line-height:1.65; margin-top:16px; }
-.bc-packages.bc-migration .bc-mig-from{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; }
+/* ---- implementation & migration (dark) ---- */
+.bc-packages.bc-migration .bc-mig-head h2{ color:#fff; }
+.bc-packages.bc-migration .bc-mig-head .bc-lead{ color:rgba(255,255,255,.68); }
+.bc-packages.bc-migration .bc-mig-from{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; position:relative; z-index:2; }
 .bc-packages.bc-migration .bc-mig-card{ display:flex; flex-direction:column; gap:10px; padding:28px 26px 30px; background:#fff; border:2px solid var(--brand-orange,#E47B2B); border-radius:var(--radius-md,12px); box-shadow:0 12px 30px rgba(228,123,43,.2); transition:transform .25s var(--ease,ease), box-shadow .25s var(--ease,ease); }
 .bc-packages.bc-migration .bc-mig-card:hover{ transform:translateY(-3px); box-shadow:0 18px 40px rgba(228,123,43,.28); }
 .bc-packages.bc-migration .bc-mig-kick{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.16em; color:var(--brand-orange,#E47B2B); }
 .bc-packages.bc-migration .bc-mig-card h3{ margin:0; font-size:20px; line-height:1.2; color:var(--darker,#1F1F1F); }
 .bc-packages.bc-migration .bc-mig-card p{ margin:0; font-size:15px; line-height:1.6; color:var(--dark,#4A4A4A); }
-.bc-packages.bc-migration .bc-mig-steps{ list-style:none; margin:20px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.bc-packages.bc-migration .bc-mig-steps{ list-style:none; margin:20px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; position:relative; z-index:2; }
 .bc-packages.bc-migration .bc-mig-steps li{ display:flex; align-items:flex-start; gap:16px; padding:20px 22px; border:1px solid rgba(255,255,255,.1); border-radius:14px; background:rgba(255,255,255,.03); }
 .bc-packages.bc-migration .bc-mig-no{ flex:0 0 auto; font-family:'Oxanium',sans-serif; font-size:20px; font-weight:700; line-height:1.2; color:var(--brand-orange,#E47B2B); }
 .bc-packages.bc-migration .bc-mig-steps h3{ margin:0 0 4px; font-size:17px; line-height:1.25; color:#fff; }
 .bc-packages.bc-migration .bc-mig-steps p{ margin:0; font-size:14px; line-height:1.55; color:rgba(255,255,255,.62); }
-.bc-packages.bc-migration .bc-mig-cta{ margin-top:34px; }
+.bc-packages.bc-migration .bc-mig-cta{ margin-top:34px; position:relative; z-index:2; }
+.bc-packages.bc-migration .bc-mig-head{ position:relative; z-index:2; }
 @media(max-width:899px){
   .bc-packages.bc-migration .bc-mig-from{ grid-template-columns:1fr; }
   .bc-packages.bc-migration .bc-mig-steps{ grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:599px){
-  .bc-packages.bc-migration .bc-mig-head{ margin-bottom:32px; }
   .bc-packages.bc-migration .bc-mig-steps{ grid-template-columns:1fr; }
   .bc-packages.bc-migration .bc-mig-card{ padding:24px 22px 26px; }
   .bc-packages.bc-migration .bc-mig-cta .btn{ width:100%; justify-content:center; }
 }
 
-/* ---- support & managed services ---- */
-.bc-section.bc-support{ padding:80px 0; background:var(--bc-support-bg,#F5F4F1); }
-.bc-support .bc-support-card{ position:relative; overflow:hidden; display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:48px; align-items:center; padding:56px; border-radius:var(--radius-lg,18px); background:var(--night,#1C1C1C); }
-.bc-support .bc-support-card:before{ content:""; position:absolute; top:-140px; right:-110px; width:420px; height:420px; border-radius:50%; background:radial-gradient(circle,rgba(228,123,43,.22),transparent 70%); pointer-events:none; }
-.bc-support .bc-support-copy,
-.bc-support .bc-support-actions{ position:relative; z-index:1; }
-.bc-support .bc-support-copy .eyebrow{ color:var(--brand-orange-light,#F4A45C); }
-.bc-support .bc-support-copy h2{ margin:12px 0 0; color:#fff; font-size:36px; line-height:1.1; }
-.bc-support .bc-support-copy .bc-lead{ margin:16px 0 0; max-width:540px; color:rgba(255,255,255,.68); font-size:16px; line-height:1.65; }
-.bc-support .bc-support-actions{ display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:20px 28px; }
+/* ---- support & managed services (full-width dark band) ---- */
+.bc-section.bc-support{ position:relative; isolation:isolate; overflow:hidden; padding:100px 0; color:#fff;
+  background:radial-gradient(ellipse 52% 95% at 88% 12%, rgba(228,123,43,.34), transparent 66%), radial-gradient(ellipse 38% 72% at 2% 100%, rgba(228,123,43,.13), transparent 62%), linear-gradient(135deg,#242628,#1c1c1c 60%,#241c16);
+  box-shadow:inset 0 3px 0 0 var(--brand-orange,#E47B2B); }
+.bc-section.bc-support:before{ content:""; position:absolute; z-index:-1; top:50%; right:-170px; width:560px; height:560px; transform:translateY(-50%); border-radius:50%; border:1px solid rgba(244,164,92,.26); box-shadow:0 0 0 72px rgba(244,164,92,.05), 0 0 0 144px rgba(244,164,92,.03); pointer-events:none; }
+.bc-section.bc-support:after{ content:""; position:absolute; z-index:-1; inset:0; background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.4px); background-size:30px 30px; opacity:.45; -webkit-mask-image:linear-gradient(90deg,transparent 35%,#000); mask-image:linear-gradient(90deg,transparent 35%,#000); pointer-events:none; }
+.bc-support .bc-support-grid{ display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr); gap:56px; align-items:center; position:relative; z-index:2; }
+.bc-support .bc-support-copy{ margin-bottom:0; max-width:680px; text-align:left; }
+.bc-support .bc-support-copy h2{ color:#fff; }
+.bc-support .bc-support-copy .bc-lead{ color:rgba(255,255,255,.72); max-width:560px; }
+.bc-support .bc-support-actions{ display:flex; flex-direction:column; align-items:flex-start; gap:26px; justify-self:end; }
 .bc-support .bc-support-link{ display:inline-flex; align-items:center; gap:8px; color:#fff; font-size:15px; font-weight:600; text-decoration:none; transition:color .18s ease; }
 .bc-support .bc-support-link .arrow{ transition:transform .18s ease; }
 .bc-support .bc-support-link:hover,
 .bc-support .bc-support-link:focus-visible{ color:var(--brand-orange-light,#F4A45C); text-decoration:none; }
 .bc-support .bc-support-link:hover .arrow{ transform:translateX(2px); }
 @media(max-width:899px){
-  .bc-section.bc-support{ padding:60px 0; }
-  .bc-support .bc-support-card{ grid-template-columns:1fr; gap:28px; padding:40px 32px; }
-  .bc-support .bc-support-actions{ justify-content:flex-start; }
+  .bc-section.bc-support{ padding:76px 0; }
+  .bc-support .bc-support-grid{ grid-template-columns:1fr; gap:34px; }
+  .bc-support .bc-support-actions{ justify-self:start; }
+  .bc-section.bc-support:before{ right:-260px; opacity:.7; }
 }
 @media(max-width:599px){
-  .bc-section.bc-support{ padding:44px 0; }
-  .bc-support .bc-support-card{ padding:32px 22px; }
-  .bc-support .bc-support-actions{ flex-direction:column; align-items:flex-start; }
+  .bc-section.bc-support{ padding:64px 0; }
+  .bc-support .bc-support-actions{ align-items:stretch; width:100%; }
   .bc-support .bc-support-actions .btn{ width:100%; justify-content:center; }
+  .bc-support .bc-support-link{ justify-content:center; }
+}
+
+/* ---- section bar: 8 links ---- */
+@media(max-width:1100px){ .bc-jump-links{ gap:14px; } }
+@media(max-width:900px){
+  .bc-product-row{ gap:16px; }
+  .bc-jump-links{ min-width:0; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .bc-jump-links::-webkit-scrollbar{ display:none; }
 }
 /* ===== L29-END ===== */
