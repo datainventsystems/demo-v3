@@ -33,7 +33,7 @@
 
 <div id="site-header"></div>
 <!-- ===================== BOOK A DEMO ===================== -->
-<section class="demo" style="padding-bottom:100px;">
+<section class="demo">
   <div class="wrap demo-crumb"><a href="index.html">Home</a> &nbsp;›&nbsp; Book a Demo</div>
 
   <div class="wrap">
@@ -47,35 +47,35 @@
       <!-- LEFT: FORM (primary) — soft gradient card -->
       <div class="demo-card reveal-left">
         <div class="dc-glow"></div>
-        <form class="demo-form" id="demoForm" novalidate>
-          <input type="hidden" id="leadIntent" name="leadIntent" value="high-intent-demo" />
+        <div class="demo-form" id="demoForm" role="form" aria-label="Book a demo" data-portal-id="20887559" data-region="na1" data-form-id="" data-thank-you="">
+          <input type="hidden" id="leadIntent" name="leadIntent" value="high-intent-demo" /><div class="di-hp" aria-hidden="true"><label>Website<input type="text" name="di_website" tabindex="-1" autocomplete="off"></label></div>
 
           <div class="field-row">
-            <div class="field"><label for="fullName">Contact Name</label><input class="field-input" id="fullName" name="fullName" type="text" autocomplete="name" placeholder="John Doe" required /></div>
-            <div class="field"><label for="jobTitle">Role / Job Title</label><input class="field-input" id="jobTitle" name="jobTitle" type="text" autocomplete="organization-title" placeholder="Director of Operations" required /></div>
+            <div class="field"><label for="fullName">Contact Name</label><input data-prop="fullname" class="field-input" id="fullName" name="fullName" type="text" autocomplete="name" placeholder="John Doe" required /></div>
+            <div class="field"><label for="jobTitle">Role / Job Title</label><input data-prop="jobtitle" class="field-input" id="jobTitle" name="jobTitle" type="text" autocomplete="organization-title" placeholder="Director of Operations" required /></div>
           </div>
 
           <div class="field-row">
-            <div class="field"><label for="workEmail">Work Email</label><input class="field-input" id="workEmail" name="workEmail" type="email" autocomplete="email" placeholder="john@company.com" required /></div>
-            <div class="field"><label for="phone">Phone Number</label><input class="field-input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" required /></div>
+            <div class="field"><label for="workEmail">Work Email</label><input data-prop="email" class="field-input" id="workEmail" name="workEmail" type="email" autocomplete="email" placeholder="john@company.com" required /></div>
+            <div class="field"><label for="phone">Phone Number</label><input data-prop="phone" class="field-input" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" required /></div>
           </div>
 
           <div class="field-row">
-            <div class="field"><label for="company">Company Name</label><input class="field-input" id="company" name="company" type="text" autocomplete="organization" placeholder="Acme Corp" required /></div>
-            <div class="field"><label for="companySize">Company Size</label><select class="field-input" id="companySize" name="companySize" required><option value="" selected disabled>Select company size</option><option value="1-49">1–49 employees</option><option value="50-99">50–99 employees</option><option value="100-249">100–249 employees</option><option value="250-499">250–499 employees</option><option value="500-999">500–999 employees</option><option value="1000-2499">1,000–2,499 employees</option><option value="2500-plus">2,500+ employees</option></select></div>
+            <div class="field"><label for="company">Company Name</label><input data-prop="company" class="field-input" id="company" name="company" type="text" autocomplete="organization" placeholder="Acme Corp" required /></div>
+            <div class="field"><label for="companySize">Company Size</label><select data-prop="company_size_range" class="field-input" id="companySize" name="companySize" required><option value="" selected disabled>Select company size</option><option value="1-49">1–49 employees</option><option value="50-99">50–99 employees</option><option value="100-249">100–249 employees</option><option value="250-499">250–499 employees</option><option value="500-999">500–999 employees</option><option value="1000-2499">1,000–2,499 employees</option><option value="2500-plus">2,500+ employees</option></select></div>
           </div>
 
           <div class="field-row">
-            <div class="field"><label for="country">Country</label><select class="field-input" id="country" name="country" autocomplete="country-name" required><option value="" selected disabled>Select country</option><option value="Canada">Canada</option><option value="United States">United States</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="Other">Other</option></select></div>
-            <div class="field"><label for="timeline">Timeline</label><select class="field-input" id="timeline" name="timeline" required><option value="" selected disabled>Select timeline</option><option value="immediately">Immediately</option><option value="0-3-months">Within 3 months</option><option value="3-6-months">3–6 months</option><option value="6-12-months">6–12 months</option><option value="12-plus-months">More than 12 months</option><option value="exploring">Just exploring</option></select></div>
+            <div class="field"><label for="country">Country</label><select data-prop="country" class="field-input" id="country" name="country" autocomplete="country-name" required><option value="" selected disabled>Select country</option><option value="Canada">Canada</option><option value="United States">United States</option><option value="United Arab Emirates">United Arab Emirates</option><option value="United Kingdom">United Kingdom</option><option value="Other">Other</option></select></div>
+            <div class="field"><label for="timeline">Timeline</label><select data-prop="demo_timeline" class="field-input" id="timeline" name="timeline" required><option value="" selected disabled>Select timeline</option><option value="immediately">Immediately</option><option value="0-3-months">Within 3 months</option><option value="3-6-months">3–6 months</option><option value="6-12-months">6–12 months</option><option value="12-plus-months">More than 12 months</option><option value="exploring">Just exploring</option></select></div>
           </div>
 
           <div class="field-row">
-            <div class="field"><label for="currentSystem">Current System</label><input class="field-input" id="currentSystem" name="currentSystem" type="text" placeholder="e.g. Business Central, SAP, NetSuite, spreadsheets" required /></div>
-            <div class="field"><label for="areaOfInterest">Area of Interest</label><select class="field-input" id="areaOfInterest" name="areaOfInterest" required><option value="" selected disabled>Select an area of interest</option><option value="business-central">Microsoft Dynamics 365 Business Central</option><option value="d365-finance-operations">Dynamics 365 Finance &amp; Operations</option><option value="crm-sales">CRM &amp; Dynamics 365 Sales</option><option value="ai-copilot">AI &amp; Microsoft Copilot</option><option value="bi-analytics">BI, Power BI &amp; Analytics</option><option value="power-platform">Power Platform &amp; Automation</option><option value="microsoft-365-modern-work">Microsoft 365 &amp; Modern Work</option><option value="azure-data">Azure &amp; Data</option><option value="managed-it">Managed IT &amp; Security</option><option value="other">Other / Not sure yet</option></select></div>
+            <div class="field"><label for="currentSystem">Current System</label><input data-prop="current_system" class="field-input" id="currentSystem" name="currentSystem" type="text" placeholder="e.g. Business Central, SAP, NetSuite, spreadsheets" required /></div>
+            <div class="field"><label for="areaOfInterest">Area of Interest</label><select data-prop="area_of_interest" class="field-input" id="areaOfInterest" name="areaOfInterest" required><option value="" selected disabled>Select an area of interest</option><optgroup label="Solutions"><option value="finance-erp">Finance &amp; ERP</option><option value="crm-sales">CRM &amp; Sales</option><option value="ai-copilot">AI &amp; Copilot</option><option value="bi-analytics">BI &amp; Analytics</option><option value="modern-work">Modern Work</option><option value="managed-it">Managed IT</option></optgroup><optgroup label="Technology"><option value="business-central">Dynamics 365 Business Central</option><option value="dynamics-365-sales">Dynamics 365 Sales</option><option value="copilot">Microsoft Copilot</option><option value="power-platform">Power Platform</option><option value="microsoft-365">Microsoft 365</option><option value="azure-data">Azure &amp; Data</option></optgroup><optgroup label="Products"><option value="construction-cloud">Construction Cloud</option><option value="civic-cloud">Civic Cloud</option></optgroup><option value="other">Other / Not sure yet</option></select></div>
           </div>
 
-          <div class="field"><label for="discuss">What would you like to discuss? <span aria-hidden="true">(Optional)</span></label><textarea class="field-input" id="discuss" name="discuss" placeholder="Tell us about your priorities, current challenges, or what you would like to see in the demo..."></textarea></div>
+          <div class="field"><label for="discuss">What would you like to discuss? <span aria-hidden="true">(Optional)</span></label><textarea data-prop="message" class="field-input" id="discuss" name="discuss" placeholder="Tell us about your priorities, current challenges, or what you would like to see in the demo..."></textarea></div>
 
           <label class="consent">
             <input type="checkbox" id="consent" name="consent" required />
@@ -83,11 +83,11 @@
             <span class="txt">I agree to be contacted by DataInvent regarding products and services. I understand I can unsubscribe at any time.</span>
           </label>
 
-          <button class="btn btn-primary demo-submit" type="submit">Request My Demo <span class="arrow">→</span></button>
+          <div class="form-err" role="alert" hidden></div><button class="btn btn-primary demo-submit" type="button">Request My Demo <span class="arrow">→</span></button>
 
           <div class="demo-or">OR</div>
           <div class="demo-direct"><span>Prefer to book directly?</span> <a href="#"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Schedule a Time <span class="arrow">→</span></a></div>
-        </form>
+        </div><div class="demo-thanks" id="demoThanks" tabindex="-1" hidden><div class="dt-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Thank you.</h3><p>Your details are in. A DataInvent specialist will contact you within 4 business hours to schedule your demo.</p></div>
       </div>
 
       <!-- RIGHT: light, quiet supporting aside -->
@@ -105,12 +105,12 @@
 
         <div class="da-stats">
           <div><div class="v">200<span class="u">+</span></div><div class="l">Enterprise Clients</div></div>
-          <div><div class="v"><span class="u">£</span>250M<span class="u">+</span></div><div class="l">Value Delivered</div></div>
+          <div><div class="v"><span class="u">$</span>250M<span class="u">+</span></div><div class="l">Value Delivered</div></div>
         </div>
 
         <div class="da-ms">
           <div class="da-ms-head">
-            <div class="da-msq"><div style="background:#F25022"></div><div style="background:#7FBA00"></div><div style="background:#00A4EF"></div><div style="background:#FFB900"></div></div>
+            <div class="da-msq"><div></div><div></div><div></div><div></div></div>
             <div class="da-mt">Microsoft<small>Solutions Partner</small></div>
           </div>
           <div class="da-desigs">
@@ -139,28 +139,7 @@
 <!-- SHARED HEADER + FOOTER COMPONENTS -->
 <script src="js/component.js"></script>
 
-<script>
-(function(){
-  var select=document.getElementById('areaOfInterest');
-  if(!select) return;
-  var params=new URLSearchParams(window.location.search);
-  var raw=(params.get('interest')||'').trim().toLowerCase();
-  if(!raw) return;
-  var aliases={
-    'business-central':'business-central','business central':'business-central',
-    'finance-operations':'d365-finance-operations','d365-finance-operations':'d365-finance-operations','dynamics 365 finance and operations':'d365-finance-operations',
-    'crm':'crm-sales','crm-sales':'crm-sales','dynamics-365-sales':'crm-sales',
-    'ai':'ai-copilot','copilot':'ai-copilot','ai-copilot':'ai-copilot',
-    'bi':'bi-analytics','power-bi':'bi-analytics','bi-analytics':'bi-analytics',
-    'power-platform':'power-platform','automation':'power-platform',
-    'microsoft-365':'microsoft-365-modern-work','modern-work':'microsoft-365-modern-work',
-    'azure':'azure-data','azure-data':'azure-data',
-    'managed-it':'managed-it','security':'managed-it'
-  };
-  var value=aliases[raw]||raw;
-  if(Array.from(select.options).some(function(o){return o.value===value;})){select.value=value;}
-})();
-</script>
+<script src="js/book-a-demo.js"></script>
 
 </body>
 </html>
