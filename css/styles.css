@@ -3355,3 +3355,34 @@ body>section[id]{scroll-margin-top:calc(var(--nav-h) + 62px)}
   .bc-page section[id]{ scroll-margin-top:calc(var(--nav-h,74px) + 56px); }
 }
 /* ===== L30-END ===== */
+
+/* ===== L31-START: BOOK A DEMO - FORM STATES, THANK-YOU PANEL, MOVED INLINE STYLES =====
+   The form is a <div role="form"> (no <form> tag, so HubSpot's page scanner does not record a second submission). These rules add what a browser's own
+   form validation used to provide: a message under each field, a red border, a thank-you panel, a hidden bot trap. The rest of the look comes from the
+   existing .demo-* and .field-* rules. Also here: the three inline styles that were on the page.
+   ===== */
+section.demo{ padding-bottom:100px; }
+.demo-form select.field-input{ padding-right:46px!important; }
+.da-msq>div:nth-child(1){ background:#F25022; }
+.da-msq>div:nth-child(2){ background:#7FBA00; }
+.da-msq>div:nth-child(3){ background:#00A4EF; }
+.da-msq>div:nth-child(4){ background:#FFB900; }
+
+.demo-form .di-hp{ position:absolute!important; left:-9999px!important; top:auto; width:1px; height:1px; overflow:hidden; }
+.demo-form .field-input.is-invalid{ border-color:var(--red,#c6544f); }
+.demo-form .field-input.is-invalid:focus{ box-shadow:0 0 0 3px rgba(198,84,79,.16); }
+.demo-form .field-err{ margin-top:7px; color:#a8403b; font-size:12.5px; font-weight:500; line-height:1.4; }
+.demo-form .consent.is-invalid .box{ border-color:var(--red,#c6544f); }
+.demo-form .consent + .field-err{ margin:-14px 0 20px 34px; }
+.demo-form .consent input:focus-visible + .box{ outline:3px solid rgba(228,123,43,.3); outline-offset:2px; }
+.demo-form .form-err{ margin:0 0 16px; padding:12px 14px; border:1px solid rgba(198,84,79,.4); border-radius:var(--radius-sm,8px); background:rgba(198,84,79,.07); color:#8f3a36; font-size:13.5px; line-height:1.5; }
+.demo-form .form-err[hidden]{ display:none; }
+
+.demo-card.is-sent > .demo-form{ display:none; }
+.demo-card > .demo-thanks{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:14px; min-height:300px; }
+.demo-card > .demo-thanks[hidden]{ display:none; }
+.demo-thanks:focus{ outline:none; }
+.demo-thanks .dt-ico{ display:flex; align-items:center; justify-content:center; width:56px; height:56px; border-radius:50%; background:var(--brand-orange,#E47B2B); color:#fff; box-shadow:0 10px 26px rgba(228,123,43,.3); }
+.demo-thanks h3{ margin:0; color:var(--darker,#1F1F1F); font-size:30px; }
+.demo-thanks p{ margin:0; max-width:460px; color:var(--dark,#4A4A4A); font-size:16px; line-height:1.6; }
+/* ===== L31-END ===== */
