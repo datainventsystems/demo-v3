@@ -24,7 +24,8 @@
   var endpoint=(portal && formId) ? api+'/submissions/v3/integration/submit/'+portal+'/'+formId : '';
   var sending=false;
 
-  /* ---------- 1) Area of Interest from the address ---------- */
+  /* ---------- 1) Area of Interest: from the address, or from the page the visitor came from ---------- */
+  /* Order: (a) ?interest=... in the address, (b) the page of this site the visitor clicked from, (c) nothing. The visitor can always change it. */
   var ALIASES={
     'finance-erp':'finance-erp','finance':'finance-erp','finance-and-erp':'finance-erp','finance-operations':'finance-erp','d365-finance-operations':'finance-erp',
     'crm-sales':'crm-sales','crm':'crm-sales',
@@ -40,17 +41,41 @@
     'azure-data':'azure-data','azure':'azure-data',
     'construction-cloud':'construction-cloud','civic-cloud':'civic-cloud'
   };
+  /* page name (the last part of the page address, without .html) -> option value */
+  var PAGES={
+    'finance-erp':'finance-erp','crm-sales':'crm-sales','ai-copilot':'ai-copilot','bi-analytics':'bi-analytics','modern-work':'modern-work','managed-it':'managed-it',
+    'business-central':'business-central','dynamics-365-sales':'dynamics-365-sales','copilot':'copilot','microsoft-copilot':'copilot','power-platform':'power-platform',
+    'microsoft-365':'microsoft-365','azure-data':'azure-data','construction-cloud':'construction-cloud','civic-cloud':'civic-cloud'
+  };
+  function has(map,key){ return Object.prototype.hasOwnProperty.call(map,key); }
+  function pick(sel,v){
+    for(var i=0;i<sel.options.length;i++){
+      if(sel.options[i].value===v && !sel.options[i].disabled){ return v; }
+    }
+    return '';
+  }
+  function fromAddress(sel){
+    var m=location.search.match(/[?&]interest=([^&#]*)/);
+    if(!m) return '';
+    var raw;
+    try{ raw=decodeURIComponent(m[1].replace(/\+/g,' ')); }catch(e){ return ''; }
+    raw=raw.replace(/^\s+|\s+$/g,'').toLowerCase().replace(/[\s_]+/g,'-');
+    return pick(sel, has(ALIASES,raw) ? ALIASES[raw] : raw);
+  }
+  function fromReferrer(sel){
+    var ref=document.referrer;
+    if(!ref) return '';
+    var a=document.createElement('a');
+    a.href=ref;
+    if(a.host!==location.host) return '';
+    var seg=a.pathname.replace(/\/+$/,'').split('/').pop().replace(/\.html?$/i,'').toLowerCase();
+    return has(PAGES,seg) ? pick(sel,PAGES[seg]) : '';
+  }
   function preselect(){
     var sel=root.querySelector('select[data-prop="area_of_interest"]');
-    var m=location.search.match(/[?&]interest=([^&#]*)/);
-    if(!sel || !m) return;
-    var raw;
-    try{ raw=decodeURIComponent(m[1].replace(/\+/g,' ')); }catch(e){ return; }
-    raw=raw.replace(/^\s+|\s+$/g,'').toLowerCase().replace(/[\s_]+/g,'-');
-    var v=Object.prototype.hasOwnProperty.call(ALIASES,raw) ? ALIASES[raw] : raw;
-    for(var i=0;i<sel.options.length;i++){
-      if(sel.options[i].value===v && !sel.options[i].disabled){ sel.value=v; return; }
-    }
+    if(!sel) return;
+    var v=fromAddress(sel) || fromReferrer(sel);
+    if(v){ sel.value=v; }
   }
   preselect();
 
