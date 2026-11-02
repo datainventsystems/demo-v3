@@ -3386,3 +3386,9 @@ section.demo{ padding-bottom:100px; }
 .demo-thanks h3{ margin:0; color:var(--darker,#1F1F1F); font-size:30px; }
 .demo-thanks p{ margin:0; max-width:460px; color:var(--dark,#4A4A4A); font-size:16px; line-height:1.6; }
 /* ===== L31-END ===== */
+
+/* === civic-cloud:start === */
+.bc-benefits.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.bc-benefits.is-three{grid-template-columns:1fr}}
+.story-stage.is-single{grid-template-columns:1fr}
+/* === civic-cloud:end === */
