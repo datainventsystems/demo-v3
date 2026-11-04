@@ -3388,64 +3388,70 @@ section.demo{ padding-bottom:100px; }
 /* ===== L31-END ===== */
 
 /* === civic-cloud:start === */
+/* hero background copied from the Construction Cloud hero (.cc-hero) */
+.cc-page .cv-hero::before,.cc-page .cv-hero::after{content:none}
+.cc-page .cv-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 58% 68% at 16% 28%,rgba(228,123,43,.13),transparent 68%),var(--night)}
+.cc-page .cv-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;pointer-events:none}
+.cc-page .cv-hero > .wrap{position:relative;z-index:2}
+
+/* --- section backgrounds: strict white / warm alternation --- */
+.cc-page .cv-bg-white{background:#fff !important}
+.cc-page .cv-bg-alt{background:var(--section-alt) !important}
+
+/* Construction Cloud hero eyebrow: same orange as Civic Cloud */
+.cc-hero .eyebrow,.cc-hero .eyebrow.on-dark,.cc-hero p.eyebrow{color:#E47B2B !important}
+
+/* --- 1. Why modernize: 3 cards --- */
 .bc-benefits.is-three{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:900px){.bc-benefits.is-three{grid-template-columns:1fr}}
 
-/* capabilities: wider tab column, labels wrap instead of overflowing */
-@media (min-width:901px){.cc-page .bc-caps{grid-template-columns:minmax(380px,440px) minmax(0,1fr)}}
-.cc-page .bc-tabs{min-width:0}
-.cc-page .bc-tab{min-width:0}
-.cc-page .bc-tab-label{white-space:normal;overflow-wrap:break-word;min-width:0;line-height:1.3}
-.cc-page .bc-tab i{flex:none}
+/* --- 2. Capabilities: self-contained component (cv-), long labels wrap, nothing can overlap --- */
+.cv-caps{display:grid;grid-template-columns:minmax(340px,420px) minmax(0,1fr);gap:32px;align-items:stretch;margin-top:40px}
+.cv-rail{display:flex;flex-direction:column;border-top:1px solid rgba(31,31,31,.14);min-width:0}
+.cv-tab{display:grid;grid-template-columns:34px minmax(0,1fr) 20px;align-items:center;gap:14px;width:100%;min-width:0;text-align:left;padding:17px 10px;margin:0;background:none;border:0;border-bottom:1px solid rgba(31,31,31,.14);cursor:pointer;font:inherit;color:#1F1F1F;white-space:normal;position:relative;transition:background .2s ease}
+.cv-tab:hover{background:rgba(31,31,31,.035)}
+.cv-tab-no{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#9aa0a6}
+.cv-tab-label{font-family:'Oxanium',sans-serif;font-weight:700;font-size:16px;line-height:1.3;min-width:0;overflow-wrap:anywhere;white-space:normal}
+.cv-tab i{font-style:normal;color:#E47B2B;opacity:0;transform:translateX(-6px);transition:opacity .2s ease,transform .2s ease;justify-self:end}
+.cv-tab.active{border-bottom-color:#E47B2B;background:rgba(228,123,43,.06)}
+.cv-tab.active .cv-tab-no{color:#E47B2B}
+.cv-tab.active i{opacity:1;transform:none}
+.cv-panels{min-width:0;display:flex}
+.cv-panel{display:none;flex:1;flex-direction:column;background:#fff;border:1px solid rgba(31,31,31,.08);border-radius:24px;padding:40px 44px;box-shadow:0 18px 50px rgba(31,31,31,.07)}
+.cv-panel.active{display:flex;animation:cvIn .35s ease both}
+@keyframes cvIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.cv-panel-no{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;color:#E47B2B;margin-bottom:14px}
+.cv-panel h3{font-family:'Oxanium',sans-serif;font-size:30px;line-height:1.2;font-weight:700;color:#1F1F1F;margin:0 0 14px}
+.cv-lead{font-size:16px;line-height:1.7;color:#4a4a4a;margin:0 0 28px;max-width:640px}
+.cv-feats{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cv-feats li{position:relative;padding:16px 16px 16px 44px;background:#f7f6f3;border-radius:14px;font-size:15px;line-height:1.5;color:#2b2b2b}
+.cv-feats li::before{content:"\2713";position:absolute;left:16px;top:15px;width:20px;height:20px;border-radius:50%;background:#E47B2B;color:#fff;font-size:12px;line-height:20px;text-align:center;font-weight:700}
+.cv-panel-foot{margin-top:auto;padding-top:32px}
+.cv-next{display:inline-flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;font:inherit;font-weight:600;font-size:14px;color:#E47B2B;text-align:left}
+.cv-next i{font-style:normal;transition:transform .2s ease}
+.cv-next:hover i{transform:translateX(4px)}
+@media (max-width:900px){
+ .cv-caps{grid-template-columns:1fr;gap:20px}
+ .cv-rail{flex-direction:row;overflow-x:auto;border-top:0;gap:10px;padding-bottom:10px;scroll-snap-type:x proximity}
+ .cv-tab{flex:none;width:250px;border:1px solid rgba(31,31,31,.14);border-radius:14px;scroll-snap-align:start;background:#fff}
+ .cv-tab.active{border-color:#E47B2B}
+ .cv-panel{padding:28px 22px}
+ .cv-panel h3{font-size:24px}
+ .cv-feats{grid-template-columns:1fr}
+}
 
-/* why civic cloud: 6 items in a balanced 2 x 3 grid */
-.cc-why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;margin-top:48px}
-.cc-why-grid article{display:grid;grid-template-columns:56px minmax(0,1fr);padding:28px 0;border-top:1px solid rgba(31,31,31,.14)}
-.cc-why-grid article:nth-last-child(-n+2){border-bottom:1px solid rgba(31,31,31,.14)}
-.cc-why-grid article>span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#E47B2B;padding-top:7px}
-.cc-why-grid h3{font-family:'Oxanium',sans-serif;font-size:20px;line-height:1.25;font-weight:700;color:#1F1F1F;margin:0 0 8px}
-.cc-why-grid p{margin:0;font-size:15px;line-height:1.65;color:#5b6269}
-@media (max-width:900px){.cc-why-grid{grid-template-columns:1fr}.cc-why-grid article:nth-last-child(2){border-bottom:0}}
+/* --- 3. Why Civic Cloud: 6 items in a 2 x 3 grid --- */
+.cv-why-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:64px;margin-top:48px}
+.cv-why-grid article{display:grid;grid-template-columns:56px minmax(0,1fr);padding:28px 0;border-top:1px solid rgba(31,31,31,.14)}
+.cv-why-grid article:nth-last-child(-n+2){border-bottom:1px solid rgba(31,31,31,.14)}
+.cv-why-grid article>span{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#E47B2B;padding-top:7px}
+.cv-why-grid h3{font-family:'Oxanium',sans-serif;font-size:20px;line-height:1.25;font-weight:700;color:#1F1F1F;margin:0 0 8px}
+.cv-why-grid p{margin:0;font-size:15px;line-height:1.65;color:#5b6269}
+@media (max-width:900px){.cv-why-grid{grid-template-columns:1fr}.cv-why-grid article:nth-last-child(2){border-bottom:0}}
 
-/* relevant proof (same structure as the Construction Cloud page) */
-.cc-proof{background:#fff}
-.cc-proof-head{text-align:center;max-width:640px;margin:0 auto 48px}
-.cc-proof-head h2{margin:10px 0 14px}
-.cc-proof-head p{color:#4a4a4a;font-size:16px;line-height:1.65;margin:0}
-.cc-proof-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:24px;align-items:stretch}
-.cc-proof-stage{position:relative;background:#1c1c1c;border-radius:24px;padding:44px 44px 76px;min-height:470px;overflow:hidden;color:#fff;isolation:isolate}
-.cc-proof-stage::before{content:"";position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(228,123,43,.28),transparent 68%);z-index:-1;pointer-events:none}
-.cc-proof-slide{display:none}
-.cc-proof-slide.active{display:block;animation:ccProofIn .45s ease both}
-@keyframes ccProofIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.cc-proof-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.cc-proof-tag{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#e9e9e9}
-.cc-proof-tag.is-orange{border-color:rgba(228,123,43,.7);color:#F4A45C}
-.cc-proof-tag.is-blue{border-color:rgba(70,150,255,.6);color:#6fb0ff}
-.cc-proof-slide h3{font-family:'Oxanium',sans-serif;font-size:36px;line-height:1.15;font-weight:700;color:#fff;margin:0 0 20px;max-width:560px}
-.cc-proof-quote{font-style:italic;font-size:17px;line-height:1.6;color:#c9c9c9;margin:0 0 14px;max-width:560px}
-.cc-proof-by{font-family:'JetBrains Mono',monospace;font-size:12px;color:#8d8d8d;margin:0 0 30px}
-.cc-proof-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-bottom:30px}
-.cc-proof-metrics b{display:block;font-family:'Oxanium',sans-serif;font-size:36px;line-height:1;font-weight:700;color:#fff;margin-bottom:8px}
-.cc-proof-metrics div:first-child b{color:#E47B2B}
-.cc-proof-metrics span{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8d8d8d}
-.cc-proof-cta{font-weight:600;font-size:15px;color:#E47B2B;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
-.cc-proof-cta .arrow{transition:transform .2s ease}
-.cc-proof-cta:hover .arrow{transform:translateX(4px)}
-.cc-proof-dots{position:absolute;left:44px;bottom:36px;display:flex;gap:8px}
-.cc-proof-dot{width:32px;height:4px;border:0;padding:0;border-radius:4px;background:rgba(255,255,255,.25);cursor:pointer}
-.cc-proof-dot.active{background:#E47B2B}
-.cc-proof-next{display:flex;flex-direction:column;gap:14px}
-.cc-proof-next-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9aa0a6}
-.cc-proof-item{display:flex;gap:16px;align-items:flex-start;text-align:left;width:100%;background:#f8f9fb;border:1px solid #e4e7ec;border-radius:16px;padding:20px;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s ease,transform .2s ease}
-.cc-proof-item:hover{border-color:rgba(228,123,43,.55);transform:translateY(-2px)}
-.cc-proof-no{flex:none;width:38px;height:38px;border-radius:10px;background:#fdeee0;color:#E47B2B;font-family:'JetBrains Mono',monospace;font-size:12px;display:flex;align-items:center;justify-content:center}
-.cc-proof-txt{display:flex;flex-direction:column;gap:5px;min-width:0}
-.cc-proof-txt em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#E47B2B}
-.cc-proof-txt strong{font-family:'Oxanium',sans-serif;font-size:16px;line-height:1.3;font-weight:700;color:#1F1F1F}
-.cc-proof-txt small{font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a9299}
-@media (max-width:900px){.cc-proof-grid{grid-template-columns:1fr}.cc-proof-stage{padding:30px 26px 70px;min-height:0}.cc-proof-slide h3{font-size:28px}.cc-proof-dots{left:26px}.cc-proof-metrics b{font-size:28px}}
-/* hero background grid (fallback used only when the script cannot find the grid in business-central.html) */
-.cc-page .bc-hero.cc-grid-fallback{position:relative;isolation:isolate}
-.cc-page .bc-hero.cc-grid-fallback::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:linear-gradient(180deg,#000 45%,transparent 100%);mask-image:linear-gradient(180deg,#000 45%,transparent 100%)}
+/* --- 4. Hero "Talk to Sales" link on the Construction Cloud hero (dark hero) --- */
+.cc-hero .cc-actions{display:flex;align-items:center;flex-wrap:wrap;gap:14px}
+
+.cc-hero .cc-actions .btn btn-outline-dark{color:#fff}
+
 /* === civic-cloud:end === */
