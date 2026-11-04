@@ -3543,12 +3543,6 @@ section.demo{ padding-bottom:100px; }
 .cs-page .cs-out h3{font-family:'Oxanium',sans-serif;font-size:19px;line-height:1.3;font-weight:700;color:#fff;margin:0 0 8px}
 .cs-page .cs-out p{margin:0;font-size:14px;line-height:1.6;color:#b9bec3}
 .cs-page .cs-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
-.cs-page .cs-benefits article{background:#f7f6f3;border:1px solid rgba(31,31,31,.08);border-radius:20px;padding:28px;min-width:0}
-.cs-page .cs-benefits h3{font-family:'Oxanium',sans-serif;font-size:20px;line-height:1.25;font-weight:700;color:#1F1F1F;margin:18px 0 12px}
-.cs-page .cs-benefits ul{list-style:none;margin:0;padding:0}
-.cs-page .cs-benefits li{position:relative;padding:9px 0 9px 22px;font-size:14.5px;line-height:1.55;color:#4a4a4a;border-top:1px solid rgba(31,31,31,.08)}
-.cs-page .cs-benefits li:first-child{border-top:0}
-.cs-page .cs-benefits li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:8px;border-radius:50%;background:#E47B2B}
 .cs-page .cs-next{margin-top:20px;padding:24px 28px;border-radius:20px;background:#fdeee0;display:flex;align-items:center;gap:12px 28px;flex-wrap:wrap}
 .cs-page .cs-next .cs-label{color:#b9570f}
 .cs-page .cs-next p{margin:0;font-size:16px;line-height:1.6;color:#2b2b2b;flex:1 1 320px}
@@ -3602,26 +3596,40 @@ section.demo{ padding-bottom:100px; }
  radial-gradient(55% 85% at 96% 96%,rgba(172,198,216,.66) 0%,rgba(172,198,216,0) 62%),
  radial-gradient(40% 60% at 78% 2%,rgba(255,232,206,.65) 0%,rgba(255,232,206,0) 64%),
  linear-gradient(135deg,#fdf4ea 0%,#f8f5ef 48%,#e8eef3 100%) !important}
+/* === case-study-bao-v2:end === */
 
-/* more success stories */
+/* === case-study-bao-v3:start === */
+/* BAO case study v3: gray section tone, "Why DataInvent"-style story cards, Business Central-style result cards */
+.cs-page .cs-bg-gray{background:var(--gray,#EEF0F2) !important}
+
+/* more success stories: header */
 .cs-page .cs-more-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px 40px;flex-wrap:wrap}
 .cs-page .cs-more-head h2{font-family:'Oxanium',sans-serif;font-size:clamp(28px,3.4vw,38px);line-height:1.15;font-weight:700;color:#1F1F1F;margin:10px 0 0}
+
+/* more success stories: cards (look of the finance-erp "Why DataInvent" cards) */
 .cs-page .cs-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:40px}
-.cs-page .cs-card{position:relative;display:flex;flex-direction:column;min-width:0;padding:28px;background:#f7f6f3;border:1px solid rgba(31,31,31,.08);border-radius:20px;color:inherit;text-decoration:none;overflow:hidden;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.cs-page .cs-card::before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:#E47B2B;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.cs-page .cs-card:hover{transform:translateY(-4px);border-color:rgba(228,123,43,.45);box-shadow:0 18px 40px rgba(31,31,31,.08)}
-.cs-page .cs-card:hover::before{transform:scaleX(1)}
-.cs-page .cs-card:focus-visible{outline:2px solid #E47B2B;outline-offset:3px}
-.cs-page .cs-card-sector{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#E47B2B}
-.cs-page .cs-card h3{font-family:'Oxanium',sans-serif;font-size:21px;line-height:1.28;font-weight:700;color:#1F1F1F;margin:16px 0 12px}
-.cs-page .cs-card p{margin:0;font-size:14.5px;line-height:1.65;color:#4a4a4a}
-.cs-page .cs-card-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-.cs-page .cs-card-tags span{font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.2;padding:6px 10px;border-radius:999px;background:#fff;border:1px solid rgba(31,31,31,.1);color:#4a4a4a}
-.cs-page .cs-card-cta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:24px;font-weight:600;font-size:14px;color:#E47B2B}
-.cs-page .cs-card-cta .arrow{transition:transform .2s ease}
-.cs-page .cs-card:hover .cs-card-cta .arrow{transform:translateX(4px)}
+.cs-page .cs-wcard{position:relative;display:flex;flex-direction:column;min-width:0;padding:30px 30px 26px;background:#fff;border:1px solid #e3e3e0;border-radius:24px;color:inherit;text-decoration:none;box-shadow:0 1px 2px rgba(31,31,31,.03);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.cs-page .cs-wcard:hover,.cs-page .cs-wcard:focus-visible{transform:translateY(-4px);border-color:#E47B2B;box-shadow:0 18px 40px rgba(31,31,31,.08)}
+.cs-page .cs-wcard:focus-visible{outline:2px solid #E47B2B;outline-offset:3px}
+.cs-page .cs-wnum{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#E47B2B}
+.cs-page .cs-wcard h3{font-family:'Oxanium',sans-serif;font-size:22px;line-height:1.28;font-weight:700;color:#1F1F1F;margin:14px 0 12px}
+.cs-page .cs-wcard p{margin:0;font-size:15px;line-height:1.65;color:#4a4a4a}
+.cs-page .cs-wrec{margin-top:22px;padding-top:18px;border-top:1px dashed #d4d4d0}
+.cs-page .cs-wrec-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8a9299;margin-bottom:8px}
+.cs-page .cs-wrec-text{font-size:14.5px;line-height:1.55;color:#2b2b2b}
+.cs-page .cs-wrec-text b{color:#E47B2B;font-weight:700}
+.cs-page .cs-wcta{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:22px;font-weight:600;font-size:14px;color:#E47B2B}
+.cs-page .cs-wcta .arrow{transition:transform .2s ease}
+.cs-page .cs-wcard:hover .cs-wcta .arrow{transform:translateX(4px)}
 @media (max-width:900px){
  .cs-page .cs-cards{grid-template-columns:1fr;margin-top:28px}
- .cs-page .cs-card{padding:24px}
+ .cs-page .cs-wcard{padding:26px 24px 22px}
 }
-/* === case-study-bao-v2:end === */
+/* results cards grid: 3 columns on desktop, 1 column below 1000px (also wins over the Business Central 4-column grid) */
+.cs-page .cs-benefits,.cs-page .bc-benefits.cs-benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:20px}
+@media (max-width:1000px){.cs-page .cs-benefits,.cs-page .bc-benefits.cs-benefits{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+ .cs-page .cs-wcard,.cs-page .cs-bcard{transition:none}
+ .cs-page .cs-wcard:hover,.cs-page .cs-bcard:hover{transform:none}
+}
+/* === case-study-bao-v3:end === */
