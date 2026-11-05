@@ -6,19 +6,34 @@
 <link rel="icon" type="image/png" href="assets/di favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oxanium:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css"></head>
+<link rel="stylesheet" href="css/styles.css?v=20261105150635"></head>
 <body id="top">
 <div id="site-header"></div>
 <main class="bc-page er-page" id="main">
 
 <section class="bc-hero er-hero"><div class="wrap"><div class="er-center">
-<svg class="er-art" viewBox="0 0 340 60" aria-hidden="true" focusable="false">
-<path class="l l-a" d="M30 30H150"/><path class="l l-b" d="M190 30H310"/>
-<circle class="n-a" cx="22" cy="30" r="7"/><circle class="n-b" cx="318" cy="30" r="7"/>
-<circle class="ear" cx="318" cy="30" r="9"/>
-<path class="x" d="M164 23l12 14M176 23l-12 14"/>
-<circle class="rip" cx="152" cy="30" r="10"/>
-<circle class="dot" cx="30" cy="30" r="4"/>
+<svg class="er-art" width="340" height="60" viewBox="0 0 340 60" aria-hidden="true" focusable="false" overflow="visible">
+<path d="M30 30H150" fill="none" stroke="#E47B2B" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 7"/>
+<path d="M190 30H310" fill="none" stroke="#ffffff" stroke-opacity=".22" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 7"/>
+<circle cx="22" cy="30" r="7" fill="#E47B2B"/>
+<circle cx="318" cy="30" r="7" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width="2"/>
+<circle cx="318" cy="30" r="6" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0">
+<animate attributeName="r" values="6;6;16;16" keyTimes="0;.7;.96;1" dur="4.4s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;.7;0;0" keyTimes="0;.7;.74;.96;1" dur="4.4s" repeatCount="indefinite"/>
+</circle>
+<path id="erX" d="M164 23l12 14M176 23l-12 14" fill="none" stroke="#F4A45C" stroke-width="2" stroke-linecap="round" opacity="0">
+<animate attributeName="opacity" values="0;0;.95;.95;0;0" keyTimes="0;.6;.66;.84;.94;1" dur="4.4s" repeatCount="indefinite"/>
+</path>
+<circle cx="152" cy="30" r="3" fill="none" stroke="#F4A45C" stroke-width="1.5" opacity="0">
+<animate attributeName="r" values="3;3;22;22" keyTimes="0;.59;.82;1" dur="4.4s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;0;.9;0;0" keyTimes="0;.58;.6;.82;1" dur="4.4s" repeatCount="indefinite"/>
+</circle>
+<g opacity="0">
+<circle cx="30" cy="30" r="9" fill="#F4A45C" fill-opacity=".32"/>
+<circle cx="30" cy="30" r="4" fill="#ffffff"/>
+<animateTransform attributeName="transform" type="translate" values="0 0;116 0;120 0;120 0" keyTimes="0;.56;.6;1" calcMode="spline" keySplines=".45 0 .55 1;.3 0 .7 1;0 0 1 1" dur="4.4s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.08;.58;.64;1" dur="4.4s" repeatCount="indefinite"/>
+</g>
 </svg>
 <div class="eyebrow">ERROR 404</div>
 <h1>We can’t find that page.</h1>
@@ -30,6 +45,8 @@
 <div id="site-footer"></div>
 <script src="js/component.js"></script>
 <script id="notFoundHelpers">(function(){
+/* reduce motion: stop the drawing and show it as a still picture of the broken line */
+if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches){var s=document.querySelector(".er-art");if(s){if(s.pauseAnimations)s.pauseAnimations();[].slice.call(s.querySelectorAll("animate,animateTransform")).forEach(function(a){a.parentNode.removeChild(a)});var x=s.querySelector("#erX");if(x)x.setAttribute("opacity",".9")}}
 /* the page sets a base address so it works at any wrong address, so in-page links such as "#top" are handled here */
 document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[href^="#"]'):null;if(!a)return;var id=a.getAttribute('href').slice(1),t=id?document.getElementById(id):null;e.preventDefault();if(t){t.scrollIntoView()}else{window.scrollTo(0,0)}});
 })();</script>
