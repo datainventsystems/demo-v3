@@ -3633,3 +3633,78 @@ section.demo{ padding-bottom:100px; }
  .cs-page .cs-wcard:hover,.cs-page .cs-bcard:hover{transform:none}
 }
 /* === case-study-bao-v3:end === */
+
+/* === case-studies-v4:start === */
+/* Case studies v4: PSRT, McCann, Meritech and the listing page. Needs the BAO case study blocks above (cs- classes). */
+
+/* customer logos: any logo shape fits the white tile; wordmark fallback when no logo file was found */
+.cs-page .cs-glance-logo img.cs-logo-fit{display:block;width:auto;height:auto;max-width:min(100%,260px);max-height:64px;object-fit:contain}
+.cs-page .cs-glance-logo .cs-wordmark{font-family:'Oxanium',sans-serif;font-weight:800;font-size:32px;line-height:1.1;letter-spacing:.01em;color:#1F1F1F;text-align:center}
+
+/* solution diagram on the new pages: long node names need room, so the diagram stacks under the text below 1180px */
+.cs-page .cs-node strong,.cs-page .cs-core-cell strong{overflow-wrap:break-word}
+@media (max-width:1180px){
+ .cs-page .cs-split.cs-split-stack{grid-template-columns:1fr;gap:36px}
+ .cs-page .cs-split-stack .cs-arch{margin-left:0;max-width:640px}
+}
+
+/* results cards: four-card layout (same card UI as the Business Central benefit cards) */
+.cs-page .cs-benefits.cs-first,.cs-page .bc-benefits.cs-benefits.cs-first{margin-top:44px}
+.cs-page .cs-benefits.is-four,.cs-page .bc-benefits.cs-benefits.is-four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cs-page .cs-bicon.is-purple{background:#efeafd;color:#6a4fd6}
+@media (max-width:1100px){.cs-page .cs-benefits.is-four,.cs-page .bc-benefits.cs-benefits.is-four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.cs-page .cs-benefits.is-four,.cs-page .bc-benefits.cs-benefits.is-four{grid-template-columns:1fr}}
+
+/* closing band: each page has its own gradient (only the section background; the card keeps the site styling) */
+.cs-page .cs-leadgen.cs-lg-psrt{background:
+ radial-gradient(58% 90% at 4% 6%,rgba(190,224,200,.82) 0%,rgba(190,224,200,0) 62%),
+ radial-gradient(52% 80% at 96% 4%,rgba(250,230,170,.74) 0%,rgba(250,230,170,0) 62%),
+ radial-gradient(55% 85% at 94% 98%,rgba(172,208,212,.64) 0%,rgba(172,208,212,0) 64%),
+ linear-gradient(135deg,#f5faf1 0%,#faf7ec 50%,#e9f2f0 100%) !important}
+.cs-page .cs-leadgen.cs-lg-mccann{background:
+ radial-gradient(60% 90% at 6% 8%,rgba(252,226,150,.78) 0%,rgba(252,226,150,0) 60%),
+ radial-gradient(55% 85% at 96% 96%,rgba(198,205,214,.72) 0%,rgba(198,205,214,0) 62%),
+ radial-gradient(40% 60% at 80% 2%,rgba(255,238,204,.62) 0%,rgba(255,238,204,0) 64%),
+ linear-gradient(135deg,#fdf8e6 0%,#f7f4ec 50%,#e9ebee 100%) !important}
+.cs-page .cs-leadgen.cs-lg-meritech{background:
+ radial-gradient(60% 90% at 5% 8%,rgba(214,200,244,.78) 0%,rgba(214,200,244,0) 62%),
+ radial-gradient(50% 80% at 96% 6%,rgba(250,212,222,.70) 0%,rgba(250,212,222,0) 62%),
+ radial-gradient(55% 85% at 94% 98%,rgba(190,204,242,.68) 0%,rgba(190,204,242,0) 64%),
+ linear-gradient(135deg,#f8f4fd 0%,#fbf5f6 50%,#eceffa 100%) !important}
+.cs-page .cs-leadgen.cs-lg-list{background:
+ radial-gradient(58% 90% at 5% 8%,rgba(176,226,222,.78) 0%,rgba(176,226,222,0) 62%),
+ radial-gradient(55% 85% at 96% 96%,rgba(248,204,190,.72) 0%,rgba(248,204,190,0) 62%),
+ radial-gradient(40% 60% at 78% 2%,rgba(255,240,214,.62) 0%,rgba(255,240,214,0) 64%),
+ linear-gradient(135deg,#eff9f7 0%,#faf6f1 50%,#fbebe5 100%) !important}
+
+/* listing page: featured story + story grid */
+.cs-page .cs-lfeature{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:44px;margin-top:40px;padding:44px;border-radius:24px;background:#1c1c1c;color:#fff;text-decoration:none;transition:transform .25s ease,box-shadow .25s ease}
+.cs-page .cs-lfeature::before{content:"";position:absolute;right:-90px;top:-90px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(228,123,43,.28),transparent 68%);z-index:-1;pointer-events:none}
+.cs-page .cs-lfeature:hover,.cs-page .cs-lfeature:focus-visible{transform:translateY(-4px);box-shadow:0 24px 50px rgba(31,31,31,.22)}
+.cs-page .cs-lfeature:focus-visible{outline:2px solid #E47B2B;outline-offset:3px}
+.cs-page .cs-lf-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.cs-page .cs-lf-tags span{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding:7px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#e9e9e9}
+.cs-page .cs-lf-tags span:first-child{border-color:rgba(228,123,43,.7);color:#F4A45C}
+.cs-page .cs-lfeature h3{font-family:'Oxanium',sans-serif;font-size:clamp(26px,3vw,36px);line-height:1.18;font-weight:700;color:#fff;margin:0 0 16px}
+.cs-page .cs-lfeature p{margin:0;font-size:16px;line-height:1.7;color:#c9c9c9;max-width:560px}
+.cs-page .cs-lf-built{margin-top:22px;font-size:14.5px;line-height:1.55;color:#e9e9e9}
+.cs-page .cs-lf-built span{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#8d8d8d;margin-bottom:6px}
+.cs-page .cs-lf-built b{color:#F4A45C;font-weight:700}
+.cs-page .cs-lf-cta{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-weight:600;font-size:15px;color:#E47B2B}
+.cs-page .cs-lf-cta .arrow{transition:transform .2s ease}
+.cs-page .cs-lfeature:hover .cs-lf-cta .arrow{transform:translateX(4px)}
+.cs-page .cs-lf-side{align-self:center;border-left:1px solid rgba(255,255,255,.12);padding-left:40px;min-width:0}
+.cs-page .cs-lf-side-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8d8d8d;margin-bottom:6px}
+.cs-page .cs-lf-side ul{list-style:none;margin:0;padding:0}
+.cs-page .cs-lf-side li{position:relative;padding:14px 0 14px 32px;border-top:1px solid rgba(255,255,255,.1);font-size:15px;line-height:1.45;color:#fff}
+.cs-page .cs-lf-side li::before{content:"\2713";position:absolute;left:0;top:14px;width:20px;height:20px;border-radius:50%;background:#E47B2B;color:#fff;font-size:12px;line-height:20px;text-align:center;font-weight:700}
+.cs-page .cs-cards.cs-cards-list{margin-top:20px}
+@media (max-width:900px){
+ .cs-page .cs-lfeature{grid-template-columns:1fr;gap:28px;padding:30px 24px}
+ .cs-page .cs-lf-side{border-left:0;padding-left:0;border-top:1px solid rgba(255,255,255,.12);padding-top:20px}
+}
+@media (prefers-reduced-motion:reduce){
+ .cs-page .cs-lfeature{transition:none}
+ .cs-page .cs-lfeature:hover{transform:none}
+}
+/* === case-studies-v4:end === */
