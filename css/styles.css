@@ -3708,3 +3708,93 @@ section.demo{ padding-bottom:100px; }
  .cs-page .cs-lfeature:hover{transform:none}
 }
 /* === case-studies-v4:end === */
+
+/* === contact-page:start === */
+/* hero background copied from the Construction Cloud hero (.cc-hero), same as the other pages */
+.ct-page .ct-hero::before,.ct-page .ct-hero::after{content:none}
+.ct-page .ct-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 58% 68% at 16% 28%,rgba(228,123,43,.13),transparent 68%),var(--night)}
+.ct-page .ct-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;pointer-events:none}
+.ct-page .ct-hero > .wrap{position:relative;z-index:2}
+
+/* Contact page (ct-). No form on this page: direct channels, offices with a map, social links. */
+.ct-page .ct-bg-alt{background:var(--section-alt) !important}
+.ct-page .ct-bg-white{background:#fff !important}
+
+/* hero: "reach us" card */
+.ct-page .ct-reach{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:28px;min-width:0}
+.ct-page .ct-reach-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9aa8b2;margin-bottom:6px}
+.ct-page .ct-ch{display:grid;grid-template-columns:44px minmax(0,1fr) 20px;gap:16px;align-items:center;padding:16px 8px;margin:0 -8px;border-top:1px solid rgba(255,255,255,.12);border-radius:14px;color:#fff;text-decoration:none;transition:background .2s ease}
+.ct-page .ct-ch:hover,.ct-page .ct-ch:focus-visible{background:rgba(255,255,255,.06)}
+.ct-page .ct-ch:focus-visible{outline:2px solid #E47B2B;outline-offset:2px}
+.ct-page .ct-ch-ico{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:rgba(228,123,43,.16);color:#F4A45C}
+.ct-page .ct-ch-ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.ct-page .ct-ch strong{display:block;font-family:'Oxanium',sans-serif;font-size:18px;line-height:1.25;font-weight:700;color:#fff}
+.ct-page .ct-ch small{display:block;font-size:14px;line-height:1.45;color:#b9bec3;margin-top:2px}
+.ct-page .ct-ch em{display:block;font-style:normal;font-weight:600;font-size:14.5px;line-height:1.4;color:#F4A45C;margin-top:4px;overflow-wrap:anywhere}
+.ct-page .ct-ch .ct-go{color:#E47B2B;font-size:16px;transition:transform .2s ease;justify-self:end}
+.ct-page .ct-ch:hover .ct-go{transform:translateX(4px)}
+.ct-page .ct-follow{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;padding-top:18px;border-top:1px solid rgba(255,255,255,.12)}
+.ct-page .ct-follow-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9aa8b2}
+.ct-page .ct-social{display:flex;flex-wrap:wrap;gap:10px}
+.ct-page .ct-social a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;line-height:1.2;transition:border-color .2s ease,color .2s ease}
+.ct-page .ct-social a:hover,.ct-page .ct-social a:focus-visible{border-color:#E47B2B;color:#F4A45C}
+.ct-page .ct-social a:focus-visible{outline:2px solid #E47B2B;outline-offset:2px}
+
+/* offices + map */
+.ct-page .ct-offices{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;margin-top:40px;align-items:stretch}
+.ct-page .ct-list{display:flex;flex-direction:column;gap:16px;min-width:0}
+.ct-page .ct-office{position:relative;min-width:0;padding:26px 28px;background:#fff;border:1px solid #e3e3e0;border-radius:20px;cursor:pointer;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.ct-page .ct-office:hover{transform:translateY(-3px);border-color:#E47B2B;box-shadow:0 18px 40px rgba(31,31,31,.08)}
+.ct-page .ct-office.active{border-color:#E47B2B;box-shadow:0 18px 40px rgba(31,31,31,.08)}
+.ct-page .ct-office.active::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:0 4px 4px 0;background:#E47B2B}
+.ct-page .ct-office-city{display:block;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#E47B2B}
+.ct-page .ct-office h3{font-family:'Oxanium',sans-serif;font-size:22px;line-height:1.25;font-weight:700;color:#1F1F1F;margin:10px 0 10px}
+.ct-page .ct-office address{font-style:normal;font-size:15px;line-height:1.6;color:#4a4a4a}
+.ct-page .ct-office-row{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px dashed #d4d4d0}
+.ct-page .ct-tel{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#1F1F1F;text-decoration:none}
+.ct-page .ct-tel svg{width:18px;height:18px;fill:none;stroke:#E47B2B;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ct-page .ct-tel:hover{color:#E47B2B}
+.ct-page .ct-dir{display:inline-flex;align-items:center;gap:8px;margin-left:auto;font-weight:600;font-size:14px;color:#E47B2B;text-decoration:none}
+.ct-page .ct-dir span{transition:transform .2s ease}
+.ct-page .ct-dir:hover span{transform:translateX(4px)}
+.ct-page .ct-mapcol{display:flex;flex-direction:column;gap:14px;min-width:0}
+.ct-page .ct-pills{display:flex;flex-wrap:wrap;gap:10px}
+.ct-page .ct-pill{margin:0;font:inherit;font-weight:600;font-size:13px;line-height:1;padding:13px 16px;border-radius:999px;border:1px solid rgba(31,31,31,.14);background:#fff;color:#1F1F1F;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease}
+.ct-page .ct-pill:hover{border-color:#E47B2B}
+.ct-page .ct-pill:focus-visible{outline:2px solid #E47B2B;outline-offset:2px}
+.ct-page .ct-pill.active{background:#1c1c1c;border-color:#1c1c1c;color:#fff}
+.ct-page .ct-map{position:relative;flex:1 1 auto;min-height:400px;border-radius:24px;overflow:hidden;border:1px solid #e3e3e0;background:
+ radial-gradient(60% 70% at 30% 30%,rgba(228,123,43,.10),transparent 70%),
+ linear-gradient(rgba(31,31,31,.05) 1px,transparent 1px) 0 0/48px 48px,
+ linear-gradient(90deg,rgba(31,31,31,.05) 1px,transparent 1px) 0 0/48px 48px,#eef0f2}
+.ct-page .ct-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.ct-page .ct-maplink{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:#E47B2B;text-decoration:none}
+.ct-page .ct-maplink span{transition:transform .2s ease}
+.ct-page .ct-maplink:hover span{transform:translateX(4px)}
+@media (max-width:1000px){
+ .ct-page .ct-offices{grid-template-columns:1fr}
+ .ct-page .ct-map{min-height:340px;flex:none;height:340px}
+}
+@media (max-width:600px){
+ .ct-page .ct-reach{padding:22px 18px}
+ .ct-page .ct-ch{grid-template-columns:40px minmax(0,1fr);gap:12px}
+ .ct-page .ct-ch .ct-go{display:none}
+ .ct-page .ct-ch-ico{width:40px;height:40px}
+ .ct-page .ct-ch em{font-size:14px;overflow-wrap:break-word;word-break:normal}
+ .ct-page .ct-office{padding:22px 20px}
+ .ct-page .ct-dir{margin-left:0}
+ .ct-page .ct-pills{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px}
+ .ct-page .ct-pill{flex:none}
+}
+@media (prefers-reduced-motion:reduce){
+ .ct-page .ct-office,.ct-page .ct-ch .ct-go,.ct-page .ct-dir span{transition:none}
+ .ct-page .ct-office:hover{transform:none}
+}
+
+/* closing band: its own gradient (rose-gold, sand and soft cyan). Only the background; the card keeps the site styling. */
+.ct-page .ct-leadgen{background:
+ radial-gradient(58% 90% at 5% 7%,rgba(250,206,206,.80) 0%,rgba(250,206,206,0) 62%),
+ radial-gradient(55% 85% at 96% 96%,rgba(176,220,236,.74) 0%,rgba(176,220,236,0) 63%),
+ radial-gradient(42% 62% at 80% 2%,rgba(252,236,208,.70) 0%,rgba(252,236,208,0) 64%),
+ linear-gradient(135deg,#fdf3f1 0%,#faf6f0 50%,#e8f2f6 100%) !important}
+/* === contact-page:end === */
