@@ -3867,3 +3867,8 @@ section.demo{ padding-bottom:100px; }
 @media (prefers-reduced-motion:reduce){.lp-page .lp-toc a,.lp-page .lp-more a span{transition:none}}
 @media print{.lp-page .lp-toc,.lp-page .lp-more{display:none}.lp-page .lp-grid{grid-template-columns:1fr}.lp-page .lp-hero{padding:24px 0}}
 /* === legal-pages:end === */
+
+/* === legal-eyebrow-space:start === */
+/* The title band sits under the fixed header, so the eyebrow needs space above it. */
+.lp-page .lp-hero .eyebrow{margin-top:100px}
+/* === legal-eyebrow-space:end === */
