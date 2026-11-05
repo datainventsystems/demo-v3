@@ -3798,3 +3798,72 @@ section.demo{ padding-bottom:100px; }
  radial-gradient(42% 62% at 80% 2%,rgba(252,236,208,.70) 0%,rgba(252,236,208,0) 64%),
  linear-gradient(135deg,#fdf3f1 0%,#faf6f0 50%,#e8f2f6 100%) !important}
 /* === contact-page:end === */
+
+/* === legal-pages:start === */
+/* title band background copied from the Construction Cloud hero (.cc-hero), same as the other pages */
+.lp-page .lp-hero::before,.lp-page .lp-hero::after{content:none}
+.lp-page .lp-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 58% 68% at 16% 28%,rgba(228,123,43,.13),transparent 68%),var(--night)}
+.lp-page .lp-hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;pointer-events:none}
+.lp-page .lp-hero > .wrap{position:relative;z-index:2}
+
+/* Legal pages (lp-): Privacy Policy and Terms of Use. Compact title band + sticky "On this page" list + readable single column. */
+.lp-page .lp-hero{padding:56px 0 52px}
+.lp-page .lp-hero h1{font-size:clamp(34px,4.4vw,48px);line-height:1.12;margin:10px 0 0}
+.lp-page .lp-updated{margin:14px 0 0;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#9aa8b2}
+.lp-page .lp-body{background:#fff;padding:72px 0 96px}
+.lp-page .lp-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:72px;align-items:start}
+.lp-page .lp-grid.no-toc{grid-template-columns:minmax(0,760px)}
+
+/* on this page */
+.lp-page .lp-toc{position:sticky;top:calc(var(--header-h,80px) + 28px);max-height:calc(100vh - var(--header-h,80px) - 56px);overflow-y:auto;background:#f7f6f3;border:1px solid rgba(31,31,31,.08);border-radius:20px;padding:22px 20px;min-width:0}
+.lp-page .lp-toc-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a9299;margin:0 0 10px 10px}
+.lp-page .lp-toc ol{list-style:none;margin:0;padding:0}
+.lp-page .lp-toc a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:baseline;padding:9px 10px;border-radius:10px;color:#4a4a4a;text-decoration:none;font-size:14.5px;line-height:1.4;transition:background .2s ease,color .2s ease}
+.lp-page .lp-toc a:hover{background:rgba(228,123,43,.08);color:#1F1F1F}
+.lp-page .lp-toc a:focus-visible{outline:2px solid #E47B2B;outline-offset:2px}
+.lp-page .lp-toc a.active{background:#fff;color:#1F1F1F;font-weight:600;box-shadow:0 2px 10px rgba(31,31,31,.06)}
+.lp-page .lp-toc .lp-toc-no{font-family:'JetBrains Mono',monospace;font-size:11px;color:#E47B2B}
+.lp-page .lp-toc a.nonum{grid-template-columns:minmax(0,1fr)}
+
+/* document */
+.lp-page .lp-doc{min-width:0;max-width:760px}
+.lp-page .lp-intro p{font-size:18px;line-height:1.75;color:#2b2b2b;margin:0 0 18px}
+.lp-page .lp-intro{padding-bottom:12px}
+.lp-page .lp-sec{padding-top:40px;margin-top:40px;border-top:1px solid rgba(31,31,31,.12);scroll-margin-top:calc(var(--header-h,80px) + 24px)}
+.lp-page .lp-intro + .lp-sec{margin-top:28px}
+.lp-page .lp-sec h2{display:flex;align-items:baseline;gap:16px;font-family:'Oxanium',sans-serif;font-size:clamp(24px,2.6vw,30px);line-height:1.25;font-weight:700;color:#1F1F1F;margin:0 0 20px}
+.lp-page .lp-sec h2 .lp-no{flex:none;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;font-weight:500;color:#E47B2B}
+.lp-page .lp-sec p{font-size:16.5px;line-height:1.8;color:#4a4a4a;margin:0 0 16px}
+.lp-page .lp-sec ul{list-style:none;margin:0 0 20px;padding:0}
+.lp-page .lp-sec li{position:relative;padding:12px 0 12px 26px;font-size:16px;line-height:1.7;color:#4a4a4a;border-top:1px solid rgba(31,31,31,.07)}
+.lp-page .lp-sec li:first-child{border-top:0}
+.lp-page .lp-sec li::before{content:"";position:absolute;left:2px;top:22px;width:8px;height:8px;border-radius:50%;background:#E47B2B}
+.lp-page .lp-sec ol{list-style:none;counter-reset:lp;margin:0 0 20px;padding:0}
+.lp-page .lp-sec ol li{counter-increment:lp;padding-left:40px}
+.lp-page .lp-sec ol li::before{content:counter(lp);width:auto;height:auto;border-radius:0;background:none;left:2px;top:12px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;color:#E47B2B}
+.lp-page .lp-sec li strong,.lp-page .lp-sec p strong{color:#1F1F1F;font-weight:700}
+.lp-page .lp-doc a{color:#E47B2B;text-decoration:underline;text-decoration-color:rgba(228,123,43,.4);text-underline-offset:3px;overflow-wrap:anywhere}
+.lp-page .lp-doc a:hover{text-decoration-color:#E47B2B}
+.lp-page .lp-doc a:focus-visible{outline:2px solid #E47B2B;outline-offset:2px;border-radius:2px}
+.lp-page .lp-more{margin-top:56px;padding:26px 28px;border-radius:20px;background:#f7f6f3;border:1px solid rgba(31,31,31,.08);display:flex;align-items:center;gap:14px 32px;flex-wrap:wrap}
+.lp-page .lp-more-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8a9299}
+.lp-page .lp-more a{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:#E47B2B;text-decoration:none}
+.lp-page .lp-more a span{transition:transform .2s ease}
+.lp-page .lp-more a:hover span{transform:translateX(4px)}
+
+.lp-page .lp-addr{font-style:normal;margin:0 0 18px;padding:4px 0 4px 20px;border-left:3px solid #E47B2B;font-size:16.5px;line-height:1.8;color:#2b2b2b}
+.lp-page .lp-closing{margin-top:48px;padding:24px 28px;border-radius:20px;background:#fdf3ea;border:1px solid rgba(228,123,43,.28)}
+.lp-page .lp-closing p{margin:0;font-size:16.5px;line-height:1.75;color:#2b2b2b;font-weight:500}
+.lp-page .lp-closing p + p{margin-top:10px}
+.lp-page .lp-closing + .lp-more{margin-top:20px}
+
+@media (max-width:900px){
+ .lp-page .lp-hero{padding:44px 0 40px}
+ .lp-page .lp-body{padding:44px 0 72px}
+ .lp-page .lp-grid{grid-template-columns:1fr;gap:36px}
+ .lp-page .lp-toc{position:static;max-height:none;overflow:visible}
+ .lp-page .lp-intro p{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){.lp-page .lp-toc a,.lp-page .lp-more a span{transition:none}}
+@media print{.lp-page .lp-toc,.lp-page .lp-more{display:none}.lp-page .lp-grid{grid-template-columns:1fr}.lp-page .lp-hero{padding:24px 0}}
+/* === legal-pages:end === */
