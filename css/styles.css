@@ -3910,3 +3910,16 @@ section.demo{ padding-bottom:100px; }
  .er-page .er-links{margin-top:40px}
 }
 /* === error-404:end === */
+
+/* === problem-copy-v2:start === */
+/* Problem pages, copy update v2: layout helpers for the longer lists (safe to re-run) */
+/* 5 small sign cards: the odd last card spans the full row */
+.sign-small-grid .sign-card:last-child:nth-child(odd){grid-column:1 / -1}
+/* Related challenges: 3 cards in a row (the base grid is 2 columns) */
+.related-grid.related-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.related-grid.related-3{grid-template-columns:1fr}}
+/* hero: primary consequence under the supporting paragraph */
+.phero p.sub.consequence{margin-top:14px;color:rgba(255,255,255,.92);font-weight:600}
+/* health check: disclaimer under the counter */
+.hc-count.hc-disclaimer{max-width:300px;margin:10px auto 0;line-height:1.5;letter-spacing:.04em}
+/* === problem-copy-v2:end === */
