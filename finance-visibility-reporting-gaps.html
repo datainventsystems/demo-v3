@@ -210,6 +210,71 @@
   .leadgen .lg-feat{justify-content:flex-start !important;}
 }
 </style>
+<style id="hero-flow-viz">
+/* Hero graph of the Finance problem page: square card + "From source to decision" track. No figures. */
+.phero-viz{ display:flex; flex-direction:column; aspect-ratio:1 / 1; max-width:100%; }
+.phero-viz .cd-mon{ flex:1 1 auto; height:auto; min-height:84px; }
+.phero-viz > .cd-mon .cd-bar{ min-height:6px; }
+.fv{ position:relative; z-index:2; margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); --rh:38px; }
+.fv-title{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.14em; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:8px; }
+.fv-list{ position:relative; list-style:none; margin:0; padding:0; }
+.fv-list::before{ content:""; position:absolute; left:6px; top:calc(var(--rh) / 2); bottom:calc(var(--rh) / 2); width:2px; border-radius:2px;
+  background:linear-gradient(180deg,#7FBA00 0%,#E47B2B 34%,rgba(255,185,0,0.55) 68%,rgba(255,255,255,0.14) 100%); }
+.fv-step{ position:relative; height:var(--rh); display:grid; grid-template-columns:14px minmax(0,1fr) auto auto; gap:12px; align-items:center; }
+.fv-node{ position:relative; z-index:1; width:14px; height:14px; border-radius:50%; box-sizing:border-box; background:#1c1c1c; border:2px solid rgba(255,255,255,0.35); }
+.fv-name{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:13.5px; line-height:1.2; color:#fff; min-width:0; }
+.fv-state{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap; }
+.fv-queue{ display:flex; align-items:center; gap:3px; }
+.fv-queue i{ display:block; width:7px; height:11px; border-radius:2px; background:#F4A45C; opacity:0; }
+.fv-step.s1 .fv-node{ background:#7FBA00; border-color:#7FBA00; }
+.fv-step.s1 .fv-state{ color:#7FBA00; }
+.fv-step.s2 .fv-node{ background:#E47B2B; border-color:#E47B2B; box-shadow:0 0 0 0 rgba(228,123,43,0.55); animation:fvPulse 1.7s ease-out infinite; }
+.fv-step.s2 .fv-state{ color:#F4A45C; }
+.fv-step.s3 .fv-node{ border-color:rgba(255,185,0,0.7); }
+.fv-step.s3 .fv-state{ color:#D59A00; }
+.fv-step.s4 .fv-name{ color:rgba(255,255,255,0.6); }
+.fv-step.s4 .fv-state{ animation:fvBlink 1.6s ease-in-out infinite; }
+.fv-travel{ position:absolute; z-index:2; left:2px; top:calc(var(--rh) / 2 - 5px); width:10px; height:10px; border-radius:50%; background:#fff; box-shadow:0 0 10px 3px rgba(244,164,92,0.75); opacity:0; animation:fvTravel 8s cubic-bezier(.45,0,.2,1) infinite; }
+.fv-queue i:nth-child(1){ animation:fvQ1 8s ease infinite; }
+.fv-queue i:nth-child(2){ animation:fvQ2 8s ease infinite; }
+.fv-queue i:nth-child(3){ animation:fvQ3 8s ease infinite; }
+@keyframes fvTravel{
+  0%{ transform:translateY(0); opacity:0; }
+  5%{ opacity:1; }
+  20%{ transform:translateY(var(--rh)); opacity:1; }
+  64%{ transform:translateY(var(--rh)); opacity:1; }
+  84%{ transform:translateY(calc(var(--rh) * 2)); opacity:1; }
+  94%{ transform:translateY(calc(var(--rh) * 2)); opacity:0; }
+  100%{ transform:translateY(calc(var(--rh) * 2)); opacity:0; }
+}
+@keyframes fvQ1{ 0%,22%{ opacity:0; transform:scale(.4); } 28%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvQ2{ 0%,34%{ opacity:0; transform:scale(.4); } 40%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvQ3{ 0%,46%{ opacity:0; transform:scale(.4); } 52%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvPulse{ 0%{ box-shadow:0 0 0 0 rgba(228,123,43,0.55); } 70%,100%{ box-shadow:0 0 0 9px rgba(228,123,43,0); } }
+@keyframes fvBlink{ 50%{ opacity:0.3; } }
+@media (prefers-reduced-motion: reduce){
+  .fv-step.s2 .fv-node, .fv-step.s4 .fv-state{ animation:none; }
+  .fv-travel{ animation:none; opacity:1; transform:translateY(var(--rh)); }
+  .fv-queue i{ animation:none; opacity:1; }
+}
+@media (max-width:900px){
+  .phero-viz{ max-width:480px; width:100%; }
+}
+@media (max-width:520px){
+  .fv{ --rh:34px; margin-top:14px; padding-top:12px; }
+  .fv-title{ margin-bottom:4px; }
+  .fv-name{ font-size:12.5px; }
+  .fv-step{ gap:10px; }
+  .fv-state{ font-size:9px; letter-spacing:0.05em; }
+}
+@media (max-width:380px){
+  /* very small phones: let the content set the height (it comes out about as tall as it is wide) */
+  .phero-viz{ aspect-ratio:auto; padding:22px; }
+  .phero-viz .cd-mon{ flex:0 0 auto; height:108px; min-height:0; }
+  .fv{ --rh:31px; }
+  .fv-title{ display:none; }
+}
+</style>
 </head>
 <body>
 <div id="site-header"></div>
@@ -242,6 +307,16 @@
         <div class="cd-bar calm" style="height:70%"></div>
         <div class="cd-bar hot"  style="height:94%"></div>
         <div class="cd-scan"></div>
+      </div>
+      <div class="fv" aria-hidden="true">
+        <div class="fv-title">FROM SOURCE TO DECISION</div>
+        <ol class="fv-list">
+          <li class="fv-step s1"><span class="fv-node"></span><span class="fv-name">Source transaction</span><span class="fv-queue"></span><span class="fv-state">Captured</span></li>
+          <li class="fv-step s2"><span class="fv-node"></span><span class="fv-name">Close and reconciliation</span><span class="fv-queue"><i></i><i></i><i></i></span><span class="fv-state">Reconciling</span></li>
+          <li class="fv-step s3"><span class="fv-node"></span><span class="fv-name">Management reporting</span><span class="fv-queue"></span><span class="fv-state">Pending</span></li>
+          <li class="fv-step s4"><span class="fv-node"></span><span class="fv-name">Decision</span><span class="fv-queue"></span><span class="fv-state">Waiting</span></li>
+          <span class="fv-travel"></span>
+        </ol>
       </div>
     </div>
   </div>
