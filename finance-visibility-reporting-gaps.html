@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -272,7 +274,15 @@
   .fv-title{ display:none; }
 }
 </style>
-</head>
+<style data-di-challenge-consistency="true">
+/* DataInvent challenge-page consistency */
+.cl, .sign-lab { font-weight: 700 !important; }
+.health-disclaimer { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); font-size: 12px; line-height: 1.6; color: rgba(255,255,255,.58); }
+.diagnostic-support { margin-top: 26px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.12); display:flex; gap:24px; align-items:center; justify-content:space-between; }
+.diagnostic-support p { margin:0; color:rgba(255,255,255,.62); }
+.diagnostic-support a { flex:0 0 auto; color:#E47B2B; font-family:'JetBrains Mono',monospace; font-weight:700; text-decoration:none; }
+@media(max-width:760px){.diagnostic-support{align-items:flex-start;flex-direction:column;gap:12px}}
+</style></head>
 <body>
 <div id="site-header"></div>
 <!-- SECTION 1 — HERO -->
@@ -285,8 +295,8 @@
 <p class="sub">Finance teams often spend the close reconciling spreadsheets, re-keying transactions and explaining why reports disagree. Leaders are left waiting for answers or making decisions with partial information instead of a trusted, current view of performance.</p>
 <p class="sub consequence">Finance becomes a reporting bottleneck and leadership loses confidence in the numbers.</p>
 <div class="acts">
-<a class="btn btn-primary" href="finance-erp.html">Explore Finance &amp; ERP <span class="arrow">→</span></a>
-<a class="btn btn-outline-dark" href="book-a-demo.html">Explore BI &amp; Analytics <span class="arrow">→</span></a>
+<a class="btn btn-primary" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+<a class="btn btn-outline-dark" href="finance-erp.html">Explore Finance &amp; ERP <span class="arrow">→</span></a>
 </div>
 </div>
 <!-- HERO VIZ — "Cost of Delay" bar monitor (UNIQUE to Problem page) -->
@@ -421,7 +431,7 @@
 <a class="btn btn-white" href="book-a-demo.html">Assess our finance visibility <span class="arrow">→</span></a>
 <div class="hc-count" id="hcCount">0 of 7 risk signals selected</div>
 <div class="hc-count hc-disclaimer">Indicative assessment only. Final recommendations depend on process, data, system and organisational context.</div>
-</div>
+<p class="health-disclaimer">This health check is directional only. It is not a technical assessment, implementation estimate, or commitment. A diagnostic validates priorities, dependencies, risk and next steps.</p></div>
 </div>
 </div>
 </section>
@@ -434,12 +444,12 @@
 <div class="wrap">
 <div class="lg-card reveal-scale">
 <div class="lg-glow"></div>
-<p class="lg-eyebrow">DataInvent can help trace the finance and reporting process, identify the real source of delay and define a practical sequence for process, ERP, integration and analytics improvements.</p>
+<p class="lg-eyebrow">Ready When You Are</p>
 <h2>Turn finance data into decisions, not another backlog</h2>
 <p class="lg-sub">DataInvent can help trace the finance and reporting process, identify the real source of delay and define a practical sequence for process, ERP, integration and analytics improvements.</p>
 <div class="lg-actions">
-<a class="btn btn-primary" href="book-a-demo.html">Explore Finance &amp; ERP <span class="arrow">→</span></a>
-<a class="lg-secondary" href="contact.html">Talk to Sales <span class="arrow">→</span></a>
+<a class="btn btn-primary" href="book-a-demo.html">Book a Demo <span class="arrow">→</span></a>
+<a class="lg-secondary" href="finance-erp.html">Explore Finance &amp; ERP <span class="arrow">→</span></a>
 </div>
 <div class="lg-features">
 <div class="lg-feat"><div class="lf-ico"><svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></div><div><div class="lf-t">Finance visibility workshop</div><div class="lf-d">Map the close and reporting flow, identify control and data gaps, and provide a prioritized next-step roadmap.</div></div></div>
