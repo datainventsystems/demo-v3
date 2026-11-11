@@ -3987,3 +3987,302 @@ section.demo{ padding-bottom:100px; }
   }
 }
 /* ===== /Challenge pages: shared consistency ===== */
+
+/* ===== PAGE CSS: finance-visibility-reporting-gaps.html (moved from the page's <style> blocks; scoped to body.page-finance-visibility-reporting-gaps) ===== */
+
+/* --- from <style block 1> --- */
+@keyframes hcRise{ from{ transform:scaleY(0); } to{ transform:scaleY(1); } }
+@keyframes hcSweep{ 0%{ left:-6%; opacity:0; } 12%{ opacity:1; } 100%{ left:104%; opacity:0; } }
+@keyframes hcPop{ from{ opacity:0; transform:translateY(8px) scale(.96); } to{ opacity:1; transform:none; } }
+@keyframes hcBlink{ 50%{ opacity:.35; } }
+:where(body.page-finance-visibility-reporting-gaps) .cd-sub{ position:relative; z-index:2; margin-top:12px; font-family:'Oxanium',sans-serif; font-weight:700; color:#fff; font-size:20px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-sub .big{ font-size:34px; color:#E47B2B; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-sub .muted{ font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:0.06em; color:rgba(255,255,255,0.5); font-weight:400; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-mon{ position:relative; z-index:2; margin-top:18px; height:158px; display:flex; align-items:flex-end; gap:10px; overflow:hidden; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-mon .cd-target{ position:absolute; left:0; right:0; bottom:82px; border-top:1.5px dashed rgba(244,164,92,0.65); z-index:4; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-mon .cd-target span{ position:absolute; right:0; top:-9px; font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.08em; color:#F4A45C; background:rgba(28,28,28,0.78); padding:2px 7px; border-radius:5px; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar{ flex:1; border-radius:4px 4px 0 0; transform-origin:bottom; transform:scaleY(0); animation:hcRise .85s cubic-bezier(.22,1,.36,1) forwards; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar:nth-child(2){ animation-delay:.05s; } :where(body.page-finance-visibility-reporting-gaps) .cd-bar:nth-child(3){ animation-delay:.10s; } :where(body.page-finance-visibility-reporting-gaps) .cd-bar:nth-child(4){ animation-delay:.15s; } :where(body.page-finance-visibility-reporting-gaps) .cd-bar:nth-child(5){ animation-delay:.20s; } :where(body.page-finance-visibility-reporting-gaps) .cd-bar:nth-child(6){ animation-delay:.25s; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar.calm{ background:linear-gradient(180deg, rgba(255,255,255,0.24), rgba(255,255,255,0.07)); }
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar.hot{ background:linear-gradient(180deg, #F4A45C, #E47B2B); box-shadow:0 0 24px rgba(228,123,43,0.55); }
+:where(body.page-finance-visibility-reporting-gaps) .cd-scan{ position:absolute; top:0; bottom:0; left:-6%; width:2px; background:linear-gradient(180deg, transparent, rgba(244,164,92,0.55), transparent); animation:hcSweep 3.6s ease-in-out infinite; z-index:5; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-chips{ position:relative; z-index:2; margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip{ display:inline-flex; align-items:center; gap:7px; font-family:'JetBrains Mono',monospace; font-size:10.5px; letter-spacing:0.03em; padding:7px 12px; border-radius:999px; opacity:0; animation:hcPop .5s ease forwards; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip.warn{ color:#F4A45C; background:rgba(228,123,43,0.14); border:1px solid rgba(228,123,43,0.42); animation-delay:.9s; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip.risk{ color:#E29B96; background:rgba(198,84,79,0.16); border:1px solid rgba(198,84,79,0.5); animation-delay:1.05s; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip .cdot{ width:6px; height:6px; border-radius:50%; background:currentColor; animation:hcBlink 1.4s infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-foot{ position:relative; z-index:2; margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-foot .v{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:24px; color:#E47B2B; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-foot .v.white{ color:#fff; }
+:where(body.page-finance-visibility-reporting-gaps) .cd-foot .l{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
+@media (prefers-reduced-motion: reduce){ :where(body.page-finance-visibility-reporting-gaps) .cd-bar{ transform:scaleY(1) !important; animation:none !important; } :where(body.page-finance-visibility-reporting-gaps) .cd-scan{ display:none; } :where(body.page-finance-visibility-reporting-gaps) .cd-chip{ opacity:1 !important; animation:none !important; } }
+
+/* --- from <style id="problem-leadgen-v2"> --- */
+/* Finance problem-page lead gen: same design language, distinct colour mood. */
+:where(body.page-finance-visibility-reporting-gaps) .leadgen{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(128deg,#dceaf1 0%,#ebe9e2 52%,#dfe8dc 100%) !important;
+  color:#172a38;
+}
+/* No circles/orbs on this variant. */
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-orb,
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .cursor-glow{display:none !important;}
+
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-card{
+  position:relative;
+  text-align:left !important;
+  background:linear-gradient(135deg,rgba(255,255,255,.98) 0%,rgba(250,252,250,.97) 58%,rgba(246,249,244,.98) 100%) !important;
+  border:1px solid rgba(255,255,255,.72) !important;
+  box-shadow:0 28px 72px rgba(23,54,74,.15),0 8px 24px rgba(23,54,74,.08) !important;
+  color:#172a38 !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:linear-gradient(116deg,rgba(0,120,212,.045),transparent 34%,rgba(127,186,0,.035) 72%,rgba(255,185,0,.025));
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-card > *{position:relative;z-index:1;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-glow{display:none !important;}
+
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-eyebrow{
+  text-align:left !important;
+  color:var(--brand-orange,#E47B2B) !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen h2{
+  text-align:left !important;
+  color:#172a38 !important;
+  max-width:900px;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen h2 .hl{color:var(--brand-orange,#E47B2B) !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-sub{
+  text-align:left !important;
+  color:#587084 !important;
+  max-width:760px;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-actions{
+  justify-content:flex-start !important;
+  text-align:left !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-features{
+  text-align:left !important;
+  border-top-color:rgba(23,42,56,.12) !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-feat{justify-content:flex-start !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-feat + .lg-feat{border-left-color:rgba(23,42,56,.10) !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-t{color:#18364c !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-d{color:#6a7d89 !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-ico{
+  color:#0078D4 !important;
+  background:linear-gradient(145deg,rgba(0,120,212,.09),rgba(127,186,0,.055)) !important;
+  border-color:rgba(0,120,212,.18) !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-secondary{color:#183f59 !important;}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-secondary:hover{color:#0078D4 !important;}
+
+@media(max-width:760px){
+  :where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-feat + .lg-feat{border-left:0 !important;}
+}
+
+/* --- from <style id="problem-graph-brand-consistency"> --- */
+body.page-finance-visibility-reporting-gaps{
+  --ms-blue:#00A4EF;
+  --ms-green:#7FBA00;
+  --ms-yellow:#FFB900;
+  --ms-red:#F25022;
+}
+
+/* Subtle Microsoft-inspired signals in the finance hero graph. */
+:where(body.page-finance-visibility-reporting-gaps) .phero-viz::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    radial-gradient(circle at 14% 16%,rgba(0,164,239,.10),transparent 30%),
+    radial-gradient(circle at 88% 84%,rgba(127,186,0,.065),transparent 28%);
+  mix-blend-mode:screen;
+}
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar.calm:nth-of-type(2),
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar.calm:nth-of-type(3){
+  background:linear-gradient(180deg,rgba(0,164,239,.28),rgba(0,164,239,.07));
+}
+:where(body.page-finance-visibility-reporting-gaps) .cd-bar.calm:nth-of-type(4){
+  background:linear-gradient(180deg,rgba(127,186,0,.22),rgba(127,186,0,.06));
+}
+:where(body.page-finance-visibility-reporting-gaps) .cd-mon .cd-target{border-top-color:rgba(255,185,0,.58);}
+:where(body.page-finance-visibility-reporting-gaps) .cd-mon .cd-target span{color:#FFD45E;}
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip.warn{
+  color:#D59A00;
+  background:rgba(255,185,0,.10);
+  border-color:rgba(255,185,0,.34);
+}
+:where(body.page-finance-visibility-reporting-gaps) .cd-chip.risk{
+  color:#E47A65;
+  background:rgba(242,80,34,.10);
+  border-color:rgba(242,80,34,.32);
+}
+:where(body.page-finance-visibility-reporting-gaps) .hc-item.checked .hc-check{
+  background:var(--ms-blue);
+  border-color:var(--ms-blue);
+}
+:where(body.page-finance-visibility-reporting-gaps) .hc-score{position:relative;overflow:hidden;}
+:where(body.page-finance-visibility-reporting-gaps) .hc-score::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  right:-92px;
+  top:-96px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,164,239,.12),transparent 68%);
+  pointer-events:none;
+}
+
+/* --- from <style id="leadgen-pillar-icon-alignment"> --- */
+/* Only the three lead-gen reassurance pillars: balanced spacing + circular icons. */
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-features{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  align-items:start !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-feat{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:14px !important;
+  min-width:0;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-ico{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px !important;
+  flex:0 0 42px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-ico svg{
+  display:block;
+}
+:where(body.page-finance-visibility-reporting-gaps) .leadgen .lf-txt{
+  min-width:0;
+}
+@media(max-width:760px){
+  :where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-features{grid-template-columns:1fr !important;}
+  :where(body.page-finance-visibility-reporting-gaps) .leadgen .lg-feat{justify-content:flex-start !important;}
+}
+
+/* --- from <style id="hero-flow-viz"> --- */
+/* Hero graph of the Finance problem page: square card + "From source to decision" track. No figures. */
+:where(body.page-finance-visibility-reporting-gaps) .phero-viz{ display:flex; flex-direction:column; aspect-ratio:1 / 1; max-width:100%; }
+:where(body.page-finance-visibility-reporting-gaps) .phero-viz .cd-mon{ flex:1 1 auto; height:auto; min-height:84px; }
+:where(body.page-finance-visibility-reporting-gaps) .phero-viz > .cd-mon .cd-bar{ min-height:6px; }
+:where(body.page-finance-visibility-reporting-gaps) .fv{ position:relative; z-index:2; margin-top:18px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); --rh:38px; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-title{ font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:0.14em; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:8px; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-list{ position:relative; list-style:none; margin:0; padding:0; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-list::before{ content:""; position:absolute; left:6px; top:calc(var(--rh) / 2); bottom:calc(var(--rh) / 2); width:2px; border-radius:2px;
+  background:linear-gradient(180deg,#7FBA00 0%,#E47B2B 34%,rgba(255,185,0,0.55) 68%,rgba(255,255,255,0.14) 100%); }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step{ position:relative; height:var(--rh); display:grid; grid-template-columns:14px minmax(0,1fr) auto auto; gap:12px; align-items:center; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-node{ position:relative; z-index:1; width:14px; height:14px; border-radius:50%; box-sizing:border-box; background:#1c1c1c; border:2px solid rgba(255,255,255,0.35); }
+:where(body.page-finance-visibility-reporting-gaps) .fv-name{ font-family:'Oxanium',sans-serif; font-weight:700; font-size:13.5px; line-height:1.2; color:#fff; min-width:0; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-state{ font-family:'JetBrains Mono',monospace; font-size:9.5px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-queue{ display:flex; align-items:center; gap:3px; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-queue i{ display:block; width:7px; height:11px; border-radius:2px; background:#F4A45C; opacity:0; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s1 .fv-node{ background:#7FBA00; border-color:#7FBA00; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s1 .fv-state{ color:#7FBA00; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s2 .fv-node{ background:#E47B2B; border-color:#E47B2B; box-shadow:0 0 0 0 rgba(228,123,43,0.55); animation:fvPulse 1.7s ease-out infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s2 .fv-state{ color:#F4A45C; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s3 .fv-node{ border-color:rgba(255,185,0,0.7); }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s3 .fv-state{ color:#D59A00; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s4 .fv-name{ color:rgba(255,255,255,0.6); }
+:where(body.page-finance-visibility-reporting-gaps) .fv-step.s4 .fv-state{ animation:fvBlink 1.6s ease-in-out infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-travel{ position:absolute; z-index:2; left:2px; top:calc(var(--rh) / 2 - 5px); width:10px; height:10px; border-radius:50%; background:#fff; box-shadow:0 0 10px 3px rgba(244,164,92,0.75); opacity:0; animation:fvTravel 8s cubic-bezier(.45,0,.2,1) infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-queue i:nth-child(1){ animation:fvQ1 8s ease infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-queue i:nth-child(2){ animation:fvQ2 8s ease infinite; }
+:where(body.page-finance-visibility-reporting-gaps) .fv-queue i:nth-child(3){ animation:fvQ3 8s ease infinite; }
+@keyframes fvTravel{
+  0%{ transform:translateY(0); opacity:0; }
+  5%{ opacity:1; }
+  20%{ transform:translateY(var(--rh)); opacity:1; }
+  64%{ transform:translateY(var(--rh)); opacity:1; }
+  84%{ transform:translateY(calc(var(--rh) * 2)); opacity:1; }
+  94%{ transform:translateY(calc(var(--rh) * 2)); opacity:0; }
+  100%{ transform:translateY(calc(var(--rh) * 2)); opacity:0; }
+}
+@keyframes fvQ1{ 0%,22%{ opacity:0; transform:scale(.4); } 28%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvQ2{ 0%,34%{ opacity:0; transform:scale(.4); } 40%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvQ3{ 0%,46%{ opacity:0; transform:scale(.4); } 52%,64%{ opacity:1; transform:none; } 72%,100%{ opacity:0; transform:scale(.4); } }
+@keyframes fvPulse{ 0%{ box-shadow:0 0 0 0 rgba(228,123,43,0.55); } 70%,100%{ box-shadow:0 0 0 9px rgba(228,123,43,0); } }
+@keyframes fvBlink{ 50%{ opacity:0.3; } }
+@media (prefers-reduced-motion: reduce){
+  :where(body.page-finance-visibility-reporting-gaps) .fv-step.s2 .fv-node, :where(body.page-finance-visibility-reporting-gaps) .fv-step.s4 .fv-state{ animation:none; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-travel{ animation:none; opacity:1; transform:translateY(var(--rh)); }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-queue i{ animation:none; opacity:1; }
+}
+@media (max-width:900px){
+  :where(body.page-finance-visibility-reporting-gaps) .phero-viz{ max-width:480px; width:100%; }
+}
+@media (max-width:520px){
+  :where(body.page-finance-visibility-reporting-gaps) .fv{ --rh:34px; margin-top:14px; padding-top:12px; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-title{ margin-bottom:4px; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-name{ font-size:12.5px; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-step{ gap:10px; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-state{ font-size:9px; letter-spacing:0.05em; }
+}
+@media (max-width:380px){
+  /* very small phones: let the content set the height (it comes out about as tall as it is wide) */
+  :where(body.page-finance-visibility-reporting-gaps) .phero-viz{ aspect-ratio:auto; padding:22px; }
+  :where(body.page-finance-visibility-reporting-gaps) .phero-viz .cd-mon{ flex:0 0 auto; height:108px; min-height:0; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv{ --rh:31px; }
+  :where(body.page-finance-visibility-reporting-gaps) .fv-title{ display:none; }
+}
+
+/* ===== /PAGE CSS: finance-visibility-reporting-gaps.html ===== */
+
+/* ===== PAGE CSS: manual-operations-bottlenecks.html (moved from the page's <style> blocks; scoped to body.page-manual-operations-bottlenecks) ===== */
+
+/* --- from <style id="manual-ops-hero-animation"> --- */
+@keyframes moMove{0%{transform:translateX(0)}45%{transform:translateX(102px)}55%{transform:translateX(102px)}100%{transform:translateX(204px)}}
+@keyframes moPulse{50%{box-shadow:0 0 0 10px rgba(228,123,43,0)}}
+@keyframes moFlow{to{stroke-dashoffset:-30}}
+:where(body.page-manual-operations-bottlenecks) .mo-flow{position:relative;z-index:2;margin-top:28px}:where(body.page-manual-operations-bottlenecks) .mo-lanes{position:relative;height:210px}:where(body.page-manual-operations-bottlenecks) .mo-line{position:absolute;left:6%;right:6%;height:2px;background:rgba(255,255,255,.12)}:where(body.page-manual-operations-bottlenecks) .mo-line.l1{top:48px}:where(body.page-manual-operations-bottlenecks) .mo-line.l2{top:108px}:where(body.page-manual-operations-bottlenecks) .mo-line.l3{top:168px}:where(body.page-manual-operations-bottlenecks) .mo-node{position:absolute;left:7%;width:46px;height:46px;border-radius:12px;background:#30353a;border:1px solid rgba(255,255,255,.16);display:grid;place-items:center;color:#fff;font:700 10px 'JetBrains Mono';animation:moMove 5.4s ease-in-out infinite alternate}:where(body.page-manual-operations-bottlenecks) .mo-node.n1{top:25px}:where(body.page-manual-operations-bottlenecks) .mo-node.n2{top:85px;animation-delay:.5s}:where(body.page-manual-operations-bottlenecks) .mo-node.n3{top:145px;animation-delay:1s}:where(body.page-manual-operations-bottlenecks) .mo-gate{position:absolute;left:52%;top:12px;bottom:8px;width:3px;background:var(--brand-orange);box-shadow:0 0 18px rgba(228,123,43,.45)}:where(body.page-manual-operations-bottlenecks) .mo-gate::before{content:"BOTTLENECK";position:absolute;left:10px;top:75px;color:var(--brand-orange-light);font:700 9px 'JetBrains Mono';letter-spacing:.12em}:where(body.page-manual-operations-bottlenecks) .mo-exit{position:absolute;right:4%;top:22px;bottom:4px;width:115px;border:1px solid rgba(34,197,94,.3);border-radius:14px;background:rgba(34,197,94,.045);display:grid;place-items:center;text-align:center;color:#b5e7c7;font:700 10px/1.5 'JetBrains Mono';letter-spacing:.08em}:where(body.page-manual-operations-bottlenecks) .mo-status{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px;position:relative;z-index:2}:where(body.page-manual-operations-bottlenecks) .mo-status div{padding:13px;border:1px solid rgba(255,255,255,.1);border-radius:10px}:where(body.page-manual-operations-bottlenecks) .mo-status b,:where(body.page-manual-operations-bottlenecks) .mo-status small{display:block}:where(body.page-manual-operations-bottlenecks) .mo-status b{font:700 18px 'Oxanium';color:#fff}:where(body.page-manual-operations-bottlenecks) .mo-status small{font:700 8px 'JetBrains Mono';color:rgba(255,255,255,.42);margin-top:4px}:where(body.page-manual-operations-bottlenecks) .mo-status div:nth-child(2) b{color:var(--brand-orange)}:where(body.page-manual-operations-bottlenecks) .mo-status div:nth-child(3) b{color:#7fd59d}
+:where(body.page-manual-operations-bottlenecks) .manual-hero-title span{display:block;white-space:nowrap}
+@media(max-width:900px){:where(body.page-manual-operations-bottlenecks) .manual-hero-title span{white-space:normal}}
+:where(body.page-manual-operations-bottlenecks) .manual-standard-faq{background:#fff!important;background-image:none!important}
+
+/* ===== /PAGE CSS: manual-operations-bottlenecks.html ===== */
+
+/* ===== PAGE CSS: disconnected-systems-silos.html (moved from the page's <style> blocks; scoped to body.page-disconnected-systems-silos) ===== */
+
+/* --- from <style id="disconnected-systems-hero-animation"> --- */
+:where(body.page-disconnected-systems-silos) .disconnected-hero-title span{display:block;white-space:nowrap}@media(max-width:900px){:where(body.page-disconnected-systems-silos) .disconnected-hero-title span{white-space:normal}}
+:where(body.page-disconnected-systems-silos) .ds-map{position:relative;height:250px;margin-top:20px}:where(body.page-disconnected-systems-silos) .ds-map svg{position:absolute;inset:18px 25px;width:calc(100% - 50px);height:210px;overflow:visible}:where(body.page-disconnected-systems-silos) .ds-link{fill:none;stroke:rgba(228,123,43,.48);stroke-width:2;stroke-dasharray:8 8;animation:dsFlow 2.8s linear infinite}:where(body.page-disconnected-systems-silos) .ds-link.l2{animation-delay:.5s}:where(body.page-disconnected-systems-silos) .ds-link.l3{animation-delay:1s}:where(body.page-disconnected-systems-silos) .ds-link.l4{animation-delay:1.5s}@keyframes dsFlow{to{stroke-dashoffset:-64}}:where(body.page-disconnected-systems-silos) .ds-system{position:absolute;z-index:3;width:84px;padding:12px 8px;border:1px solid rgba(255,255,255,.15);border-radius:12px;background:#30353a;text-align:center;color:#fff}:where(body.page-disconnected-systems-silos) .ds-system b,:where(body.page-disconnected-systems-silos) .ds-system small{display:block}:where(body.page-disconnected-systems-silos) .ds-system b{font:700 12px 'Oxanium'}:where(body.page-disconnected-systems-silos) .ds-system small{font:700 8px 'JetBrains Mono';color:rgba(255,255,255,.42);margin-top:4px}:where(body.page-disconnected-systems-silos) .ds-system.s1{left:0;top:22px}:where(body.page-disconnected-systems-silos) .ds-system.s2{right:0;top:22px}:where(body.page-disconnected-systems-silos) .ds-system.s3{left:0;bottom:10px}:where(body.page-disconnected-systems-silos) .ds-system.s4{right:0;bottom:10px}:where(body.page-disconnected-systems-silos) .ds-core{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);width:118px;height:118px;border-radius:50%;border:1px solid var(--brand-orange);background:radial-gradient(circle,rgba(228,123,43,.18),rgba(31,31,31,.95) 65%);display:grid;place-content:center;text-align:center;box-shadow:0 0 0 10px rgba(228,123,43,.06)}:where(body.page-disconnected-systems-silos) .ds-core span{font:800 24px 'Oxanium';color:var(--brand-orange)}:where(body.page-disconnected-systems-silos) .ds-core b{font:700 9px/1.35 'JetBrains Mono';letter-spacing:.08em;color:#fff;margin-top:4px}:where(body.page-disconnected-systems-silos) .disconnected-standard-faq{background:#fff!important;background-image:none!important}
+
+/* ===== /PAGE CSS: disconnected-systems-silos.html ===== */
+
+/* ===== PAGE CSS: legacy-systems-limiting-growth.html (moved from the page's <style> blocks; scoped to body.page-legacy-systems-limiting-growth) ===== */
+
+/* --- from <style id="legacy-systems-hero-animation"> --- */
+:where(body.page-legacy-systems-limiting-growth) .legacy-hero-title span{display:block;white-space:nowrap}@media(max-width:900px){:where(body.page-legacy-systems-limiting-growth) .legacy-hero-title span{white-space:normal}}
+:where(body.page-legacy-systems-limiting-growth) .lg-map{position:relative;height:260px;margin-top:15px}:where(body.page-legacy-systems-limiting-growth) .lg-core{position:absolute;z-index:4;left:50%;top:43%;transform:translate(-50%,-50%);width:142px;height:142px;border-radius:24px;border:1px solid rgba(228,123,43,.7);background:linear-gradient(145deg,#36312d,#202225);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 12px rgba(228,123,43,.06)}:where(body.page-legacy-systems-limiting-growth) .lg-core small{font:700 8px 'JetBrains Mono';letter-spacing:.14em;color:var(--brand-orange-light)}:where(body.page-legacy-systems-limiting-growth) .lg-core strong{font:800 31px 'Oxanium';color:#fff;margin-top:7px}:where(body.page-legacy-systems-limiting-growth) .lg-core span{font:700 8px 'JetBrains Mono';color:rgba(255,255,255,.38);margin-top:3px}:where(body.page-legacy-systems-limiting-growth) .lg-ring{position:absolute;left:50%;top:43%;border:1px dashed rgba(255,255,255,.15);border-radius:50%;transform:translate(-50%,-50%);animation:lgRotate 16s linear infinite}:where(body.page-legacy-systems-limiting-growth) .lg-ring.r1{width:300px;height:210px}:where(body.page-legacy-systems-limiting-growth) .lg-ring.r2{width:390px;height:150px;animation-direction:reverse;animation-duration:20s}@keyframes lgRotate{to{transform:translate(-50%,-50%) rotate(360deg)}}:where(body.page-legacy-systems-limiting-growth) .lg-debt{position:absolute;z-index:5;padding:10px 12px;border:1px solid rgba(255,255,255,.13);border-radius:10px;background:#30353a;color:rgba(255,255,255,.72);font:700 8px/1.4 'JetBrains Mono';text-align:center}:where(body.page-legacy-systems-limiting-growth) .lg-debt.d1{left:1%;top:28px}:where(body.page-legacy-systems-limiting-growth) .lg-debt.d2{right:0;top:62px}:where(body.page-legacy-systems-limiting-growth) .lg-debt.d3{left:10%;bottom:48px}:where(body.page-legacy-systems-limiting-growth) .lg-path{position:absolute;left:32%;right:1%;bottom:4px;display:flex;align-items:center;gap:5px}:where(body.page-legacy-systems-limiting-growth) .lg-path i{height:4px;flex:1;border-radius:4px;background:linear-gradient(90deg,rgba(228,123,43,.2),var(--brand-orange));animation:lgPulse 1.7s ease-in-out infinite}:where(body.page-legacy-systems-limiting-growth) .lg-path i:nth-child(2){animation-delay:.2s}:where(body.page-legacy-systems-limiting-growth) .lg-path i:nth-child(3){animation-delay:.4s}:where(body.page-legacy-systems-limiting-growth) .lg-path i:nth-child(4){animation-delay:.6s}@keyframes lgPulse{50%{opacity:.35}}:where(body.page-legacy-systems-limiting-growth) .lg-path b{margin-left:7px;color:#8bd1a4;font:700 8px 'JetBrains Mono';letter-spacing:.08em;white-space:nowrap}:where(body.page-legacy-systems-limiting-growth) .legacy-standard-faq{background:#fff!important;background-image:none!important}
+
+/* ===== /PAGE CSS: legacy-systems-limiting-growth.html ===== */
+
+/* ===== PAGE CSS: ai-automation-without-roadmap.html (moved from the page's <style> blocks; scoped to body.page-ai-automation-without-roadmap) ===== */
+
+/* --- from <style id="ai-roadmap-hero-animation"> --- */
+:where(body.page-ai-automation-without-roadmap) .ai-roadmap-hero-title span{display:block;white-space:nowrap}@media(max-width:900px){:where(body.page-ai-automation-without-roadmap) .ai-roadmap-hero-title span{white-space:normal}}
+:where(body.page-ai-automation-without-roadmap) .ai-roadmap-map{position:relative;height:270px;margin-top:12px}:where(body.page-ai-automation-without-roadmap) .ai-idea{position:absolute;z-index:4;min-width:72px;padding:11px 10px;border:1px solid rgba(255,255,255,.14);border-radius:11px;background:#30353a;color:#fff;text-align:center;font:700 8px 'JetBrains Mono';animation:aiFloat 3.4s ease-in-out infinite}:where(body.page-ai-automation-without-roadmap) .ai-idea.i1{left:0;top:20px}:where(body.page-ai-automation-without-roadmap) .ai-idea.i2{left:19%;bottom:32px;animation-delay:.5s}:where(body.page-ai-automation-without-roadmap) .ai-idea.i3{left:3%;top:125px;animation-delay:1s}:where(body.page-ai-automation-without-roadmap) .ai-idea.i4{left:30%;top:55px;animation-delay:1.5s}@keyframes aiFloat{50%{transform:translateY(-7px)}}:where(body.page-ai-automation-without-roadmap) .ai-noise{position:absolute;left:42%;top:38px;width:105px;height:105px;border-radius:50%;border:1px solid rgba(228,123,43,.6);background:radial-gradient(circle,rgba(228,123,43,.18),rgba(31,31,31,.96) 68%);display:grid;place-content:center;text-align:center;box-shadow:0 0 0 10px rgba(228,123,43,.06)}:where(body.page-ai-automation-without-roadmap) .ai-noise small,:where(body.page-ai-automation-without-roadmap) .ai-target small{font:700 7px 'JetBrains Mono';letter-spacing:.12em;color:var(--brand-orange-light)}:where(body.page-ai-automation-without-roadmap) .ai-noise strong,:where(body.page-ai-automation-without-roadmap) .ai-target strong{font:800 16px 'Oxanium';color:#fff;margin-top:4px}:where(body.page-ai-automation-without-roadmap) .ai-route{position:absolute;left:43%;right:21%;bottom:20px;display:flex;align-items:center;gap:5px}:where(body.page-ai-automation-without-roadmap) .ai-route span{padding:6px 7px;border-radius:7px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.62);font:700 6px 'JetBrains Mono'}:where(body.page-ai-automation-without-roadmap) .ai-route i{flex:1;height:2px;background:linear-gradient(90deg,rgba(134,97,245,.25),#8661f5);animation:aiRoute 1.5s ease-in-out infinite}:where(body.page-ai-automation-without-roadmap) .ai-route i:nth-of-type(2){animation-delay:.2s}:where(body.page-ai-automation-without-roadmap) .ai-route i:nth-of-type(3){animation-delay:.4s}@keyframes aiRoute{50%{opacity:.25}}:where(body.page-ai-automation-without-roadmap) .ai-target{position:absolute;right:0;top:59px;width:112px;height:112px;border-radius:22px;border:1px solid rgba(134,97,245,.55);background:linear-gradient(145deg,rgba(0,164,239,.16),rgba(134,97,245,.18),rgba(28,28,28,.92));display:grid;place-content:center;text-align:center;box-shadow:0 0 28px rgba(134,97,245,.12)}:where(body.page-ai-automation-without-roadmap) .ai-target small{color:#a9dfff}:where(body.page-ai-automation-without-roadmap) .ai-target strong{font-size:20px}:where(body.page-ai-automation-without-roadmap) .ai-roadmap-standard-faq{background:#fff!important;background-image:none!important}
+
+/* ===== /PAGE CSS: ai-automation-without-roadmap.html ===== */
