@@ -664,8 +664,8 @@ section{ position:relative; }
 .sign-lab{ font-family:'JetBrains Mono'; font-size:10px; letter-spacing:0.16em; color:#a2a2a2; }
 .sign-symptom .st{ font-family:'Oxanium'; font-weight:700; color:var(--darker); margin-top:10px; display:flex; gap:9px; align-items:flex-start; }
 .sign-symptom .st .warn{ color:var(--brand-orange); flex-shrink:0; }
-.sign-card.feature .sign-symptom .st{ font-size:21px; }
-.sign-card .sign-symptom .st{ font-size:16px; }
+.sign-card.feature .sign-symptom .st{ font-size:20px; }
+.sign-card .sign-symptom .st{ font-size:20px; }
 .sign-symptom p{ font-size:13.5px; color:var(--dark); margin-top:9px; line-height:1.55; }
 .sign-consequence{ background:var(--night); color:#fff; padding:24px 26px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
 .sign-card.feature .sign-consequence{ padding:32px; }
@@ -673,7 +673,7 @@ section{ position:relative; }
 .sign-consequence .cl{ font-family:'JetBrains Mono'; font-size:10px; letter-spacing:0.16em; color:var(--brand-orange-light); position:relative; z-index:2; }
 .sign-consequence .ct{ font-family:'Oxanium'; font-weight:700; margin-top:8px; position:relative; z-index:2; line-height:1.35; }
 .sign-card.feature .sign-consequence .ct{ font-size:20px; }
-.sign-card .sign-consequence .ct{ font-size:15px; }
+.sign-card .sign-consequence .ct{ font-size:20px; }
 .sign-small-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 @media(max-width:820px){ .sign-small-grid{ grid-template-columns:1fr; } }
 @media(max-width:560px){ .sign-card{ grid-template-columns:1fr; } }
@@ -726,7 +726,7 @@ section{ position:relative; }
 .hc-grid{ margin-top:40px; display:grid; grid-template-columns:1fr 0.85fr; gap:24px; align-items:stretch; }
 @media(max-width:900px){ .hc-grid{ grid-template-columns:1fr; } }
 .hc-panel{ border:1px solid #e6e6e6; border-radius:var(--radius-lg); padding:28px; background:#fff; }
-.hc-panel .hcp-lab{ font-size:13px; color:var(--dark); margin-bottom:16px; }
+.hc-panel .hcp-lab{ font-size:13px; color:var(--dark); margin-bottom:16px; font-weight: bold; }
 .hc-list{ display:flex; flex-direction:column; gap:12px; }
 .hc-item{ border:1px solid #e6e6e6; border-radius:var(--radius-md); padding:16px 18px; display:flex; align-items:center; gap:13px; cursor:pointer; transition:all .2s var(--ease); }
 .hc-item:hover{ border-color:var(--brand-orange); }
