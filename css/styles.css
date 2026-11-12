@@ -4326,3 +4326,64 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
   section.why .why-card{ padding-left:60px; }
 }
 /* ===== /Solution pages: "Why DataInvent" process timeline ===== */
+
+/* ===== Success stories: global case-study module (every page that has <section class="success-stories">) ===== */
+/* Look: the final industry-page design. The base rules (.story-stage, .story-feature, .sf-*, .story-dots, .q-card) are the site's own;
+   this block adds the parts that belong to this module. */
+.success-stories .sec-head{ max-width:760px; }
+.success-stories .sec-head > p:last-child{ max-width:680px; margin-left:auto; margin-right:auto; }
+
+/* Feature card: every story sits in the same cell, so the card keeps the height of the tallest story and nothing jumps while it rotates. */
+.success-stories .ss-feature{ display:flex; flex-direction:column; justify-content:space-between; }
+.success-stories .ss-panels{ position:relative; z-index:1; flex:1 1 auto; display:grid; }
+.success-stories .ss-panel{ grid-area:1 / 1; display:flex; flex-direction:column; justify-content:space-between; gap:28px; visibility:hidden; opacity:0; transform:translateY(10px); pointer-events:none; transition:opacity .2s var(--ease), transform .2s var(--ease), visibility 0s linear .2s; }
+.success-stories .ss-panel.is-active{ visibility:visible; opacity:1; transform:none; pointer-events:auto; transition:opacity .35s var(--ease) .2s, transform .35s var(--ease) .2s, visibility 0s linear 0s; }
+.success-stories .sf-quote{ font-style:normal; }
+
+/* Industry and technology pills: industry, then the main platform (orange), then the other technologies (blue). */
+.success-stories .ss-pills{ display:flex; gap:7px; flex-wrap:wrap; margin-bottom:18px; }
+.success-stories .ss-pills span{ padding:6px 9px; border:1px solid rgba(255,255,255,.16); border-radius:999px; background:rgba(255,255,255,.055); font:700 9px/1.2 'JetBrains Mono'; letter-spacing:.06em; color:rgba(255,255,255,.76); }
+.success-stories .ss-pills span:nth-child(2){ border-color:rgba(228,123,43,.38); color:var(--brand-orange-light); }
+.success-stories .ss-pills span:nth-child(n+3){ border-color:rgba(0,164,239,.38); color:#76c6ff; }
+
+/* Progress dots: the active one fills while the story is shown; frozen while the visitor hovers or uses the keyboard. */
+.success-stories .story-dots button:focus-visible{ outline:2px solid #fff; outline-offset:3px; }
+.success-stories.is-paused .story-dots button.active::after{ animation-play-state:paused; }
+
+/* "UP NEXT": light grey blocks. The story that is on show is never listed; the others follow in order. */
+.success-stories .ss-queue{ flex:1 1 auto; display:flex; flex-direction:column; gap:14px; }
+.success-stories .q-card{ flex:1 1 0; min-height:0; width:100%; margin:0; padding:20px; border:1px solid #e6eaee; border-radius:var(--radius-md); background:#fafbfc; color:inherit; font:inherit; text-align:left; -webkit-appearance:none; appearance:none; cursor:pointer; display:flex; align-items:center; gap:14px; transition:all .3s var(--ease); }
+.success-stories .q-card:hover{ background:#fff; border-color:var(--brand-orange); transform:translateX(4px); box-shadow:0 10px 26px rgba(0,0,0,.05); }
+.success-stories .q-card:focus-visible{ outline:2px solid var(--brand-orange); outline-offset:3px; }
+.success-stories .ss-qtext{ display:block; min-width:0; }
+.success-stories .q-tag,
+.success-stories .ss-qtitle,
+.success-stories .q-metric{ display:block; }
+.success-stories .ss-qtitle{ font-family:'Oxanium'; font-weight:700; color:var(--darker); font-size:15px; margin-top:4px; line-height:1.25; letter-spacing:-0.015em; }
+.success-stories .q-card[data-pos="0"]{ display:none; }
+.success-stories .q-card[data-pos="1"]{ order:1; }
+.success-stories .q-card[data-pos="2"]{ order:2; }
+.success-stories .q-card[data-pos="3"]{ order:3; }
+.success-stories .q-card[data-pos="4"]{ order:4; }
+.success-stories .q-card[data-pos="5"]{ order:5; }
+.success-stories .q-card[data-pos="6"]{ order:6; }
+
+/* One story only: no queue, no dots. */
+.success-stories[data-ss-count="1"] .story-stage{ grid-template-columns:1fr; }
+.success-stories[data-ss-count="1"] .story-queue,
+.success-stories[data-ss-count="1"] .story-dots{ display:none; }
+
+@media (max-width:900px){
+  .success-stories .ss-queue{ flex:0 0 auto; }
+  .success-stories .q-card{ flex:0 0 auto; align-items:flex-start; }
+}
+@media (max-width:640px){
+  .success-stories .story-feature{ padding:30px 24px; }
+}
+@media (prefers-reduced-motion:reduce){
+  .success-stories .ss-panel,
+  .success-stories .ss-panel.is-active{ transition:none; }
+  .success-stories .q-card:hover{ transform:none; }
+  .success-stories .story-dots button.active::after{ animation:none; transform:scaleX(1); }
+}
+/* ===== /Success stories: global case-study module ===== */
