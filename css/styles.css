@@ -4387,3 +4387,70 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
   .success-stories .story-dots button.active::after{ animation:none; transform:scaleX(1); }
 }
 /* ===== /Success stories: global case-study module ===== */
+
+/* ===== Solution pages: "Delivery approach" process track (global: every page that has <section class="delivery-approach">) ===== */
+/* Dark band between the grey Operating shift section and the white Success stories section.
+   Desktop: one node per phase on a line, a card under each node. Phones and tablets (and any process of 6 or 7 phases): a vertical timeline.
+   The progress line, the pulsing node and the lifted card are driven by js/delivery-approach.js through the classes
+   is-reached / is-passed / is-active. Without JavaScript every phase is shown as reached. */
+.delivery-approach{ position:relative; overflow:clip; background:var(--night); color:#fff; }
+.delivery-approach::before{ content:""; position:absolute; inset:0; background:radial-gradient(ellipse 50% 60% at 82% 8%, rgba(228,123,43,0.12), transparent 60%); pointer-events:none; }
+.delivery-approach .wrap{ position:relative; z-index:1; }
+.delivery-approach .sec-head{ max-width:780px; }
+.delivery-approach .sec-head h2{ color:#fff; }
+.delivery-approach .sec-head p:not(.eyebrow){ color:rgba(255,255,255,0.66); }
+
+.delivery-approach .dlv-track{ list-style:none; margin:64px 0 0; padding:0; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); column-gap:20px; }
+.delivery-approach[data-dlv-count="3"] .dlv-track{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.delivery-approach[data-dlv-count="4"] .dlv-track{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+.delivery-approach .dlv-step{ position:relative; display:flex; flex-direction:column; margin:0; padding:0; cursor:default; }
+
+.delivery-approach .dlv-node{ position:relative; z-index:1; flex:0 0 auto; width:46px; height:46px; margin:0 auto; display:grid; place-items:center; border-radius:50%; border:2px solid rgba(255,255,255,0.22); background:var(--night); color:rgba(255,255,255,0.62); font:700 13px/1 'JetBrains Mono',monospace; letter-spacing:0.04em; transition:background .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease); }
+.delivery-approach .dlv-step.is-reached .dlv-node{ background:var(--brand-orange); border-color:var(--brand-orange); color:#fff; }
+.delivery-approach .dlv-step.is-active .dlv-node{ animation:dlvPulse 2s ease-in-out infinite; }
+@keyframes dlvPulse{ 0%,100%{ box-shadow:0 0 0 4px rgba(228,123,43,0.30); } 50%{ box-shadow:0 0 0 11px rgba(228,123,43,0); } }
+
+/* The line from this node to the next one: a grey track with an orange fill that grows when the process has moved past this phase. */
+.delivery-approach .dlv-step::after{ content:""; position:absolute; top:22px; left:50%; width:calc(100% + 20px); height:2px; border-radius:2px; background-color:rgba(255,255,255,0.14); background-image:linear-gradient(var(--brand-orange),var(--brand-orange)); background-repeat:no-repeat; background-position:left center; background-size:0% 100%; transition:background-size .7s var(--ease); }
+.delivery-approach .dlv-step:last-child::after{ display:none; }
+.delivery-approach .dlv-step.is-passed::after{ background-size:100% 100%; }
+
+.delivery-approach .dlv-card{ flex:1 1 auto; display:flex; flex-direction:column; margin-top:26px; padding:24px 22px; border:1px solid rgba(255,255,255,0.10); border-radius:var(--radius-lg); background:rgba(255,255,255,0.035); transition:border-color .35s var(--ease), background .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease); }
+.delivery-approach .dlv-card h3{ margin:0; font-size:20px; color:#fff; }
+.delivery-approach .dlv-card p{ margin:10px 0 22px; font-size:14.5px; line-height:1.6; color:rgba(255,255,255,0.70); }
+.delivery-approach .dlv-out{ margin-top:auto; padding-top:18px; border-top:1px dashed rgba(255,255,255,0.18); }
+.delivery-approach .dlv-out-lab{ display:block; font:700 10px/1 'JetBrains Mono',monospace; letter-spacing:0.16em; text-transform:uppercase; color:var(--brand-orange-light); }
+.delivery-approach .dlv-out-text{ display:block; margin-top:8px; font-size:14px; line-height:1.45; font-weight:600; color:#fff; }
+.delivery-approach .dlv-step.is-active .dlv-card{ border-color:rgba(228,123,43,0.65); background:rgba(228,123,43,0.09); transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,0.35); }
+
+@media (max-width:1080px){
+.delivery-approach .dlv-track{ grid-template-columns:minmax(0,1fr); row-gap:0; margin-top:44px; }
+.delivery-approach .dlv-step{ padding:0 0 28px 70px; }
+.delivery-approach .dlv-step:last-child{ padding-bottom:0; }
+.delivery-approach .dlv-node{ position:absolute; left:0; top:0; margin:0; }
+.delivery-approach .dlv-card{ margin-top:0; }
+.delivery-approach .dlv-step::after{ top:50px; left:22px; width:2px; height:calc(100% - 50px); background-position:center top; background-size:100% 0%; }
+.delivery-approach .dlv-step.is-passed::after{ background-size:100% 100%; }
+.delivery-approach .dlv-step.is-active .dlv-card{ transform:none; }
+}
+@media (max-width:520px){
+.delivery-approach .dlv-step{ padding-left:62px; }
+.delivery-approach .dlv-card{ padding:20px 18px; }
+}
+/* six or seven phases do not fit side by side: they always use the vertical timeline */
+.delivery-approach.is-vertical .dlv-track{ grid-template-columns:minmax(0,1fr); row-gap:0; margin-top:44px; }
+.delivery-approach.is-vertical .dlv-step{ padding:0 0 28px 70px; }
+.delivery-approach.is-vertical .dlv-step:last-child{ padding-bottom:0; }
+.delivery-approach.is-vertical .dlv-node{ position:absolute; left:0; top:0; margin:0; }
+.delivery-approach.is-vertical .dlv-card{ margin-top:0; }
+.delivery-approach.is-vertical .dlv-step::after{ top:50px; left:22px; width:2px; height:calc(100% - 50px); background-position:center top; background-size:100% 0%; }
+.delivery-approach.is-vertical .dlv-step.is-passed::after{ background-size:100% 100%; }
+.delivery-approach.is-vertical .dlv-step.is-active .dlv-card{ transform:none; }
+
+@media (prefers-reduced-motion:reduce){
+.delivery-approach .dlv-step.is-active .dlv-node{ animation:none; }
+.delivery-approach .dlv-node,
+.delivery-approach .dlv-card,
+.delivery-approach .dlv-step::after{ transition:none; }
+}
+/* ===== /Solution pages: "Delivery approach" process track ===== */
