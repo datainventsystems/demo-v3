@@ -1126,11 +1126,6 @@ textarea.field-input{ min-height:130px; resize:vertical; line-height:1.6; }
 .industries#industries{background:linear-gradient(180deg,#202328,#17191d)}.industries#industries .itile{--ia:var(--ms-blue);--ir:0,164,239}.industries#industries .itile:nth-child(2){--ia:var(--ms-red);--ir:242,80,34}.industries#industries .itile:nth-child(3){--ia:var(--ms-green);--ir:127,186,0}.industries#industries .itile:nth-child(4){--ia:var(--copilot-purple);--ir:134,97,245}.industries#industries .itile:nth-child(5){--ia:var(--ms-yellow);--ir:255,185,0}
 .industries#industries .itile .duo{opacity:.34;background:linear-gradient(150deg,rgba(28,28,28,.08),rgba(var(--ir),.46))}.industries#industries .itile:hover .duo{opacity:.24}.industries#industries .itile .veil{background:linear-gradient(180deg,rgba(20,22,25,.01),rgba(20,22,25,.16) 48%,rgba(20,22,25,.74))}.industries#industries .itile .tag{display:inline-flex;padding:6px 9px;border-radius:999px;color:#fff;opacity:1;background:var(--ia);box-shadow:0 8px 22px rgba(var(--ir),.24)}
 
-/* Stories and resources */
-.cases#cases .sf-metrics .m:nth-child(1) .v{color:var(--ms-green)}
-.cases#cases .sf-metrics .m:nth-child(2) .v{color:var(--ms-green)}
-.cases#cases .sf-metrics .m:nth-child(3) .v{color:#43C2F7}
-
 /* ---------- Resources: photographic thumbnails + category accents ---------- */
 .solutions#resources{background:linear-gradient(180deg,#fff,#f7f9fc)}
 
