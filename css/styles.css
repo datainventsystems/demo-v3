@@ -4711,7 +4711,9 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 /* ===== L32-START: POWER PLATFORM PAGE - REDESIGNED SECTIONS (pp-) =====
    Business value, Product capabilities, Microsoft ecosystem, Implementation & modernization, Why DataInvent.
    Scoped to the pp- classes; the capability tabs keep the shared .bc-tab / .bc-cap behaviour from js/tech-page.js.
-   Colours reuse the Microsoft pastel palette already used on the homepage and solution pages. ===== */
+   Colours reuse the Microsoft pastel palette already used on the homepage and solution pages.
+   v2: ecosystem network without pills, implementation CTA inside the band, Why DataInvent one-liners,
+       two-line hero infographic label. ===== */
 .bc-page{ --pp-line:#e3e6e9; }
 .pp-t-blue{ --tc:#0078D4; --tr:0,120,212; }
 .pp-t-purple{ --tc:#7357D8; --tr:115,87,216; }
@@ -4735,6 +4737,10 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-band .pp-band-ico{ width:40px; height:40px; color:#0078D4; stroke-width:1.5; }
 .pp-band strong{ font:700 22px/1.25 'Oxanium',sans-serif; color:var(--darker); padding-right:28px; border-right:1px solid rgba(31,31,31,.14); }
 .pp-band p{ margin:0; font-size:15px; line-height:1.6; color:var(--dark); }
+.pp-band--cta{ grid-template-columns:auto auto minmax(0,1fr) auto; }
+.pp-band--cta .btn{ white-space:nowrap; }
+/* hero infographic: two-line centre label */
+.pp-hl-line{ display:block; line-height:1.55; letter-spacing:.14em; }
 /* ---- 1. business value ---- */
 .pp-value{ background:#fff; }
 .pp-stats{ display:flex; flex-wrap:wrap; gap:18px 0; margin:-12px 0 44px; }
@@ -4745,12 +4751,11 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-vgrid{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
 .pp-vcard{ padding:26px; border:1px solid var(--pp-line); border-radius:18px; background:#fff; transition:transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease); }
 .pp-vcard:hover{ transform:translateY(-4px); border-color:rgba(var(--tr,228,123,43),.45); box-shadow:0 18px 40px rgba(31,31,31,.07); }
-.pp-vcard .pp-ico{ margin-bottom:30px; }
+.pp-vcard .pp-ico{ margin-bottom:30px; transition:background .28s var(--ease), color .28s var(--ease); }
 .pp-vcard:hover .pp-ico{ color:#fff; background:var(--tc); }
-.pp-vcard .pp-ico{ transition:background .28s var(--ease), color .28s var(--ease); }
 .pp-vcard h3{ font-size:19px; line-height:1.25; color:var(--darker); }
 .pp-vcard p{ margin-top:10px; font-size:14px; line-height:1.6; color:var(--dark); }
-/* ---- 2. product capabilities (overrides the older #capabilities tab styling) ---- */
+/* ---- 2. product capabilities ---- */
 #capabilities.pp-caps .bc-caps{ grid-template-columns:360px minmax(0,1fr); gap:28px; align-items:start; }
 #capabilities.pp-caps .bc-tabs{ display:flex; flex-direction:column; gap:0; padding:0; border:0; border-top:1px solid #dde1e4; background:transparent; box-shadow:none; }
 #capabilities.pp-caps .bc-tab{ font-family:'Inter',sans-serif; display:grid; grid-template-columns:24px 46px minmax(0,1fr) 16px; gap:14px; align-items:center; width:100%; min-width:0; margin:0; padding:15px 14px; border:0; border-bottom:1px solid #dde1e4; border-radius:0; background:transparent; box-shadow:none; color:var(--darker); text-align:left; cursor:pointer; transition:background .22s var(--ease); }
@@ -4787,30 +4792,26 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-callout{ display:flex; align-items:center; gap:16px; margin-top:30px; padding:18px 22px; border-radius:16px; color:var(--pc); background:rgba(var(--pr),.08); border:1px solid rgba(var(--pr),.16); }
 .pp-callout .pp-svg{ flex:none; width:26px; height:26px; }
 .pp-callout p{ margin:0; font-size:14.5px; line-height:1.6; color:#33414c; }
-/* ---- 3. microsoft ecosystem ---- */
+/* ---- 3. microsoft ecosystem: hub-and-spoke network ---- */
 .pp-eco{ background:linear-gradient(180deg,#fff,#f7f9fb); }
 .pp-eco-grid{ display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:56px; align-items:center; }
 .pp-eco-copy h2{ margin-top:14px; font-size:clamp(30px,3.6vw,46px); color:var(--darker); }
 .pp-eco-list{ list-style:none; margin:30px 0 0; padding:0; border-top:1px solid var(--pp-line); }
-.pp-eco-list li{ display:grid; grid-template-columns:28px 46px minmax(0,1fr); gap:14px; align-items:start; padding:18px 0; border-bottom:1px solid var(--pp-line); }
-.pp-eco-list .pp-num{ padding-top:16px; }
+.pp-eco-list li{ display:grid; grid-template-columns:28px 46px minmax(0,1fr); gap:14px; align-items:center; padding:14px 0; border-bottom:1px solid var(--pp-line); }
 .pp-eco-list h3,.pp-why-list h3{ font-size:17px; line-height:1.3; color:var(--darker); }
-.pp-eco-list p,.pp-why-list p{ margin-top:5px; font-size:14px; line-height:1.55; color:#5f676e; }
-.pp-map{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); grid-template-areas:"azure m365 copilot" "conn hub d365" "sec hub dv"; gap:16px; }
-.pp-map::before{ content:""; position:absolute; inset:12% 10%; border:1.5px dashed rgba(0,120,212,.18); border-radius:50%; pointer-events:none; }
-.pp-node{ position:relative; z-index:1; min-width:0; padding:16px; border:1px solid #e1e6ea; border-radius:16px; background:#fff; box-shadow:0 12px 28px rgba(37,54,67,.07); transition:transform .25s var(--ease), border-color .25s var(--ease); }
-.pp-node:hover{ transform:translateY(-3px); border-color:rgba(0,120,212,.35); }
-.pp-node{ display:grid; grid-template-columns:40px minmax(0,1fr); gap:6px 12px; align-items:center; }
-.pp-nlogo{ width:40px; height:40px; border-radius:11px; }
-.pp-nlogo img{ width:24px; height:24px; object-fit:contain; }
+.pp-eco-list p,.pp-why-list p{ margin-top:4px; font-size:14px; line-height:1.5; color:#5f676e; }
+.pp-net{ position:relative; min-height:640px; }
+.pp-net::before{ content:""; position:absolute; left:50%; top:50%; width:70%; height:80%; transform:translate(-50%,-50%); border:1.5px dashed rgba(0,120,212,.13); border-radius:50%; pointer-events:none; }
+.pp-net-lines{ position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none; }
+.pp-net-lines line{ stroke:rgba(0,120,212,.32); stroke-width:1.4; stroke-dasharray:4 5; vector-effect:non-scaling-stroke; }
+.pp-node{ position:absolute; z-index:1; left:var(--x); top:var(--y); transform:translate(-50%,-50%); width:164px; display:flex; flex-direction:column; align-items:center; gap:8px; padding:14px 12px; text-align:center; border:1px solid #e1e6ea; border-radius:16px; background:#fff; box-shadow:0 12px 28px rgba(37,54,67,.08); transition:box-shadow .25s var(--ease), border-color .25s var(--ease); }
+.pp-node:hover{ border-color:rgba(0,120,212,.35); box-shadow:0 16px 34px rgba(0,120,212,.14); }
+.pp-nlogo{ width:42px; height:42px; border-radius:12px; }
+.pp-nlogo img{ width:26px; height:26px; object-fit:contain; }
 .pp-nlogo.is-fallback{ color:#0078D4; background:#eaf4fd; border-color:transparent; }
-.pp-node-t b{ display:block; font:700 14.5px/1.25 'Oxanium',sans-serif; color:var(--darker); }
-.pp-node-t small{ display:block; margin-top:2px; font-size:11.5px; line-height:1.35; color:#6b737a; }
-.pp-node ul{ grid-column:1 / -1; list-style:none; margin:8px 0 0; padding:10px 0 0; border-top:1px dashed #e1e6ea; display:flex; flex-wrap:wrap; gap:5px; }
-.pp-node li{ padding:4px 8px; border-radius:999px; background:#f3f6f9; font-size:11px; line-height:1.25; color:#4f5a63; }
-.pp-n-azure{ grid-area:azure; } .pp-n-m365{ grid-area:m365; } .pp-n-copilot{ grid-area:copilot; } .pp-n-conn{ grid-area:conn; }
-.pp-n-d365{ grid-area:d365; } .pp-n-sec{ grid-area:sec; } .pp-n-dv{ grid-area:dv; }
-.pp-hub{ grid-area:hub; position:relative; z-index:2; display:grid; place-items:center; padding:10px 0; }
+.pp-node-t b{ display:block; font:700 14px/1.25 'Oxanium',sans-serif; color:var(--darker); }
+.pp-node-t small{ display:block; margin-top:3px; font-size:11.5px; line-height:1.35; color:#6b737a; }
+.pp-hub{ position:absolute; z-index:2; left:50%; top:50%; transform:translate(-50%,-50%); }
 .pp-hub-core{ display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; width:200px; aspect-ratio:1; border-radius:50%; background:#fff; border:2px solid rgba(0,120,212,.22); box-shadow:0 0 0 14px rgba(0,120,212,.06), 0 0 0 30px rgba(0,120,212,.03), 0 22px 46px rgba(37,54,67,.12); }
 .pp-hlogo{ width:58px; height:58px; border:0; background:transparent; }
 .pp-hlogo img{ width:56px; height:56px; object-fit:contain; }
@@ -4819,14 +4820,14 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-hub-core b{ margin-top:8px; font:700 17px/1.2 'Oxanium',sans-serif; color:var(--darker); }
 .pp-hub-core small{ margin-top:6px; padding:0 18px; font:600 9px/1.4 'JetBrains Mono',monospace; letter-spacing:.04em; color:#6b737a; }
 /* ---- 4. implementation & modernization ---- */
-.pp-impl{ background:var(--section-alt,#F5F4F1); }
+.pp-impl{ background:#fff; }
 .pp-chips{ display:flex; flex-wrap:wrap; gap:16px 0; margin:-12px 0 44px; }
-.pp-chip{ display:flex; align-items:center; gap:14px; padding:0 32px; border-left:1px solid #dcd8d1; }
+.pp-chip{ display:flex; align-items:center; gap:14px; padding:0 32px; border-left:1px solid var(--pp-line); }
 .pp-chip:first-child{ padding-left:0; border-left:0; }
 .pp-chip .pp-ico{ width:54px; height:54px; border-radius:50%; }
 .pp-chip b{ display:block; font:700 17px/1.2 'Oxanium',sans-serif; color:var(--darker); }
 .pp-chip div > span{ display:block; margin-top:3px; font-size:14px; color:var(--dark); }
-.pp-phases{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:22px; counter-reset:none; }
+.pp-phases{ list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:22px; }
 .pp-phase{ position:relative; min-width:0; display:flex; flex-direction:column; }
 @supports (grid-template-rows:subgrid){ .pp-phases{ grid-template-rows:auto auto; row-gap:0; } .pp-phase{ display:grid; grid-row:span 2; grid-template-rows:subgrid; } }
 .pp-phase:not(:last-child)::after{ content:"›"; position:absolute; top:58px; right:-17px; font-size:24px; line-height:1; color:#9aa3aa; }
@@ -4841,7 +4842,6 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-phase ul li{ position:relative; padding:0 0 10px 16px; font-size:13.5px; line-height:1.45; color:var(--dark); }
 .pp-phase ul li::before{ content:""; position:absolute; left:0; top:6px; width:7px; height:7px; border-radius:50%; background:var(--tc); }
 .pp-impl .pp-band{ margin-top:34px; }
-.pp-impl-cta{ margin-top:28px; }
 /* ---- 5. why datainvent ---- */
 .pp-why{ background:linear-gradient(180deg,#faf7f2,#f6f2ec); }
 .pp-why-grid{ display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:44px; align-items:stretch; }
@@ -4850,10 +4850,11 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 .pp-why-kick{ padding-bottom:16px; border-bottom:2px solid var(--brand-orange); font:700 11px/1.7 'JetBrains Mono',monospace; letter-spacing:.2em; text-transform:uppercase; color:var(--brand-orange-light); }
 .pp-why-card h3{ margin-top:28px; font-size:clamp(30px,3vw,42px); line-height:1.1; color:#fff; }
 .pp-why-card > p{ margin-top:18px; max-width:470px; font-size:16px; line-height:1.65; color:rgba(255,255,255,.72); }
-.pp-why-badges{ display:flex; flex-wrap:wrap; gap:12px 0; margin:30px 0 32px; }
-.pp-why-badges span{ display:inline-flex; align-items:center; gap:9px; padding:0 14px; border-left:1px solid rgba(255,255,255,.16); font-size:13.5px; font-weight:600; color:#fff; }
+.pp-why-badges{ display:flex; flex-wrap:wrap; gap:12px 0; margin:30px 0 0; }
+.pp-why-badges span{ display:inline-flex; align-items:center; gap:10px; padding:0 22px; border-left:1px solid rgba(255,255,255,.16); font-size:13.5px; font-weight:600; color:#fff; }
 .pp-why-badges span:first-child{ padding-left:0; border-left:0; }
-.pp-why-badges .pp-svg{ width:24px; height:24px; color:var(--brand-orange-light); }
+.pp-why-badges em{ font-style:normal; line-height:1.3; }
+.pp-why-badges .pp-svg{ width:26px; height:26px; color:var(--brand-orange-light); }
 .pp-why-sign{ margin-top:auto; padding-top:34px; align-self:flex-end; text-align:right; font:600 14px/1.45 'Oxanium',sans-serif; color:rgba(255,255,255,.62); }
 .pp-why-side{ display:flex; flex-direction:column; min-width:0; }
 .pp-lockup{ align-self:flex-start; display:flex; align-items:center; gap:14px; padding:14px 22px; margin-bottom:12px; border-radius:16px; background:#fff; border:1px solid #e6e1d9; box-shadow:0 10px 26px rgba(80,60,40,.06); }
@@ -4896,13 +4897,17 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
   #capabilities.pp-caps .bc-tab .pp-logo img{ width:22px; height:22px; }
   #capabilities.pp-caps .bc-tab.active{ border-color:var(--pc); box-shadow:none; }
   .pp-why-grid{ grid-template-columns:1fr; }
-  .pp-band{ grid-template-columns:auto minmax(0,1fr); }
+  .pp-band,.pp-band--cta{ grid-template-columns:auto minmax(0,1fr); }
   .pp-band strong{ padding-right:0; border-right:0; }
   .pp-band p{ grid-column:1 / -1; }
+  .pp-band--cta .btn{ grid-column:1 / -1; justify-self:start; }
 }
 @media(max-width:760px){
-  .pp-map{ grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-areas:"hub hub" "m365 copilot" "azure d365" "conn dv" "sec sec"; }
-  .pp-map::before{ display:none; }
+  .pp-net{ min-height:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .pp-net::before,.pp-net-lines{ display:none; }
+  .pp-hub{ position:static; transform:none; grid-column:1 / -1; justify-self:center; margin-bottom:22px; }
+  .pp-node{ position:static; transform:none; width:auto; }
+  .pp-node:last-child:nth-child(odd){ grid-column:1 / -1; justify-self:center; width:calc(50% - 6px); }
   .pp-phases{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .pp-stat,.pp-chip{ padding:0 22px; }
   .pp-feats{ grid-template-columns:1fr; }
@@ -4912,16 +4917,17 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 @media(max-width:560px){
   .pp-vgrid,.pp-phases,.pp-wstats{ grid-template-columns:1fr; }
   .pp-wstat{ border-left:0; padding:4px 14px; }
-  .pp-map{ grid-template-columns:1fr; grid-template-areas:"hub" "m365" "copilot" "azure" "d365" "conn" "dv" "sec"; }
+  .pp-hub-core{ width:180px; }
   .pp-stats,.pp-chips{ flex-direction:column; gap:20px; }
   .pp-stat,.pp-chip{ padding:0; border-left:0; }
   .pp-why-card{ padding:34px 24px; }
+  .pp-why-badges span{ padding:0 14px; }
   .pp-band{ padding:22px; }
   .pp-why-list li{ grid-template-columns:24px 44px minmax(0,1fr); gap:12px; }
   .pp-why-list .pp-ico{ width:44px; height:44px; }
 }
 @media(prefers-reduced-motion:reduce){
   .pp-vcard,.pp-node,.pp-phase-card,.pp-caps .bc-cap.active{ transition:none; animation:none; }
-  .pp-vcard:hover,.pp-node:hover,.pp-phase:hover .pp-phase-card{ transform:none; }
+  .pp-vcard:hover,.pp-phase:hover .pp-phase-card{ transform:none; }
 }
 /* ===== L32-END ===== */
