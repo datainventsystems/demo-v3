@@ -4696,3 +4696,13 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
 /* homepage proof-strip: 3-up after held cost-savings stat */
 #proof .stats-grid, #proof .proof-stats, .proof-strip .stats-grid, .proof-strip .proof-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 767px){ #proof .stats-grid, #proof .proof-stats, .proof-strip .stats-grid, .proof-strip .proof-stats { grid-template-columns: 1fr; } }
+
+/* about-us Our Presence: 3 equal desktop columns */
+.about-places {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 767px) {
+  .about-places {
+    grid-template-columns: 1fr;
+  }
+}
