@@ -4931,3 +4931,8 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
   .pp-vcard:hover,.pp-phase:hover .pp-phase-card{ transform:none; }
 }
 /* ===== L32-END ===== */
+
+/* ===== L32b: POWER PLATFORM revision 3 - Why DataInvent list without icons ===== */
+.pp-why .pp-why-list li{ grid-template-columns:32px minmax(0,1fr); }
+@media(max-width:560px){ .pp-why .pp-why-list li{ grid-template-columns:28px minmax(0,1fr); } }
+/* ===== L32b-END ===== */
