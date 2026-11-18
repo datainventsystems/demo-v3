@@ -5115,3 +5115,39 @@ section.why .why-card .wc-receipt{ max-width:56ch; margin-top:18px; padding-top:
   .d3-detail{ padding:28px 22px; }
 }
 /* ===== L35-END ===== */
+
+/* ===== L35c-START: DYNAMICS 365 revision 3 ===== */
+/* ecosystem bento */
+.d3b-grid{ display:grid; grid-template-columns:1.25fr 1fr 1fr; grid-template-rows:auto auto; gap:18px; }
+.d3b-card{ display:flex; flex-direction:column; align-items:flex-start; padding:26px; border:1px solid #e1e6ea; border-radius:20px; background:#fff; box-shadow:0 12px 28px rgba(37,54,67,.06); transition:transform .25s var(--ease), border-color .25s var(--ease), box-shadow .25s var(--ease); }
+.d3b-card:hover{ transform:translateY(-3px); border-color:rgba(228,123,43,.45); box-shadow:0 18px 38px rgba(37,54,67,.10); }
+.d3b-card h3{ margin-top:18px; font-size:19px; color:var(--darker); }
+.d3b-card p{ margin-top:8px; font-size:14.5px; line-height:1.6; color:var(--dark); }
+.d3b-card .d3-link{ margin-top:auto; padding-top:16px; font-size:14px; }
+.d3b-hero{ grid-column:1; grid-row:1 / 3; padding:34px; border-color:rgba(92,143,0,.30); background:radial-gradient(ellipse 80% 60% at 100% 0%,rgba(127,186,0,.16),transparent 65%),linear-gradient(160deg,#f5faec,#fff 60%); }
+.d3b-top{ display:flex; align-items:center; justify-content:space-between; width:100%; }
+.d3b-tag{ padding:6px 10px; border-radius:999px; background:rgba(92,143,0,.12); font:700 10px 'JetBrains Mono',monospace; letter-spacing:.12em; text-transform:uppercase; color:#4c7a00; }
+.d3b-hero h3{ margin-top:26px; font-size:clamp(24px,2.4vw,30px); }
+.d3b-hero p{ font-size:16px; max-width:440px; }
+.d3b-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.d3b-chips span{ padding:6px 12px; border-radius:999px; background:#fff; border:1px solid #dfe8cf; font-size:13px; color:#3f4a53; }
+@media(max-width:980px){ .d3b-grid{ grid-template-columns:1fr 1fr; } .d3b-hero{ grid-column:1 / -1; grid-row:auto; } }
+@media(max-width:560px){ .d3b-grid{ grid-template-columns:1fr; } }
+/* delivery: light gray version of the Finance & ERP delivery section, 6 phases in one row */
+section.delivery-approach.d3-dlv-light, section.d3-dlv-light{ background:#F4F5F6 !important; background-image:none !important; color:var(--dark); }
+section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !important; }
+.d3-dlv-light .eyebrow{ color:var(--brand-orange) !important; }
+.d3-dlv-light h2{ color:var(--darker) !important; }
+.d3-dlv-light p{ color:#5f676e !important; }
+.d3-dlv-light .sec-head, .d3-dlv-light .sec-head *{ border-color:rgba(31,31,31,.14) !important; }
+.d3-dlv-light .dlv-track{ display:grid !important; grid-template-columns:repeat(6,minmax(0,1fr)) !important; flex-wrap:nowrap !important; }
+.d3-dlv-light .dlv-step{ width:auto !important; max-width:none !important; min-width:0 !important; flex:none !important; }
+.d3-dlv-light .dlv-card{ background:#fff !important; border-color:#e1e5e8 !important; box-shadow:0 14px 34px rgba(34,51,64,.07) !important; }
+.d3-dlv-light .dlv-card h3, .d3-dlv-light .dlv-out-text{ color:var(--darker) !important; }
+.d3-dlv-light .dlv-card p{ color:#5f676e !important; }
+.d3-dlv-light .dlv-card::before, .d3-dlv-light .dlv-card::after{ color:rgba(31,31,31,.07) !important; -webkit-text-stroke-color:rgba(31,31,31,.10) !important; }
+.d3-dlv-light .dlv-out{ background:#f5f6f7 !important; border-color:#e6e9ec !important; }
+.d3-dlv-light .dlv-node{ box-shadow:0 0 0 6px #F4F5F6 !important; }
+@media(max-width:1100px){ .d3-dlv-light .dlv-track{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; } }
+@media(max-width:640px){ .d3-dlv-light .dlv-track{ grid-template-columns:1fr !important; } }
+/* ===== L35c-END ===== */
