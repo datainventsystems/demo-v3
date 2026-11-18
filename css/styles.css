@@ -5151,3 +5151,16 @@ section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !importa
 @media(max-width:1100px){ .d3-dlv-light .dlv-track{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; } }
 @media(max-width:640px){ .d3-dlv-light .dlv-track{ grid-template-columns:1fr !important; } }
 /* ===== L35c-END ===== */
+
+/* ===== L35d-START: DYNAMICS 365 revision 4 ===== */
+/* delivery: Power Platform phase cards on the gray background */
+.pp-impl.d3-process{ background:var(--gray); }
+.d3-phases .pp-phase-card{ background:linear-gradient(180deg,rgba(var(--tr),.08),#fff 70%); }
+/* ecosystem: accent colour + category pill per card (Business Central card unchanged) */
+.d3a-pp{ --ac:#7357D8; --ar:115,87,216; } .d3a-cp{ --ac:#008F91; --ar:0,143,145; }
+.d3a-m3{ --ac:#0078D4; --ar:0,120,212; } .d3a-az{ --ac:#376CFB; --ar:55,108,251; }
+.d3b-card.d3b-acc{ border-color:rgba(var(--ar),.28); background:radial-gradient(ellipse 80% 60% at 100% 0%,rgba(var(--ar),.13),transparent 65%),linear-gradient(160deg,rgba(var(--ar),.05),#fff 60%); }
+.d3b-card.d3b-acc:hover{ border-color:rgba(var(--ar),.55); }
+.d3b-acc .d3b-tag{ background:rgba(var(--ar),.12); color:var(--ac); }
+.d3b-acc .d3b-top{ gap:12px; }
+/* ===== L35d-END ===== */
