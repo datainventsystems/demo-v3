@@ -5178,3 +5178,11 @@ section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !importa
 /* ===== L38-START: CAREERS internship path descriptions ===== */
 .student-label p{ margin:6px 0 0; font-size:13.5px; line-height:1.5; opacity:.75; max-width:260px; }
 /* ===== L38-END ===== */
+
+
+/* Careers – clickable job cards (append to css/styles.css) */
+.careers-jobs .job{position:relative}
+.careers-jobs .job-link{color:inherit;text-decoration:none}
+.careers-jobs .job-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.careers-jobs .job-link:focus-visible{outline:none}
+.careers-jobs .job:has(.job-link:focus-visible){outline:2px solid #E47B2B;outline-offset:3px}
