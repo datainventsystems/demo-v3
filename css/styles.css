@@ -5186,3 +5186,14 @@ section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !importa
 .careers-jobs .job-link::after{content:"";position:absolute;inset:0;border-radius:inherit}
 .careers-jobs .job-link:focus-visible{outline:none}
 .careers-jobs .job:has(.job-link:focus-visible){outline:2px solid #E47B2B;outline-offset:3px}
+
+
+/* Life at DataInvent – featured story height (compact card) */
+.life-stories .featured-story{min-height:0;align-items:stretch}
+.life-stories .featured-photo{height:480px;min-height:0;aspect-ratio:auto;overflow:hidden}
+.life-stories .featured-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.life-stories .story-copy{min-height:0;padding-top:48px;padding-bottom:48px;justify-content:center}
+@media (max-width:900px){
+  .life-stories .featured-photo{height:360px}
+  .life-stories .story-copy{padding-top:32px;padding-bottom:32px}
+}
