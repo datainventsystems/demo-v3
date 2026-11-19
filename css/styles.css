@@ -5197,3 +5197,14 @@ section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !importa
   .life-stories .featured-photo{height:360px}
   .life-stories .story-copy{padding-top:32px;padding-bottom:32px}
 }
+
+
+/* Microsoft 365 page refinements: ecosystem Copilot link + four migration cards */
+#microsoft365-page .az-pkgs{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+#microsoft365-page .az-pkgs .az-pkg:last-child{border:2px solid #E47B2B}
+#microsoft365-page .m365-copilot-link{margin-top:22px;padding-top:18px;border-top:1px solid rgba(0,0,0,.10);font-size:14px;line-height:1.6}
+#microsoft365-page .m365-copilot-link a{color:#E47B2B;font-weight:700;text-decoration:none}
+#microsoft365-page .m365-copilot-link a:hover{text-decoration:underline}
+@media (max-width:1100px){#microsoft365-page .az-pkgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){#microsoft365-page .az-pkgs{grid-template-columns:1fr}}
+
