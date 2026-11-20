@@ -5208,3 +5208,21 @@ section.d3-dlv-light::before, section.d3-dlv-light::after{ display:none !importa
 @media (max-width:1100px){#microsoft365-page .az-pkgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){#microsoft365-page .az-pkgs{grid-template-columns:1fr}}
 
+
+
+/* Finance Visibility: compact hero infographic */
+.page-finance-visibility-reporting-gaps .phero-viz{
+  height:440px;
+  min-height:440px;
+  align-self:center;
+  padding:26px 28px 24px;
+}
+.page-finance-visibility-reporting-gaps .phero-viz .pv-head{margin-bottom:14px;}
+.page-finance-visibility-reporting-gaps .phero-viz .cd-mon{height:190px;min-height:190px;}
+.page-finance-visibility-reporting-gaps .phero-viz .fv{margin-top:16px;padding-top:14px;}
+.page-finance-visibility-reporting-gaps .phero-viz .fv-list{margin-top:10px;}
+@media(max-width:900px){
+  .page-finance-visibility-reporting-gaps .phero-viz{height:auto;min-height:0;padding:24px;}
+  .page-finance-visibility-reporting-gaps .phero-viz .cd-mon{height:180px;min-height:180px;}
+}
+
