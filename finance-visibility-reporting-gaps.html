@@ -11,6 +11,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Oxanium:wght@400;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <!-- SINGLE SOURCE OF TRUTH: shared design system -->
 <link href="css/styles.css" rel="stylesheet"/>
+<style id="finance-signs-redesign">
+.page-finance-visibility-reporting-gaps .signs-v2{margin-top:38px;display:grid;gap:12px;counter-reset:signal}
+.page-finance-visibility-reporting-gaps .signs-v2-row{counter-increment:signal;display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr);align-items:stretch;min-height:108px;border:1px solid #dedede;border-radius:15px;background:#fff;overflow:hidden;box-shadow:0 4px 16px rgba(20,24,28,.035)}
+.page-finance-visibility-reporting-gaps .signs-v2-side{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.page-finance-visibility-reporting-gaps .signs-v2-symptom{background:#fff}
+.page-finance-visibility-reporting-gaps .signs-v2-cost{background:linear-gradient(135deg,#1f2021,#25211f);color:#fff}
+.page-finance-visibility-reporting-gaps .signs-v2-label{font-family:'JetBrains Mono',monospace;font-size:9px;line-height:1.2;letter-spacing:1.6px;text-transform:uppercase;font-weight:700;color:#8a8f95;margin-bottom:8px}
+.page-finance-visibility-reporting-gaps .signs-v2-cost .signs-v2-label{color:#E47B2B}
+.page-finance-visibility-reporting-gaps .signs-v2-text{font-family:Inter,sans-serif;font-size:16px;line-height:1.45;font-weight:650;color:#181a1d}
+.page-finance-visibility-reporting-gaps .signs-v2-cost .signs-v2-text{color:#f7f7f7;font-weight:600}
+.page-finance-visibility-reporting-gaps .signs-v2-flow{position:relative;display:grid;place-items:center;background:linear-gradient(90deg,#fff 0 48%,#232220 48% 100%)}
+.page-finance-visibility-reporting-gaps .signs-v2-flow:before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,#E47B2B,#E47B2B);opacity:.5}
+.page-finance-visibility-reporting-gaps .signs-v2-arrow{position:relative;z-index:1;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#E47B2B;color:#fff;font-family:Inter,sans-serif;font-size:15px;font-weight:700;box-shadow:0 0 0 5px rgba(228,123,43,.11)}
+.page-finance-visibility-reporting-gaps .signs-v2-index{display:inline-flex;align-items:center;gap:8px}
+.page-finance-visibility-reporting-gaps .signs-v2-index:before{content:counter(signal,decimal-leading-zero);display:inline-grid;place-items:center;width:25px;height:25px;border-radius:7px;background:#fff4eb;color:#E47B2B;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:800;letter-spacing:0}
+.page-finance-visibility-reporting-gaps .signs-v2-summary{margin-top:19px;padding:16px 20px;border-left:3px solid #E47B2B;background:#fff8f2;border-radius:0 10px 10px 0;font-family:Inter,sans-serif;font-size:14px;line-height:1.55;color:#444}
+@media(max-width:760px){.page-finance-visibility-reporting-gaps .signs-v2-row{grid-template-columns:1fr;min-height:0}.page-finance-visibility-reporting-gaps .signs-v2-flow{height:35px;background:linear-gradient(180deg,#fff 0 50%,#232220 50% 100%)}.page-finance-visibility-reporting-gaps .signs-v2-flow:before{left:50%;right:auto;top:0;bottom:0;width:1px;height:auto}.page-finance-visibility-reporting-gaps .signs-v2-arrow{transform:rotate(90deg)}.page-finance-visibility-reporting-gaps .signs-v2-side{padding:18px}.page-finance-visibility-reporting-gaps .signs-v2-text{font-size:15px}}
+</style>
 </head>
 <body class="page-finance-visibility-reporting-gaps">
 <div id="site-header"></div>
@@ -57,28 +75,11 @@
 </div>
 </section>
 <!-- SECTION 2 — COMMON SIGNS -->
-<section class="signs pad">
-<div class="wrap">
-<div class="sec-head reveal-up">
+<section class="signs pad"><div class="wrap"><div class="sec-head reveal-up">
 <p class="eyebrow">Common Signs</p>
 <h2>Sound familiar?</h2>
 <p>Each symptom carries a hidden cost. The left side is what you feel — the right is what it's actually costing you.</p>
-</div>
-<div class="sign-grid">
-<div class="sign-card feature reveal">
-<div class="sign-symptom"><div class="sign-lab">THE SYMPTOM</div><div class="st"><span class="warn">⚠</span> Month-end close is a recurring scramble</div></div>
-<div class="sign-consequence"><div class="cl">THE REAL COST</div><div class="ct">Reporting and analysis start late because the team is still correcting and reconciling.</div></div>
-</div>
-<div class="sign-small-grid">
-<div class="sign-card reveal"><div class="sign-symptom"><div class="sign-lab">SYMPTOM</div><div class="st"><span class="warn">⚠</span> Invoices and approvals move through email or paper</div></div><div class="sign-consequence"><div class="cl">COST</div><div class="ct">Payments slow down, status is hard to trace and exceptions depend on follow-up.</div></div></div>
-<div class="sign-card reveal"><div class="sign-symptom"><div class="sign-lab">SYMPTOM</div><div class="st"><span class="warn">⚠</span> Reports are assembled manually in spreadsheets</div></div><div class="sign-consequence"><div class="cl">COST</div><div class="ct">The same work is repeated each period and small errors can change the story.</div></div></div>
-<div class="sign-card reveal"><div class="sign-symptom"><div class="sign-lab">SYMPTOM</div><div class="st"><span class="warn">⚠</span> Teams use different versions of the numbers</div></div><div class="sign-consequence"><div class="cl">COST</div><div class="ct">Meetings focus on whose data is right instead of what action to take.</div></div></div>
-<div class="sign-card reveal"><div class="sign-symptom"><div class="sign-lab">SYMPTOM</div><div class="st"><span class="warn">⚠</span> Leaders wait days for basic answers</div></div><div class="sign-consequence"><div class="cl">COST</div><div class="ct">Decisions on cash, margin, spending and priorities are delayed.</div></div></div>
-<div class="sign-card reveal"><div class="sign-symptom"><div class="sign-lab">SYMPTOM</div><div class="st"><span class="warn">⚠</span> Finance is always answering status requests</div></div><div class="sign-consequence"><div class="cl">COST</div><div class="ct">Skilled staff spend time retrieving information instead of advising the business.</div></div></div>
-</div>
-</div>
-</div>
-</section>
+</div><div class="signs-v2"><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Month-end close is a recurring scramble</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">Reporting and analysis start late because the team is still correcting and reconciling.</div></div></article><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Invoices and approvals move through email or paper</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">Payments slow down, status is hard to trace and exceptions depend on follow-up.</div></div></article><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Reports are assembled manually in spreadsheets</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">The same work is repeated each period and small errors can change the story.</div></div></article><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Teams use different versions of the numbers</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">Meetings focus on whose data is right instead of what action to take.</div></div></article><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Leaders wait days for basic answers</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">Decisions on cash, margin, spending and priorities are delayed.</div></div></article><article class="signs-v2-row reveal"><div class="signs-v2-side signs-v2-symptom"><div class="signs-v2-label"><span class="signs-v2-index">What you see</span></div><div class="signs-v2-text">Finance is always answering status requests</div></div><div class="signs-v2-flow" aria-hidden="true"><span class="signs-v2-arrow">→</span></div><div class="signs-v2-side signs-v2-cost"><div class="signs-v2-label">What it costs</div><div class="signs-v2-text">Skilled staff spend time retrieving information instead of advising the business.</div></div></article></div><p class="signs-v2-summary reveal"><strong>The pattern:</strong> delays, manual handoffs and inconsistent numbers create a chain reaction. Finance spends more time producing and validating information, while the business waits longer to act on it.</p></div></section>
 <!-- SECTION 3 — ROUTER (Diagnose) + merged decision block -->
 <section class="router pad">
 <div class="wrap">
