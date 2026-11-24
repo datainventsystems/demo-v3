@@ -5612,26 +5612,14 @@ body.di-page-public-sector .di-inline-d6f2af6e0a { margin-top:14px; }
 
 body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 
-/* Great Place to Work certification - separate from partner bar */
-.footer-certifications-row {
-  display: flex;
-  justify-content: flex-start;
-  margin: 28px 0 14px;
-}
-.gptw-certification {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-.gptw-certification img {
-  display: block;
-  width: 48px;
-  height: auto;
-}
-.gptw-certification > div { display: grid; gap: 2px; line-height: 1.25; }
-.gptw-certification strong { color: #f3f3f3; font-size: 12px; font-weight: 700; }
-.gptw-certification span { color: rgba(255,255,255,.55); font-size: 10px; }
-@media (max-width: 767px) {
-  .footer-certifications-row { margin: 22px 0 12px; }
-  .gptw-certification img { width: 44px; }
-}
+/* Footer trust credentials - GPTW and Microsoft */
+.footer-credentials-grid{display:grid;grid-template-columns:minmax(280px,.8fr) minmax(520px,1.2fr);gap:18px;margin:30px 0 26px}
+.footer-credential{display:flex;align-items:center;gap:14px;min-height:88px;padding:14px 18px;border:1px solid rgba(255,255,255,.10);border-radius:14px;background:rgba(255,255,255,.025)}
+.footer-credential-logo.gptw-logo{display:block;width:48px;height:auto;flex:0 0 auto}
+.footer-ms-logo{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px}
+.footer-ms-logo .msq{margin:0}
+.footer-credential-copy{display:grid;gap:4px;min-width:0;line-height:1.25}
+.footer-credential-copy strong{color:#f5f5f5;font-size:13px;font-weight:700}
+.footer-credential-copy span{color:rgba(255,255,255,.57);font-size:11px}
+@media(max-width:900px){.footer-credentials-grid{grid-template-columns:1fr}}
+@media(max-width:767px){.footer-credentials-grid{gap:12px;margin:24px 0 20px}.footer-credential{min-height:78px;padding:12px 14px}.footer-credential-logo.gptw-logo{width:44px}.footer-ms-logo{width:28px;height:28px}}
