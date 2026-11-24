@@ -5643,7 +5643,7 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 }
 
 /* About Us - Great Place to Work certification */
-.about-gptw-certification{padding:clamp(78px,7vw,104px) 0;background:#f4f5f6;border-top:1px solid rgba(17,24,39,.06);border-bottom:1px solid rgba(17,24,39,.06)}
+.about-gptw-certification{padding:clamp(78px,7vw,104px) 0;background:#ffffff;border-top:1px solid rgba(17,24,39,.06);border-bottom:1px solid rgba(17,24,39,.06)}
 .about-gptw-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,300px);gap:clamp(48px,7vw,88px);align-items:center}
 .about-gptw-copy{max-width:760px}
 .about-gptw-copy .eyebrow{color:#e47b2b;margin-bottom:14px}
@@ -5652,6 +5652,6 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 .about-gptw-meta{display:grid;gap:4px;margin-top:26px}
 .about-gptw-meta strong{color:#111820;font-size:14px;font-weight:700}
 .about-gptw-meta span{color:#69717b;font-size:12px}
-.about-gptw-mark{display:flex;justify-content:center;align-items:center;min-height:250px;padding:26px;border:1px solid rgba(17,24,39,.10);border-radius:20px;background:rgba(255,255,255,.72)}
+.about-gptw-mark{display:flex;justify-content:center;align-items:center;min-height:250px;padding:26px;border:1px solid rgba(17,24,39,.10);border-radius:20px;background:#f4f5f6;}
 .about-gptw-mark img{display:block;width:min(150px,72%);height:auto}
 @media(max-width:760px){.about-gptw-grid{grid-template-columns:1fr;gap:36px}.about-gptw-copy h2{font-size:clamp(34px,10vw,46px)}.about-gptw-mark{min-height:200px}.about-gptw-mark img{width:120px}}
