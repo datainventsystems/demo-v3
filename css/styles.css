@@ -5611,3 +5611,18 @@ body.di-page-public-sector .di-inline-d968463b02 { color:var(--ink-2); }
 body.di-page-public-sector .di-inline-d6f2af6e0a { margin-top:14px; }
 
 body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
+
+/* Great Place to Work certification badge */
+.gptw-certified-badge {
+  margin-top: 24px;
+}
+.gptw-certified-badge img {
+  display: block;
+  width: 82px;
+  height: auto;
+}
+@media (max-width: 767px) {
+  .gptw-certified-badge img {
+    width: 72px;
+  }
+}
