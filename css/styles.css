@@ -5612,23 +5612,26 @@ body.di-page-public-sector .di-inline-d6f2af6e0a { margin-top:14px; }
 
 body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 
-
-/* Great Place to Work employer trust mark */
-.gptw-trust-row {
+/* Great Place to Work certification - separate from partner bar */
+.footer-certifications-row {
+  display: flex;
+  justify-content: flex-start;
+  margin: 28px 0 14px;
+}
+.gptw-certification {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  margin: 28px 0 18px;
-  padding: 10px 14px 10px 10px;
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 12px;
-  background: rgba(255,255,255,.025);
+  gap: 12px;
 }
-.gptw-trust-row img { width: 54px; height: auto; display: block; }
-.gptw-trust-copy { display: grid; gap: 2px; line-height: 1.3; }
-.gptw-trust-copy strong { color: #f5f5f5; font-size: 13px; font-weight: 700; }
-.gptw-trust-copy span { color: rgba(255,255,255,.56); font-size: 11px; }
+.gptw-certification img {
+  display: block;
+  width: 48px;
+  height: auto;
+}
+.gptw-certification > div { display: grid; gap: 2px; line-height: 1.25; }
+.gptw-certification strong { color: #f3f3f3; font-size: 12px; font-weight: 700; }
+.gptw-certification span { color: rgba(255,255,255,.55); font-size: 10px; }
 @media (max-width: 767px) {
-  .gptw-trust-row { margin: 22px 0 16px; gap: 12px; }
-  .gptw-trust-row img { width: 48px; }
+  .footer-certifications-row { margin: 22px 0 12px; }
+  .gptw-certification img { width: 44px; }
 }
