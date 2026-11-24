@@ -5623,3 +5623,21 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 .footer-credential-copy span{color:rgba(255,255,255,.57);font-size:11px}
 @media(max-width:900px){.footer-credentials-grid{grid-template-columns:1fr}}
 @media(max-width:767px){.footer-credentials-grid{gap:12px;margin:24px 0 20px}.footer-credential{min-height:78px;padding:12px 14px}.footer-credential-logo.gptw-logo{width:44px}.footer-ms-logo{width:28px;height:28px}}
+
+
+/* Microsoft credential .msq visibility fix */
+.footer-ms-logo .msq {
+  display: grid;
+  grid-template-columns: repeat(2, 9px);
+  grid-template-rows: repeat(2, 9px);
+  gap: 3px;
+  width: 21px;
+  height: 21px;
+  margin: 0;
+  flex: 0 0 auto;
+}
+.footer-ms-logo .msq > div {
+  width: 9px;
+  height: 9px;
+  display: block;
+}
