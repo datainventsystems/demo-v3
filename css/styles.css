@@ -5732,3 +5732,10 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 
 /* Dynamics 365 delivery section - approved white background */
 .d3-process{background:#fff !important}
+
+/* di-newsletter:start */
+.di-nl-consent{margin:8px 0 0;font-size:12px;line-height:1.45;color:rgba(255,255,255,.55)}
+.di-nl-msg{margin:8px 0 0;font-size:14px;line-height:1.45}
+.di-nl-msg.is-ok{color:#fff;font-weight:600}
+.di-nl-msg.is-error{color:#ffb38a}
+/* di-newsletter:end */
