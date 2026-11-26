@@ -5698,3 +5698,34 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
 .d3-built li+li::before{content:"";position:absolute;left:-13px;top:50%;width:5px;height:5px;border-radius:50%;background:#E47B2B;transform:translateY(-50%)}
 @media(max-width:720px){.d3-built b{border-right:0;padding-right:0}}
 /* d3-redesign:end */
+
+/* d3h-network:start */
+/* heading on one line (desktop) */
+.d3-eco .d3h-head{max-width:none}
+.d3-eco .d3h-head h2{white-space:nowrap;font-size:clamp(30px,3.4vw,48px)}
+.d3-eco .d3h-head .bc-lead{max-width:760px;margin-left:auto;margin-right:auto}
+/* network layer replaces the faint dashed ring */
+.d3h-map::before{display:none}
+.d3h-net{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible}
+.d3h-ln{stroke-width:2;stroke-linecap:round;stroke-dasharray:2 9;opacity:.55;animation:d3hFlow 1.6s linear infinite}
+.d3h-ln-bc{stroke:#5E8F00}.d3h-ln-pp{stroke:#742774}.d3h-ln-cp{stroke:#0F8A8A}.d3h-ln-m3{stroke:#7357D8}.d3h-ln-az{stroke:#0078D4}
+@keyframes d3hFlow{to{stroke-dashoffset:-22}}
+/* hub: layered rings with a soft orange pulse */
+.d3h-hub{box-shadow:0 0 0 12px rgba(228,123,43,.07),0 0 0 26px rgba(228,123,43,.04),0 22px 48px rgba(17,24,39,.12);border-color:rgba(228,123,43,.35)}
+.d3h-hub::before{content:"";position:absolute;inset:-12px;border-radius:50%;border:1.5px solid rgba(228,123,43,.45);animation:d3hPulse 3.2s ease-out infinite;pointer-events:none}
+@keyframes d3hPulse{0%{transform:scale(.92);opacity:.9}100%{transform:scale(1.22);opacity:0}}
+.d3h-hub-logo img{width:56px;height:56px}
+/* card: logo column + text column, so tag/title/desc/link share one left edge */
+.d3h-card{display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start;background:rgba(255,255,255,.96);backdrop-filter:blur(2px)}
+.d3h-top{display:contents}
+.d3h-top>.d3-logo{grid-column:1;grid-row:1/span 3;align-self:start}
+.d3h-top>div,.d3h-card>p,.d3h-card>.d3-link{grid-column:2}
+.d3h-card>p{margin:8px 0 10px}
+.d3h-card>.d3-link{justify-self:start}
+/* pill tags tinted with each card's accent */
+.d3h-tag{display:inline-block;padding:3px 10px;border-radius:999px;background:var(--d3h-tint,rgba(228,123,43,.12));font-size:10.5px;letter-spacing:.07em;line-height:1.5;margin-bottom:6px}
+.d3h-bc{--d3h-tint:rgba(94,143,0,.12)}.d3h-pp{--d3h-tint:rgba(116,39,116,.10)}.d3h-cp{--d3h-tint:rgba(15,138,138,.12)}.d3h-m3{--d3h-tint:rgba(115,87,216,.12)}.d3h-az{--d3h-tint:rgba(0,120,212,.10)}
+.d3h-card:hover{border-color:var(--d3h-acc)}
+@media(max-width:900px){.d3-eco .d3h-head h2{white-space:normal}.d3h-net{display:none}}
+@media(prefers-reduced-motion:reduce){.d3h-ln,.d3h-hub::before{animation:none}}
+/* d3h-network:end */
