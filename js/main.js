@@ -137,3 +137,37 @@
     });
   }
 })();
+
+/* di-newsletter:start */
+(function () {
+  function init() {
+    document.querySelectorAll('[data-di-newsletter]').forEach(function (form) {
+      if (form.getAttribute('data-bound')) return; form.setAttribute('data-bound', '1');
+      var input = form.querySelector('input[type="email"]');
+      var btn = form.querySelector('button, [type="submit"]');
+      var msg = form.parentNode.querySelector('.di-nl-msg');
+      var endpoint = form.getAttribute('data-endpoint') || '';
+      var debug = /[?&]di_debug=1/.test(location.search);
+      function say(text, kind) { if (msg) { msg.textContent = text; msg.className = 'di-nl-msg is-' + kind; msg.hidden = false; } }
+      function cookie(n) { var m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : ''; }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = (input && input.value || '').trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Please enter a valid email address.', 'error'); if (input) input.focus(); return; }
+        if (!endpoint) { form.hidden = true; say(form.getAttribute('data-thanks'), 'ok'); return; }   /* demo mode: sends nothing */
+        if (btn) btn.disabled = true;
+        var ctx = { pageUri: location.href, pageName: document.title }; var hutk = cookie('hubspotutk'); if (hutk) ctx.hutk = hutk;
+        fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fields: [{ name: 'email', value: email }], context: ctx }) })
+          .then(function (r) { return r.text().then(function (t) {
+            if (r.ok) { form.hidden = true; say(form.getAttribute('data-thanks'), 'ok'); }
+            else { if (btn) btn.disabled = false; say('Something went wrong. Please try again.' + (debug ? ' [' + r.status + '] ' + t.slice(0, 300) : ''), 'error'); }
+          }); })
+          .catch(function (err) { if (btn) btn.disabled = false; say('Something went wrong. Please try again.' + (debug ? ' ' + err : ''), 'error'); });
+      });
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+  if (window.MutationObserver) new MutationObserver(init).observe(document.documentElement, { childList: true, subtree: true });
+})();
+/* di-newsletter:end */
