@@ -5768,3 +5768,35 @@ body.di-page-public-sector .di-inline-d462248a40 { margin-top:0; }
   .d3h-hub{width:190px;justify-self:center;margin-bottom:8px}
 }
 /* d365-final-polish:end */
+
+/* d365-ecosystem-overlap-fix:start */
+/* Give the network its own vertical canvas below the heading/subhead. */
+.d3-eco .d3h-head{margin-bottom:0}
+.d3h-map{
+  width:min(1220px,100%);
+  min-height:680px;
+  margin:64px auto 0;
+  grid-template-columns:minmax(320px,1fr) 250px minmax(320px,1fr);
+  grid-template-rows:180px 230px 180px;
+  grid-template-areas:". bc ." "pp hub cp" "m3 . az";
+  column-gap:64px;
+  row-gap:38px;
+}
+.d3h-card{max-width:370px;min-height:0}
+.d3h-bc{max-width:390px;align-self:center}
+.d3h-hub{width:218px}
+/* Keep the lower cards clearly separated from the middle row. */
+.d3h-m3,.d3h-az{align-self:start}
+/* Refine card typography now that the cards have a little more usable width. */
+.d3h-card>p{line-height:1.52}
+.d3h-card>.d3-link{white-space:nowrap}
+@media(max-width:1100px){
+  .d3h-map{width:min(1040px,100%);min-height:650px;margin-top:54px;grid-template-columns:minmax(280px,1fr) 220px minmax(280px,1fr);grid-template-rows:175px 220px 175px;column-gap:34px;row-gap:34px}
+  .d3h-card{max-width:340px}.d3h-bc{max-width:360px}.d3h-hub{width:196px}
+}
+@media(max-width:900px){
+  .d3h-map{width:min(620px,100%);min-height:0;margin-top:38px;grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:"hub" "bc" "pp" "cp" "m3" "az";gap:18px}
+  .d3h-card,.d3h-bc,.d3h-pp,.d3h-cp,.d3h-m3,.d3h-az{max-width:none;align-self:auto;justify-self:stretch}
+  .d3h-card>.d3-link{white-space:normal}
+}
+/* d365-ecosystem-overlap-fix:end */
